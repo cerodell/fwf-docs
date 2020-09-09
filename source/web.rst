@@ -4,8 +4,8 @@ Website
 User Guide
 ------------
 .. image:: _static/images/fwf-web-user-guide.png
-   :height: 200 px
-   :width: 400 px
+   :height: 1000 px
+   :width: 2500 px
    :scale: 40%
    :align: center
 
