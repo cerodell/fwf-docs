@@ -3,7 +3,9 @@ Website
 
 User Guide
 ------------
-
+.. image:: _static/images/fwf-web-user-guide.png
+   :scale: 60%
+   :align: center
 
 
 To visualize the data on leaflet several steps are made to simplify and reduce the file as much as possible. 
