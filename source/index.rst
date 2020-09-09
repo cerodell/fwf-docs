@@ -35,8 +35,8 @@ Documentation
    :maxdepth: 2
    :caption: Model:
 
+   web
    ms
-
    api
    
    

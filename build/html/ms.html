@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API" href="api.html" />
-    <link rel="prev" title="Welcome to Fire Weather Forecast Model" href="index.html" /> 
+    <link rel="prev" title="Website" href="web.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,6 +85,7 @@
             
               <p class="caption"><span class="caption-text">Model:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="web.html">Website</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Structure</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#flow-chart">Flow Chart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-directories">File Directories</a><ul>
@@ -96,10 +97,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#required-packages">Required packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#website">Website</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#visualization-steps">Visualization Steps</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
@@ -280,56 +277,6 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="website">
-<h2>Website<a class="headerlink" href="#website" title="Permalink to this headline">¶</a></h2>
-<p>To visualize the data on leaflet several steps are made to simplify and reduce the file as much as possible.</p>
-<div class="section" id="visualization-steps">
-<h3>Visualization Steps<a class="headerlink" href="#visualization-steps" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>zarr file data is first masked to remove all lakes, oceans, and snow cover.</dt><dd><ul class="simple">
-<li><p>see <code class="docutils literal notranslate"><span class="pre">/bluesky/fireweather/fwf/utils/geoutils.py</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>after mask is applied fire weather indices/codes are made into contourf</dt><dd><ul class="simple">
-<li><p>customize by changing <code class="docutils literal notranslate"><span class="pre">/bluesky/fireweather/fwf/json/colormaps.json</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>from contourf they are converted to geojson files using geojsoncontour</dt><dd><ul class="simple">
-<li><p>geojsoncontour reference: <a class="reference external" href="https://pypi.org/project/geojsoncontour/">https://pypi.org/project/geojsoncontour/</a></p></li>
-<li><p>note all indices and moisture codes are rounded to the third decimal</p></li>
-<li><p>steps 1-3 are done in python all in <code class="docutils literal notranslate"><span class="pre">/bluesky/fireweather/fwf/firewx_website/python/geojson_maker.py</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>next geojsons are converted to topojsons using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">geo2topo</span> <span class="pre">-q</span> <span class="pre">1e4</span> <span class="pre">path_to_infile/file_YYYYMMDDHH.geojson</span> <span class="pre">&gt;</span> <span class="pre">path_to_outfile/file_YYYYMMDDHH.json</span></code></p></li>
-<li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
-<li><p>a <code class="docutils literal notranslate"><span class="pre">q</span></code> (ie quantization count) of <cite>1e4</cite> reduces the geojson file by about half and doest take away for the quality of the visualization on leaflet</p></li>
-<li><p>there are many ways to simplify topojson and reduce the file size further</p></li>
-<li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-simplify">https://github.com/topojson/topojson-simplify</a></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>topojsons are stored as json files: <code class="docutils literal notranslate"><span class="pre">/bluesky/archive/fireweather/forecast/YYYYMMDDHH</span></code></dt><dd><ul class="simple">
-<li><p>stored as .json extension so server can gzip and send file to client</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ol>
-</div>
-</div>
 </div>
 
 
@@ -343,7 +290,7 @@
         <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Fire Weather Forecast Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="web.html" class="btn btn-neutral float-left" title="Website" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
