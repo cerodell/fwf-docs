@@ -4,9 +4,10 @@ Website
 User Guide
 ------------
 .. image:: _static/images/fwf-web-user-guide.png
-   :scale: 60%
+   :height: 2160 px
+   :width: 3840 px
+   :scale: 40%
    :align: center
-
 
 To visualize the data on leaflet several steps are made to simplify and reduce the file as much as possible. 
 
