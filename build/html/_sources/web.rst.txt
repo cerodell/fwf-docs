@@ -57,9 +57,13 @@ Steps to visualizing the data on a leaflet map by converting data from python to
 #. Now that the data is in a ``geojson`` format it could be added to a leaflet map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size ``geojsons`` are converted to ``topojsons`` using ``geo2topo``
     * If you quantize the ``geojosn`` to a ``topojson`` you save a lot on file size
     * I found if you use a quantization count (``q``) of 1e4, will reduce the ``geojson`` file by nearly an order of magnitude and doesn't take away from the quality of the visualization on leaflet
-    * Execute geo2topo quantization on comand line: 
-        * ``geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson > path_to_outfile/file_YYYYMMDDHH.json``
     * reference: https://github.com/topojson/topojson-server
+    * Execute geo2topo quantization on comand line 
+
+    .. code-block:: bash
+
+        geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson > path_to_outfile/file_YYYYMMDDHH.json
+
 #. Now that the data is in a ``topojsons`` its added to leaflet using ``Leaflet.VectorGrid.Slicer``
     * API: https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html
     * GitHub: https://github.com/Leaflet/Leaflet.VectorGrid
