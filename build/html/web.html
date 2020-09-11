@@ -166,49 +166,77 @@
 </div>
 <div class="section" id="visualization-steps">
 <h2>Visualization Steps<a class="headerlink" href="#visualization-steps" title="Permalink to this headline">¶</a></h2>
+<p>Steps to visualizing the data on a leaflet map.</p>
 <ol class="arabic simple">
 <li><dl class="simple">
-<dt>zarr file data is first masked to remove all lakes, oceans, and snow cover.</dt><dd><ul class="simple">
-<li><p>see <code class="docutils literal notranslate"><span class="pre">/bluesky/fireweather/fwf/utils/geoutils.py</span></code></p></li>
+<dt>Pythons Matplotlib is used to <cite>countourf</cite> each forecast product.</dt><dd><ul class="simple">
+<li><p><cite>fwf/json/colormaps.json</cite> contains the color schemes, levels, and max/min for each <cite>contourf</cite> plot.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>after mask is applied fire weather indices/codes are made into contourf</dt><dd><ul class="simple">
-<li><p>customize by changing <code class="docutils literal notranslate"><span class="pre">/bluesky/fireweather/fwf/json/colormaps.json</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>from contourf they are converted to geojson files using geojsoncontour</dt><dd><ul class="simple">
-<li><p>geojsoncontour reference: <a class="reference external" href="https://pypi.org/project/geojsoncontour/">https://pypi.org/project/geojsoncontour/</a></p></li>
-<li><p>note all indices and moisture codes are rounded to the third decimal</p></li>
-<li><p>steps 1-3 are done in python all in <code class="docutils literal notranslate"><span class="pre">/bluesky/fireweather/fwf/firewx_website/python/geojson_maker.py</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>next geojsons are converted to topojsons using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">geo2topo</span> <span class="pre">-q</span> <span class="pre">1e4</span> <span class="pre">path_to_infile/file_YYYYMMDDHH.geojson</span> <span class="pre">&gt;</span> <span class="pre">path_to_outfile/file_YYYYMMDDHH.json</span></code></p></li>
-<li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
-<li><p>a <code class="docutils literal notranslate"><span class="pre">q</span></code> (ie quantization count) of <cite>1e4</cite> reduces the geojson file by about half and doest take away for the quality of the visualization on leaflet</p></li>
-<li><p>there are many ways to simplify topojson and reduce the file size further</p></li>
-<li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-simplify">https://github.com/topojson/topojson-simplify</a></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>topojsons are stored as json files: <code class="docutils literal notranslate"><span class="pre">/bluesky/archive/fireweather/forecast/YYYYMMDDHH</span></code></dt><dd><ul class="simple">
-<li><p>stored as .json extension so server can gzip and send file to client</p></li>
+<dt>From a <cite>countourf</cite> <cite>geojsoncontour</cite> is used to convert the <cite>countourf</cite> plot to a <cite>geojson</cite> file.</dt><dd><ul class="simple">
+<li><p>The utility that does this is in within <cite>fwf/utils/geoutils.mycontourf_to_geojson</cite></p></li>
+<li><p>Here is a snippet of the code</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cnorm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span><span class="n">vmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">contourf</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lngs</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">fillarray</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">levels</span><span class="p">,</span> \
+                        <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="n">Cnorm</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span> <span class="n">extend</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">geojsoncontour</span><span class="o">.</span><span class="n">contourf_to_geojson</span><span class="p">(</span>
+    <span class="n">contourf</span><span class="o">=</span><span class="n">contourf</span><span class="p">,</span>
+    <span class="n">min_angle_deg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ndigits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">stroke_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fill_opacity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">geojson_properties</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">geojson_filepath</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;/bluesky/fireweather/fwf/data/geojson/</span><span class="si">{</span><span class="n">folderdate</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">geojson_filepath</span><span class="si">}</span><span class="s1">.geojson&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Now that the data is in a <cite>geojson</cite> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <cite>geojsons</cite> are converted to <cite>topojsons</cite> using <cite>geo2topo</cite></dt><dd><ul class="simple">
+<li><p>If you quantize the <cite>geojosn</cite> to a <cite>topojson</cite> you save a lot of file size</p></li>
+<li><p>I found if you use quantization count (<cite>q</cite>) of 1e4 reduces the <cite>geojson</cite> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
+<li><p>comand line example: <cite>geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson &gt; path_to_outfile/file_YYYYMMDDHH.json</cite></p></li>
+<li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Now that the data in a <cite>topojsons</cite> its added to leaflet using <cite>Leaflet.VectorGrid.Slicer</cite></dt><dd><ul class="simple">
+<li><p>API: <a class="reference external" href="https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html">https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html</a></p></li>
+<li><p>GitHub: <a class="reference external" href="https://github.com/Leaflet/Leaflet.VectorGrid">https://github.com/Leaflet/Leaflet.VectorGrid</a></p></li>
+<li><p>An example js code block snippet</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span><span class="nx">cache</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
+    <span class="nx">newLayer</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">L</span><span class="p">.</span><span class="nx">vectorGrid</span><span class="p">.</span><span class="nx">slicer</span><span class="p">(</span> <span class="nx">json</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">minZoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nx">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="nx">rendererFactory</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">tile</span><span class="p">,</span>
+        <span class="nx">vectorTileLayerStyles</span><span class="o">:</span><span class="p">{</span>
+            <span class="s1">&#39;FFMC&#39;</span><span class="o">:</span> <span class="nx">geo_json_styler18</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">).</span><span class="nx">setZIndex</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">})};</span>
+</pre></div>
+</div>
 </div>
 </div>
 

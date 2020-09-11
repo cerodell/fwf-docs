@@ -169,7 +169,7 @@
 <h1>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="flow-chart">
 <h2>Flow Chart<a class="headerlink" href="#flow-chart" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/fwf-model-flowchart.png"><img alt="_images/fwf-model-flowchart.png" class="align-center" src="_images/fwf-model-flowchart.png" style="width: 1000.0px; height: 400.0px;" /></a>
+<a class="reference internal image-reference" href="_images/fwf-model-flowchart.png"><img alt="_images/fwf-model-flowchart.png" class="align-center" src="_images/fwf-model-flowchart.png" style="width: 600.0px; height: 400.0px;" /></a>
 </div>
 <div class="section" id="file-directories">
 <h2>File Directories<a class="headerlink" href="#file-directories" title="Permalink to this headline">¶</a></h2>
@@ -183,6 +183,8 @@
 <li><p>ds2json.py</p></li>
 <li><p>geo2topo_mv.sh</p></li>
 <li><p>index_generator.py</p></li>
+<li><p>build_intercomparison_data.py</p></li>
+<li><p>intercomp_json.py</p></li>
 </ul>
 </dd>
 </dl>
@@ -266,14 +268,9 @@
 </div>
 <div class="section" id="required-packages">
 <h2>Required packages<a class="headerlink" href="#required-packages" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">netcdf4</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">dask</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">zarr</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">wrf</span><span class="o">-</span><span class="n">python</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">timezonefinder</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cartopy</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">xarray</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">pandas</span>
+<p>Conda is used to manage python once installed run the following.
+<cite>fwf-env.yml</cite> lives in the parent folder of the fwf repo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">fwf</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
 </div>

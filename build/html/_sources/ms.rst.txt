@@ -5,7 +5,7 @@ Flow Chart
 ------------
 .. image:: _static/images/fwf-model-flowchart.png    
    :height: 1000 px
-   :width: 2500 px
+   :width: 1500 px
    :scale: 40%
    :align: center
 
@@ -22,6 +22,8 @@ master
     - ds2json.py 
     - geo2topo_mv.sh
     - index_generator.py
+    - build_intercomparison_data.py
+    - intercomp_json.py
 
 utils
 ******
@@ -67,16 +69,13 @@ the model currently uses 4-km WRF 00Z but is adaptable to other domains.
 
 Required packages
 ------------------
+Conda is used to manage python once installed run the following.
+`fwf-env.yml` lives in the parent folder of the fwf repo
+
 .. code-block:: python
 
-    conda install -c conda-forge netcdf4
-    conda install -c conda-forge dask
-    conda install -c conda-forge zarr
-    conda install -c conda-forge wrf-python
-    conda install -c conda-forge timezonefinder
-    conda install -c conda-forge cartopy
-    conda install -c conda-forge xarray
-    conda install -c conda-forge pandas
+    conda env create -f fwf-env.yml
+
 
 
 
