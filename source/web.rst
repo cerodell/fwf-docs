@@ -27,7 +27,7 @@ Pearson Correlation Coefficient
 
 Visualization Steps
 ---------------------
-Steps to visualizing the data on a leaflet map by converting data from python to workable leafletjs formate.
+Below are the steps to visualizing the data on a leaflet map. The data starts in python as a zarr file and is converted to a workable leafletjs formate.
 
 #. Python's matplotlib is used to create ``countourf`` of each forecast product.
     * reference: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.contourf.html

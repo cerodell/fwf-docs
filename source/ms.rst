@@ -71,6 +71,7 @@ Required packages
 ------------------
 Conda is used to manage python, its recommend to use conda to make the model work. 
     - ``fwf-env.yml`` lives in the parent folder of the fwf repo
+    - to make a conda environment with all the required packages run the following code block
 
 .. code-block:: python
 
