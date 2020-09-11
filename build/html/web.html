@@ -167,7 +167,7 @@
 <div class="section" id="visualization-steps">
 <h2>Visualization Steps<a class="headerlink" href="#visualization-steps" title="Permalink to this headline">¶</a></h2>
 <p>Steps to visualizing the data on a leaflet map.</p>
-<dl class="simple">
+<dl>
 <dt>#1 Pythons Matplotlib is used to <cite>countourf</cite> each forecast product.</dt><dd><ul class="simple">
 <li><p><cite>fwf/json/colormaps.json</cite> contains the color schemes, levels, and max/min for each <cite>contourf</cite> plot.</p></li>
 </ul>
@@ -176,8 +176,6 @@
 <li><p>The utility that does this is in within <cite>fwf/utils/geoutils.mycontourf_to_geojson</cite></p></li>
 <li><p>Here is a snippet of the code</p></li>
 </ul>
-</dd>
-</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cnorm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span><span class="n">vmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">contourf</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lngs</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">fillarray</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">levels</span><span class="p">,</span> \
                         <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="n">Cnorm</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span> <span class="n">extend</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">)</span>
@@ -194,7 +192,7 @@
     <span class="n">geojson_filepath</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;/bluesky/fireweather/fwf/data/geojson/</span><span class="si">{</span><span class="n">folderdate</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">geojson_filepath</span><span class="si">}</span><span class="s1">.geojson&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="simple">
+</dd>
 <dt>#3 Now that the data is in a <cite>geojson</cite> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <cite>geojsons</cite> are converted to <cite>topojsons</cite> using <cite>geo2topo</cite></dt><dd><ul class="simple">
 <li><p>If you quantize the <cite>geojosn</cite> to a <cite>topojson</cite> you save a lot of file size</p></li>
 <li><p>I found if you use quantization count (<cite>q</cite>) of 1e4 reduces the <cite>geojson</cite> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
@@ -207,8 +205,6 @@
 <li><p>GitHub: <a class="reference external" href="https://github.com/Leaflet/Leaflet.VectorGrid">https://github.com/Leaflet/Leaflet.VectorGrid</a></p></li>
 <li><p>An example js code block snippet</p></li>
 </ul>
-</dd>
-</dl>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span><span class="nx">cache</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
     <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
@@ -225,6 +221,8 @@
 <span class="p">})};</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </div>
 </div>
 

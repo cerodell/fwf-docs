@@ -21,22 +21,22 @@ Steps to visualizing the data on a leaflet map.
     * The utility that does this is in within `fwf/utils/geoutils.mycontourf_to_geojson` 
     * Here is a snippet of the code 
 
-.. code-block:: python
+    .. code-block:: python
 
-    Cnorm = matplotlib.colors.Normalize(vmin= vmin, vmax =vmax+1)
-    contourf = plt.contourf(lngs, lats, fillarray, levels = levels, \
-                            linestyles = 'None', norm = Cnorm, colors = colors, extend = 'both')
-    plt.close()
+        Cnorm = matplotlib.colors.Normalize(vmin= vmin, vmax =vmax+1)
+        contourf = plt.contourf(lngs, lats, fillarray, levels = levels, \
+                                linestyles = 'None', norm = Cnorm, colors = colors, extend = 'both')
+        plt.close()
 
-    geojsoncontour.contourf_to_geojson(
-        contourf=contourf,
-        min_angle_deg=None,
-        ndigits=2,
-        stroke_width=None,
-        fill_opacity=None,
-        geojson_properties=None,
-        unit='', 
-        geojson_filepath = f'/bluesky/fireweather/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
+        geojsoncontour.contourf_to_geojson(
+            contourf=contourf,
+            min_angle_deg=None,
+            ndigits=2,
+            stroke_width=None,
+            fill_opacity=None,
+            geojson_properties=None,
+            unit='', 
+            geojson_filepath = f'/bluesky/fireweather/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
 
 
 #3 Now that the data is in a `geojson` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size `geojsons` are converted to `topojsons` using `geo2topo`
@@ -49,20 +49,20 @@ Steps to visualizing the data on a leaflet map.
     * GitHub: https://github.com/Leaflet/Leaflet.VectorGrid
     * An example js code block snippet
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    fetch(url, {cache: "default"}).then(function(response){
-        return response.json();
-    }).then(function(json){
-        newLayer.addLayer(L.vectorGrid.slicer( json, {
-            minZoom: 2,
-            maxZoom: 18,
-            rendererFactory: L.canvas.tile,
-            vectorTileLayerStyles:{
-                'FFMC': geo_json_styler18
+        fetch(url, {cache: "default"}).then(function(response){
+            return response.json();
+        }).then(function(json){
+            newLayer.addLayer(L.vectorGrid.slicer( json, {
+                minZoom: 2,
+                maxZoom: 18,
+                rendererFactory: L.canvas.tile,
+                vectorTileLayerStyles:{
+                    'FFMC': geo_json_styler18
+                        }
                     }
-                }
-            ).setZIndex(500)
-        )
-    })};
+                ).setZIndex(500)
+            )
+        })};
 
