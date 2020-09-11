@@ -169,15 +169,15 @@
 <p>Steps to visualizing the data on a leaflet map.</p>
 <ol class="arabic">
 <li><dl class="simple">
-<dt>Step 1. Pythons Matplotlib is used to <cite>countourf</cite> each forecast product.</dt><dd><ul class="simple">
-<li><p><cite>fwf/json/colormaps.json</cite> contains the color schemes, levels, and max/min for each <cite>contourf</cite> plot.</p></li>
+<dt>Step 1. Pythons Matplotlib is used to <code class="docutils literal notranslate"><span class="pre">countourf</span></code> each forecast product.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf/json/colormaps.json</span></code> contains the color schemes, levels, and max/min for each <code class="docutils literal notranslate"><span class="pre">contourf</span></code> plot.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Step 2. From a <cite>countourf</cite> <cite>geojsoncontour</cite> is used to convert the <cite>countourf</cite> plot to a <cite>geojson</cite> file.</dt><dd><ul class="simple">
-<li><p>The utility that does this is in within <cite>fwf/utils/geoutils.mycontourf_to_geojson</cite></p></li>
+<dt>Step 2. From a <code class="docutils literal notranslate"><span class="pre">countourf</span></code> <code class="docutils literal notranslate"><span class="pre">geojsoncontour</span></code> is used to convert the <code class="docutils literal notranslate"><span class="pre">countourf</span></code> plot to a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file.</dt><dd><ul class="simple">
+<li><p>The utility that does this is in within <code class="docutils literal notranslate"><span class="pre">fwf/utils/geoutils.mycontourf_to_geojson</span></code></p></li>
 <li><p>Here is a snippet of the code</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cnorm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span><span class="n">vmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -200,17 +200,17 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Step 3. Now that the data is in a <cite>geojson</cite> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <cite>geojsons</cite> are converted to <cite>topojsons</cite> using <cite>geo2topo</cite></dt><dd><ul class="simple">
-<li><p>If you quantize the <cite>geojosn</cite> to a <cite>topojson</cite> you save a lot of file size</p></li>
-<li><p>I found if you use quantization count (<cite>q</cite>) of 1e4 reduces the <cite>geojson</cite> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
-<li><p>comand line example: <cite>geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson &gt; path_to_outfile/file_YYYYMMDDHH.json</cite></p></li>
+<dt>Step 3. Now that the data is in a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <code class="docutils literal notranslate"><span class="pre">geojsons</span></code> are converted to <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
+<li><p>If you quantize the <code class="docutils literal notranslate"><span class="pre">geojosn</span></code> to a <code class="docutils literal notranslate"><span class="pre">topojson</span></code> you save a lot of file size</p></li>
+<li><p>I found if you use quantization count (<code class="docutils literal notranslate"><span class="pre">q</span></code>) of 1e4 reduces the <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
+<li><p>comand line example: <code class="docutils literal notranslate"><span class="pre">geo2topo</span> <span class="pre">-q</span> <span class="pre">1e4</span> <span class="pre">path_to_infile/file_YYYYMMDDHH.geojson</span> <span class="pre">&gt;</span> <span class="pre">path_to_outfile/file_YYYYMMDDHH.json</span></code></p></li>
 <li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Step 4. Now that the data in a <cite>topojsons</cite> its added to leaflet using <cite>Leaflet.VectorGrid.Slicer</cite></dt><dd><ul class="simple">
+<dt>Step 4. Now that the data in a <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> its added to leaflet using <code class="docutils literal notranslate"><span class="pre">Leaflet.VectorGrid.Slicer</span></code></dt><dd><ul class="simple">
 <li><p>API: <a class="reference external" href="https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html">https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html</a></p></li>
 <li><p>GitHub: <a class="reference external" href="https://github.com/Leaflet/Leaflet.VectorGrid">https://github.com/Leaflet/Leaflet.VectorGrid</a></p></li>
 <li><p>An example js code block snippet</p></li>
