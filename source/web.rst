@@ -36,7 +36,7 @@ Steps to visualizing the data on a leaflet map.
             fill_opacity=None,
             geojson_properties=None,
             unit='', 
-            geojson_filepath = f'/bluesky/fireweather/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
+            geojson_filepath = f'/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
 
 
 #.3 Now that the data is in a `geojson` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size `geojsons` are converted to `topojsons` using `geo2topo`
