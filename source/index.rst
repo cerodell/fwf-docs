@@ -25,7 +25,7 @@ Overview:
 |
 
 
-.. image:: _static/images/fwf_example.png    
+.. image:: _static/images/fwf-example.png    
    :scale: 30%
    :align: center
 
