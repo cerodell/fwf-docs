@@ -167,12 +167,16 @@
 <div class="section" id="visualization-steps">
 <h2>Visualization Steps<a class="headerlink" href="#visualization-steps" title="Permalink to this headline">¶</a></h2>
 <p>Steps to visualizing the data on a leaflet map.</p>
-<dl>
-<dt>#.1 Pythons Matplotlib is used to <cite>countourf</cite> each forecast product.</dt><dd><ul class="simple">
+<ol class="arabic">
+<li><dl class="simple">
+<dt>Step 1. Pythons Matplotlib is used to <cite>countourf</cite> each forecast product.</dt><dd><ul class="simple">
 <li><p><cite>fwf/json/colormaps.json</cite> contains the color schemes, levels, and max/min for each <cite>contourf</cite> plot.</p></li>
 </ul>
 </dd>
-<dt>#.2 From a <cite>countourf</cite> <cite>geojsoncontour</cite> is used to convert the <cite>countourf</cite> plot to a <cite>geojson</cite> file.</dt><dd><ul class="simple">
+</dl>
+</li>
+<li><dl>
+<dt>Step 2. From a <cite>countourf</cite> <cite>geojsoncontour</cite> is used to convert the <cite>countourf</cite> plot to a <cite>geojson</cite> file.</dt><dd><ul class="simple">
 <li><p>The utility that does this is in within <cite>fwf/utils/geoutils.mycontourf_to_geojson</cite></p></li>
 <li><p>Here is a snippet of the code</p></li>
 </ul>
@@ -193,14 +197,20 @@
 </pre></div>
 </div>
 </dd>
-<dt>#.3 Now that the data is in a <cite>geojson</cite> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <cite>geojsons</cite> are converted to <cite>topojsons</cite> using <cite>geo2topo</cite></dt><dd><ul class="simple">
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Step 3. Now that the data is in a <cite>geojson</cite> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <cite>geojsons</cite> are converted to <cite>topojsons</cite> using <cite>geo2topo</cite></dt><dd><ul class="simple">
 <li><p>If you quantize the <cite>geojosn</cite> to a <cite>topojson</cite> you save a lot of file size</p></li>
 <li><p>I found if you use quantization count (<cite>q</cite>) of 1e4 reduces the <cite>geojson</cite> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
 <li><p>comand line example: <cite>geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson &gt; path_to_outfile/file_YYYYMMDDHH.json</cite></p></li>
 <li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
 </ul>
 </dd>
-<dt>#.4 Now that the data in a <cite>topojsons</cite> its added to leaflet using <cite>Leaflet.VectorGrid.Slicer</cite></dt><dd><ul class="simple">
+</dl>
+</li>
+<li><dl>
+<dt>Step 4. Now that the data in a <cite>topojsons</cite> its added to leaflet using <cite>Leaflet.VectorGrid.Slicer</cite></dt><dd><ul class="simple">
 <li><p>API: <a class="reference external" href="https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html">https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html</a></p></li>
 <li><p>GitHub: <a class="reference external" href="https://github.com/Leaflet/Leaflet.VectorGrid">https://github.com/Leaflet/Leaflet.VectorGrid</a></p></li>
 <li><p>An example js code block snippet</p></li>
@@ -223,6 +233,8 @@
 </div>
 </dd>
 </dl>
+</li>
+</ol>
 </div>
 </div>
 

@@ -15,9 +15,9 @@ Visualization Steps
 ---------------------
 Steps to visualizing the data on a leaflet map.
 
-#.1 Pythons Matplotlib is used to `countourf` each forecast product.
+#. Step 1. Pythons Matplotlib is used to `countourf` each forecast product.
     * `fwf/json/colormaps.json` contains the color schemes, levels, and max/min for each `contourf` plot.
-#.2 From a `countourf` `geojsoncontour` is used to convert the `countourf` plot to a `geojson` file. 
+#. Step 2. From a `countourf` `geojsoncontour` is used to convert the `countourf` plot to a `geojson` file. 
     * The utility that does this is in within `fwf/utils/geoutils.mycontourf_to_geojson` 
     * Here is a snippet of the code 
 
@@ -38,13 +38,12 @@ Steps to visualizing the data on a leaflet map.
             unit='', 
             geojson_filepath = f'/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
 
-
-#.3 Now that the data is in a `geojson` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size `geojsons` are converted to `topojsons` using `geo2topo`
+#. Step 3. Now that the data is in a `geojson` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size `geojsons` are converted to `topojsons` using `geo2topo`
     * If you quantize the `geojosn` to a `topojson` you save a lot of file size
     * I found if you use quantization count (`q`) of 1e4 reduces the `geojson` file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet
     * comand line example: `geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson > path_to_outfile/file_YYYYMMDDHH.json`
     * reference: https://github.com/topojson/topojson-server
-#.4 Now that the data in a `topojsons` its added to leaflet using `Leaflet.VectorGrid.Slicer`
+#. Step 4. Now that the data in a `topojsons` its added to leaflet using `Leaflet.VectorGrid.Slicer`
     * API: https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html
     * GitHub: https://github.com/Leaflet/Leaflet.VectorGrid
     * An example js code block snippet
