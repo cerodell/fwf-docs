@@ -12,17 +12,17 @@ User Guide
 Statistics
 ***********
 Multiplicative Mean Bias
-    - compairng the forecast adn observation fromt he past 15 days
-    - Example, when multiplicative bias = 1.1, the forecast is 10% too high on average. 
+    - Comparing the forecast and observation from the past 15 days
+    - For example, when multiplicative bias = 1.1, the forecast is 10% too high on average. 
 
     .. math::
-        `bias = \frac{ \overline{forecast}}{\overline{observed}}`
+        bias = \frac{ \overline{forecast}}{\overline{observed}}
 
 Pearson Correlation Coefficient
     - "It has a value between +1 and −1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation." -Cauchy–Schwarz
    
     .. math::
-        `r=\frac{n\left(\sum x y\right)-\left(\sum x\right)\left(\sum y\right)}{\sqrt{\left[n \sum x^{2}-\left(\sum x\right)^{2}\right]\left[n \sum y^{2}-(\Sigma y)^{2}\right]}}`
+        r=\frac{n\left(\sum x y\right)-\left(\sum x\right)\left(\sum y\right)}{\sqrt{\left[n \sum x^{2}-\left(\sum x\right)^{2}\right]\left[n \sum y^{2}-(\Sigma y)^{2}\right]}}
 
 Visualization Steps
 ---------------------
@@ -35,7 +35,7 @@ Steps to visualizing the data on a leaflet map.
     * The utility that does this is in within ``fwf/utils/geoutils.mycontourf_to_geojson`` 
     * reference: https://github.com/bartromgens/geojsoncontour
     * Here is a snippet of the code
-    
+
     .. code-block:: python
 
         Cnorm = matplotlib.colors.Normalize(vmin= vmin, vmax =vmax+1)
