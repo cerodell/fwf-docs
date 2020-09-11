@@ -19,6 +19,7 @@ Multiplicative Mean Bias
         bias = \frac{ \overline{forecast}}{\overline{observed}}
 
 Pearson Correlation Coefficient
+    - Comparing the forecast and observation from the past 60 days
     - "It has a value between +1 and −1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation." -Cauchy–Schwarz
    
     .. math::
@@ -26,7 +27,7 @@ Pearson Correlation Coefficient
 
 Visualization Steps
 ---------------------
-Steps to visualizing the data on a leaflet map.
+Steps to visualizing the data on a leaflet map by converting data from python to workable leafletjs formate.
 
 #. Python's matplotlib is used to create ``countourf`` of each forecast product.
     * reference: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.contourf.html
@@ -53,12 +54,12 @@ Steps to visualizing the data on a leaflet map.
             unit='', 
             geojson_filepath = f'/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
 
-#. Now that the data is in a ``geojson`` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size ``geojsons`` are converted to ``topojsons`` using ``geo2topo``
+#. Now that the data is in a ``geojson`` format it could be added to a leaflet map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size ``geojsons`` are converted to ``topojsons`` using ``geo2topo``
     * If you quantize the ``geojosn`` to a ``topojson`` you save a lot on file size
-    * I found if you use a quantization count (``q``) of 1e4 reduces the ``geojson`` file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet
-    * comand line example: ``geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson > path_to_outfile/file_YYYYMMDDHH.json``
+    * I found if you use a quantization count (``q``) of 1e4 reduces the ``geojson`` file by nearly an order of magnitude and doesn't take away from the quality of the visualization on leaflet
+    * Comand line example: ``geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson > path_to_outfile/file_YYYYMMDDHH.json``
     * reference: https://github.com/topojson/topojson-server
-#. Now that the data in a ``topojsons`` its added to leaflet using ``Leaflet.VectorGrid.Slicer``
+#. Now that the data is in a ``topojsons`` its added to leaflet using ``Leaflet.VectorGrid.Slicer``
     * API: https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html
     * GitHub: https://github.com/Leaflet/Leaflet.VectorGrid
     * An example js code block snippet

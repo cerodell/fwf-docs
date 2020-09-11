@@ -177,6 +177,7 @@
 \[bias = \frac{ \overline{forecast}}{\overline{observed}}\]</div>
 </dd>
 <dt>Pearson Correlation Coefficient</dt><dd><ul class="simple">
+<li><p>Comparing the forecast and observation from the past 60 days</p></li>
 <li><p>“It has a value between +1 and −1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation.” -Cauchy–Schwarz</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -187,7 +188,7 @@
 </div>
 <div class="section" id="visualization-steps">
 <h2>Visualization Steps<a class="headerlink" href="#visualization-steps" title="Permalink to this headline">¶</a></h2>
-<p>Steps to visualizing the data on a leaflet map.</p>
+<p>Steps to visualizing the data on a leaflet map by converting data from python to workable leafletjs formate.</p>
 <ol class="arabic">
 <li><dl class="simple">
 <dt>Python’s matplotlib is used to create <code class="docutils literal notranslate"><span class="pre">countourf</span></code> of each forecast product.</dt><dd><ul class="simple">
@@ -223,17 +224,17 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Now that the data is in a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size <code class="docutils literal notranslate"><span class="pre">geojsons</span></code> are converted to <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
+<dt>Now that the data is in a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> format it could be added to a leaflet map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size <code class="docutils literal notranslate"><span class="pre">geojsons</span></code> are converted to <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
 <li><p>If you quantize the <code class="docutils literal notranslate"><span class="pre">geojosn</span></code> to a <code class="docutils literal notranslate"><span class="pre">topojson</span></code> you save a lot on file size</p></li>
-<li><p>I found if you use a quantization count (<code class="docutils literal notranslate"><span class="pre">q</span></code>) of 1e4 reduces the <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
-<li><p>comand line example: <code class="docutils literal notranslate"><span class="pre">geo2topo</span> <span class="pre">-q</span> <span class="pre">1e4</span> <span class="pre">path_to_infile/file_YYYYMMDDHH.geojson</span> <span class="pre">&gt;</span> <span class="pre">path_to_outfile/file_YYYYMMDDHH.json</span></code></p></li>
+<li><p>I found if you use a quantization count (<code class="docutils literal notranslate"><span class="pre">q</span></code>) of 1e4 reduces the <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file by nearly an order of magnitude and doesn’t take away from the quality of the visualization on leaflet</p></li>
+<li><p>Comand line example: <code class="docutils literal notranslate"><span class="pre">geo2topo</span> <span class="pre">-q</span> <span class="pre">1e4</span> <span class="pre">path_to_infile/file_YYYYMMDDHH.geojson</span> <span class="pre">&gt;</span> <span class="pre">path_to_outfile/file_YYYYMMDDHH.json</span></code></p></li>
 <li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Now that the data in a <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> its added to leaflet using <code class="docutils literal notranslate"><span class="pre">Leaflet.VectorGrid.Slicer</span></code></dt><dd><ul class="simple">
+<dt>Now that the data is in a <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> its added to leaflet using <code class="docutils literal notranslate"><span class="pre">Leaflet.VectorGrid.Slicer</span></code></dt><dd><ul class="simple">
 <li><p>API: <a class="reference external" href="https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html">https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html</a></p></li>
 <li><p>GitHub: <a class="reference external" href="https://github.com/Leaflet/Leaflet.VectorGrid">https://github.com/Leaflet/Leaflet.VectorGrid</a></p></li>
 <li><p>An example js code block snippet</p></li>
