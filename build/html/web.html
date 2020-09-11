@@ -31,6 +31,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -86,7 +87,10 @@
               <p class="caption"><span class="caption-text">Model:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Website</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#user-guide">User Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-guide">User Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#statistics">Statistics</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#visualization-steps">Visualization Steps</a></li>
 </ul>
 </li>
@@ -162,22 +166,41 @@
 <div class="section" id="user-guide">
 <h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/fwf-web-user-guide.png"><img alt="_images/fwf-web-user-guide.png" class="align-center" src="_images/fwf-web-user-guide.png" style="width: 1000.0px; height: 400.0px;" /></a>
-<p>To visualize the data on leaflet several steps are made to simplify and reduce the file as much as possible.</p>
+<div class="section" id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>Multiplicative Mean Bias</dt><dd><ul class="simple">
+<li><p>compairng the forecast adn observation fromt he past 15 days</p></li>
+<li><p>Example, when multiplicative bias = 1.1, the forecast is 10% too high on average.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[`bias = \frac{ \overline{forecast}}{\overline{observed}}`\]</div>
+</dd>
+<dt>Pearson Correlation Coefficient</dt><dd><ul class="simple">
+<li><p>“It has a value between +1 and −1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation.” -Cauchy–Schwarz</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[`r=\frac{n\left(\sum x y\right)-\left(\sum x\right)\left(\sum y\right)}{\sqrt{\left[n \sum x^{2}-\left(\sum x\right)^{2}\right]\left[n \sum y^{2}-(\Sigma y)^{2}\right]}}`\]</div>
+</dd>
+</dl>
+</div>
 </div>
 <div class="section" id="visualization-steps">
 <h2>Visualization Steps<a class="headerlink" href="#visualization-steps" title="Permalink to this headline">¶</a></h2>
 <p>Steps to visualizing the data on a leaflet map.</p>
 <ol class="arabic">
 <li><dl class="simple">
-<dt>Pythons Matplotlib is used to <code class="docutils literal notranslate"><span class="pre">countourf</span></code> each forecast product.</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">fwf/json/colormaps.json</span></code> contains the color schemes, levels, and max/min for each <code class="docutils literal notranslate"><span class="pre">contourf</span></code> plot.</p></li>
+<dt>Python’s matplotlib is used to create <code class="docutils literal notranslate"><span class="pre">countourf</span></code> of each forecast product.</dt><dd><ul class="simple">
+<li><p>reference: <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.contourf.html">https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.contourf.html</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf/json/colormaps.json</span></code> contains the color schemes, the defined contour levels, and the max/min for each <code class="docutils literal notranslate"><span class="pre">contourf</span></code> plot.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>From a <code class="docutils literal notranslate"><span class="pre">countourf</span></code> <code class="docutils literal notranslate"><span class="pre">geojsoncontour</span></code> is used to convert the <code class="docutils literal notranslate"><span class="pre">countourf</span></code> plot to a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file.</dt><dd><ul class="simple">
+<dt>From here <code class="docutils literal notranslate"><span class="pre">geojsoncontour</span></code> is used to convert the <code class="docutils literal notranslate"><span class="pre">countourf</span></code> plot to a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file.</dt><dd><ul class="simple">
 <li><p>The utility that does this is in within <code class="docutils literal notranslate"><span class="pre">fwf/utils/geoutils.mycontourf_to_geojson</span></code></p></li>
+<li><p>reference: <a class="reference external" href="https://github.com/bartromgens/geojsoncontour">https://github.com/bartromgens/geojsoncontour</a></p></li>
 <li><p>Here is a snippet of the code</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Cnorm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span><span class="n">vmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -200,9 +223,9 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Now that the data is in a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size <code class="docutils literal notranslate"><span class="pre">geojsons</span></code> are converted to <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
-<li><p>If you quantize the <code class="docutils literal notranslate"><span class="pre">geojosn</span></code> to a <code class="docutils literal notranslate"><span class="pre">topojson</span></code> you save a lot of file size</p></li>
-<li><p>I found if you use quantization count (<code class="docutils literal notranslate"><span class="pre">q</span></code>) of 1e4 reduces the <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
+<dt>Now that the data is in a <code class="docutils literal notranslate"><span class="pre">geojson</span></code> format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size <code class="docutils literal notranslate"><span class="pre">geojsons</span></code> are converted to <code class="docutils literal notranslate"><span class="pre">topojsons</span></code> using <code class="docutils literal notranslate"><span class="pre">geo2topo</span></code></dt><dd><ul class="simple">
+<li><p>If you quantize the <code class="docutils literal notranslate"><span class="pre">geojosn</span></code> to a <code class="docutils literal notranslate"><span class="pre">topojson</span></code> you save a lot on file size</p></li>
+<li><p>I found if you use a quantization count (<code class="docutils literal notranslate"><span class="pre">q</span></code>) of 1e4 reduces the <code class="docutils literal notranslate"><span class="pre">geojson</span></code> file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet</p></li>
 <li><p>comand line example: <code class="docutils literal notranslate"><span class="pre">geo2topo</span> <span class="pre">-q</span> <span class="pre">1e4</span> <span class="pre">path_to_infile/file_YYYYMMDDHH.geojson</span> <span class="pre">&gt;</span> <span class="pre">path_to_outfile/file_YYYYMMDDHH.json</span></code></p></li>
 <li><p>reference: <a class="reference external" href="https://github.com/topojson/topojson-server">https://github.com/topojson/topojson-server</a></p></li>
 </ul>

@@ -5,7 +5,7 @@ Flow Chart
 ------------
 .. image:: _static/images/fwf-model-flowchart.png    
    :height: 1000 px
-   :width: 1500 px
+   :width: 1200 px
    :scale: 40%
    :align: center
 
@@ -69,8 +69,8 @@ the model currently uses 4-km WRF 00Z but is adaptable to other domains.
 
 Required packages
 ------------------
-Conda is used to manage python once installed run the following.
-`fwf-env.yml` lives in the parent folder of the fwf repo
+Conda is used to manage python, its recommend to use conda to make the model work. 
+    - ``fwf-env.yml`` lives in the parent folder of the fwf repo
 
 .. code-block:: python
 

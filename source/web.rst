@@ -9,18 +9,33 @@ User Guide
    :scale: 40%
    :align: center
 
-To visualize the data on leaflet several steps are made to simplify and reduce the file as much as possible. 
+Statistics
+***********
+Multiplicative Mean Bias
+    - compairng the forecast adn observation fromt he past 15 days
+    - Example, when multiplicative bias = 1.1, the forecast is 10% too high on average. 
+
+    .. math::
+        `bias = \frac{ \overline{forecast}}{\overline{observed}}`
+
+Pearson Correlation Coefficient
+    - "It has a value between +1 and −1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation." -Cauchy–Schwarz
+   
+    .. math::
+        `r=\frac{n\left(\sum x y\right)-\left(\sum x\right)\left(\sum y\right)}{\sqrt{\left[n \sum x^{2}-\left(\sum x\right)^{2}\right]\left[n \sum y^{2}-(\Sigma y)^{2}\right]}}`
 
 Visualization Steps
 ---------------------
 Steps to visualizing the data on a leaflet map.
 
-#. Pythons Matplotlib is used to ``countourf`` each forecast product.
-    * ``fwf/json/colormaps.json`` contains the color schemes, levels, and max/min for each ``contourf`` plot.
-#. From a ``countourf`` ``geojsoncontour`` is used to convert the ``countourf`` plot to a ``geojson`` file. 
+#. Python's matplotlib is used to create ``countourf`` of each forecast product.
+    * reference: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.contourf.html
+    * ``fwf/json/colormaps.json`` contains the color schemes, the defined contour levels, and the max/min for each ``contourf`` plot.
+#. From here ``geojsoncontour`` is used to convert the ``countourf`` plot to a ``geojson`` file. 
     * The utility that does this is in within ``fwf/utils/geoutils.mycontourf_to_geojson`` 
-    * Here is a snippet of the code 
-
+    * reference: https://github.com/bartromgens/geojsoncontour
+    * Here is a snippet of the code
+    
     .. code-block:: python
 
         Cnorm = matplotlib.colors.Normalize(vmin= vmin, vmax =vmax+1)
@@ -38,9 +53,9 @@ Steps to visualizing the data on a leaflet map.
             unit='', 
             geojson_filepath = f'/fwf/data/geojson/{folderdate}/{geojson_filepath}.geojson')
 
-#. Now that the data is in a ``geojson`` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large at this stage ~8 Mb. To help reduce the file size ``geojsons`` are converted to ``topojsons`` using ``geo2topo``
-    * If you quantize the ``geojosn`` to a ``topojson`` you save a lot of file size
-    * I found if you use quantization count (``q``) of 1e4 reduces the ``geojson`` file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet
+#. Now that the data is in a ``geojson`` format it could be added to a leaf map using a variety of different leaflet extensions. However, the file size is a bit large, at this stage ~ 8 Mb. To help reduce the file size ``geojsons`` are converted to ``topojsons`` using ``geo2topo``
+    * If you quantize the ``geojosn`` to a ``topojson`` you save a lot on file size
+    * I found if you use a quantization count (``q``) of 1e4 reduces the ``geojson`` file by nearly an order of magnitude and doest take away from the quality of the visualization on leaflet
     * comand line example: ``geo2topo -q 1e4 path_to_infile/file_YYYYMMDDHH.geojson > path_to_outfile/file_YYYYMMDDHH.json``
     * reference: https://github.com/topojson/topojson-server
 #. Now that the data in a ``topojsons`` its added to leaflet using ``Leaflet.VectorGrid.Slicer``
