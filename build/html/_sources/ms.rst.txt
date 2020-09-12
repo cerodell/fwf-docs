@@ -4,9 +4,7 @@ Structure
 Flow Chart
 ------------
 .. image:: _static/images/fwf-model-flowchart.png    
-   :height: 1000 px
-   :width: 1200 px
-   :scale: 40%
+   :width: 600
    :align: center
 
 

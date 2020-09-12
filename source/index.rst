@@ -26,9 +26,7 @@ Overview:
 
 
 .. image:: _static/images/fwf-example.png    
-   :height: 1000 px
-   :width: 2500 px
-   :scale: 40%
+   :width: 600
    :align: center
 
 Documentation
