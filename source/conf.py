@@ -63,4 +63,4 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 
-html_logo = "_static/images/fwf-logo-v1.png"
+html_logo = "_static/images/logo-v2.png"
