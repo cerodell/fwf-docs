@@ -30,7 +30,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -39,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Structure" href="ms.html" />
-    <link rel="prev" title="Welcome to Fire Weather Forecast Model" href="index.html" /> 
+    <link rel="prev" title="Quick overview" href="view.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,6 +88,7 @@
             
               <p class="caption"><span class="caption-text">Model:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="view.html">Quick overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Website</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#user-guide">User Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#statistics">Statistics</a></li>
@@ -249,14 +249,14 @@
     <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">){</span>
     <span class="nx">newLayer</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">L</span><span class="p">.</span><span class="nx">vectorGrid</span><span class="p">.</span><span class="nx">slicer</span><span class="p">(</span> <span class="nx">json</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">minZoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="nx">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="nx">minZoom</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>
+        <span class="nx">maxZoom</span><span class="o">:</span> <span class="mf">18</span><span class="p">,</span>
         <span class="nx">rendererFactory</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">tile</span><span class="p">,</span>
         <span class="nx">vectorTileLayerStyles</span><span class="o">:</span><span class="p">{</span>
             <span class="s1">&#39;FFMC&#39;</span><span class="o">:</span> <span class="nx">geo_json_styler18</span>
                 <span class="p">}</span>
             <span class="p">}</span>
-        <span class="p">).</span><span class="nx">setZIndex</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+        <span class="p">).</span><span class="nx">setZIndex</span><span class="p">(</span><span class="mf">500</span><span class="p">)</span>
     <span class="p">)</span>
 <span class="p">})};</span>
 </pre></div>
@@ -279,7 +279,7 @@
         <a href="ms.html" class="btn btn-neutral float-right" title="Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Fire Weather Forecast Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="view.html" class="btn btn-neutral float-left" title="Quick overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

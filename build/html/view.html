@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick overview &mdash; Fire Weather Forecast Model 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Website" href="web.html" />
+    <link rel="prev" title="Welcome to Fire Weather Forecast Model" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fire Weather Forecast Model
+          
+
+          
+            
+            <img src="_static/fwf-logo-v1.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Model:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with">Working with</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-domains">Model Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ms.html">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fire Weather Forecast Model</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Quick overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/view.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-overview">
+<h1>Quick overview<a class="headerlink" href="#quick-overview" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="working-with">
+<h2>Working with<a class="headerlink" href="#working-with" title="Permalink to this headline">¶</a></h2>
+<p>Suggest using <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> to open and work with data.</p>
+<p>Code block shows an example of how to open and view</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="n">forecast_date</span> <span class="o">=</span> <span class="s2">&quot;YYYYMMDDHH&quot;</span>
+<span class="n">domain</span>        <span class="o">=</span> <span class="s1">&#39;d02&#39;</span>        <span class="c1">## or &#39;d03&#39;</span>
+<span class="n">name</span> 	      <span class="o">=</span> <span class="s1">&#39;daily&#39;</span>      <span class="c1">## or &#39;hourly&#39;</span>
+
+<span class="n">file_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="nb">dir</span><span class="o">/</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/fwf-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">forecast_date</span><span class="si">}</span><span class="s2">.zarr&quot;</span>
+<span class="n">ds</span>       <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">file_dir</span><span class="p">)</span>
+
+<span class="c1">## Example: look at variable P (Duff Moisture Code)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">xarray</span><span class="o">.</span><span class="n">DataArray</span> <span class="s1">&#39;P&#39;</span> <span class="p">(</span><span class="n">time</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">south_north</span><span class="p">:</span> <span class="mi">417</span><span class="p">,</span> <span class="n">west_east</span><span class="p">:</span> <span class="mi">627</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">&lt;</span><span class="n">xarray</span><span class="o">-</span><span class="n">P</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">417</span><span class="p">,</span> <span class="mi">627</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">209</span><span class="p">,</span> <span class="mi">314</span><span class="p">),</span> <span class="n">chunktype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="o">&gt;</span>
+<span class="n">Coordinates</span><span class="p">:</span>
+    <span class="n">Time</span>     <span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="n">datetime64</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">&lt;</span><span class="n">chunksize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">meta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">&gt;</span>
+    <span class="n">XLAT</span>     <span class="p">(</span><span class="n">south_north</span><span class="p">,</span> <span class="n">west_east</span><span class="p">)</span> <span class="n">float32</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">&lt;</span><span class="n">chunksize</span><span class="o">=</span><span class="p">(</span><span class="mi">209</span><span class="p">,</span> <span class="mi">314</span><span class="p">),</span> <span class="n">meta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">&gt;</span>
+    <span class="n">XLONG</span>    <span class="p">(</span><span class="n">south_north</span><span class="p">,</span> <span class="n">west_east</span><span class="p">)</span> <span class="n">float32</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">&lt;</span><span class="n">chunksize</span><span class="o">=</span><span class="p">(</span><span class="mi">209</span><span class="p">,</span> <span class="mi">314</span><span class="p">),</span> <span class="n">meta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">&gt;</span>
+    <span class="n">XTIME</span>    <span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="n">float32</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">&lt;</span><span class="n">chunksize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">meta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">&gt;</span>
+<span class="n">Dimensions</span> <span class="n">without</span> <span class="n">coordinates</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="n">south_north</span><span class="p">,</span> <span class="n">west_east</span>
+<span class="n">Attributes</span><span class="p">:</span>
+    <span class="n">FieldType</span><span class="p">:</span>    <span class="mi">104</span>
+    <span class="n">MemoryOrder</span><span class="p">:</span>  <span class="n">XY</span> 
+    <span class="n">description</span><span class="p">:</span>  <span class="n">DUFF</span> <span class="n">MOISTURE</span> <span class="n">CODE</span>
+    <span class="n">projection</span><span class="p">:</span>   <span class="n">PolarStereographic</span><span class="p">(</span><span class="n">stand_lon</span><span class="o">=-</span><span class="mf">110.0</span><span class="p">,</span> <span class="n">moad_cen_lat</span><span class="o">=</span><span class="mf">53.25</span><span class="p">,</span> <span class="n">tr</span><span class="o">...</span>
+    <span class="n">stagger</span><span class="p">:</span> 
+</pre></div>
+</div>
+<div class="section" id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<p>domain:</p>
+<ul class="simple">
+<li><p>d02 (12 km)</p></li>
+<li><p>d03 (4 km)</p></li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Hourly Dataset <code>hourly_ds_&lt;domain&gt;</code></th>
+<th>Daily Dataset <code>daily_ds_&lt;domain&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time</strong>: Hourly UTC</td>
+<td><strong>Time</strong>: Noon Local for that Day</td>
+</tr>
+<tr>
+<td><strong>XLAT</strong>: Degrees Latitude</td>
+<td><strong>XLAT</strong>: Degrees Latitude</td>
+</tr>
+<tr>
+<td><strong>XLON</strong>: Degrees Longitude</td>
+<td><strong>XLON</strong>: Degrees Longitude</td>
+</tr>
+<tr>
+<td><strong>F</strong>: Fine Fuel Moisture Code</td>
+<td><strong>P</strong>: Duff Moisture Code</td>
+</tr>
+<tr>
+<td><strong>m_o</strong>: Fine Fuel Moisture Content</td>
+<td><strong>D</strong>: Drought Moisture Code</td>
+</tr>
+<tr>
+<td><strong>R</strong>: Initial Spread Index</td>
+<td><strong>U</strong>: Build Up Index</td>
+</tr>
+<tr>
+<td><strong>S</strong>: Fire Weather Index</td>
+<td>Bu<strong>T</strong>: 2 meter Temperature C</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>DSR</strong>: Daily Severity Rating</td>
+<td><strong>TD</strong>: 2 meter Dew Point Temperature C</td>
+</tr>
+<tr>
+<td><strong>T</strong>: 2 meter Temperature C</td>
+<td><strong>H</strong>: 2 meter Relative Humdity %</td>
+</tr>
+<tr>
+<td><strong>TD</strong>: 2 meter Dew Point Temperature C</td>
+<td><strong>W</strong>: 10 meter Wind Speed km/h</td>
+</tr>
+<tr>
+<td><strong>H</strong>: 2 meter Relative Humdity %</td>
+<td><strong>WD</strong>: 10 meter Wind Direction deg</td>
+</tr>
+<tr>
+<td><strong>W</strong>: 10 meter Wind Speed km/h</td>
+<td><strong>r_o</strong>: Total Accumulated Precipitation mm</td>
+</tr>
+<tr>
+<td><strong>WD</strong>: 10 meter Wind Direction deg</td>
+<td><strong>r_o_tomorrow</strong>: Carry Over Precipitation mm</td>
+</tr>
+<tr>
+<td><strong>U10</strong>: 10 meter U Component of Wind m/s</td>
+<td><strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
+</tr>
+<tr>
+<td><strong>V10</strong>: 10 meter V Component of Wind m/s</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>r_o</strong>: Total Accumulated Precipitation mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>r_o</strong>: Houlry Accumulated Precipitation mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNW</strong>: Total Accumulated Snow cm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNOWH</strong>: Physical Snow Depth m</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="model-domains">
+<h2>Model Domains<a class="headerlink" href="#model-domains" title="Permalink to this headline">¶</a></h2>
+<p>The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
+<img alt="original image" src="https://cdn.mathpix.com/snip/images/S8MbCC7tE3d9-BN7CP1V6Atf7LAFMEvMm6vjNYoItc8.original.fullsize.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="web.html" class="btn btn-neutral float-right" title="Website" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Fire Weather Forecast Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Christopher Rodell
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
