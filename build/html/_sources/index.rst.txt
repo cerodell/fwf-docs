@@ -13,8 +13,6 @@ Overview:
    All the FWF products and associated meteorology are available on an interactive webpage with zoomable map, popup point forecast functionality, and active model comparison to observed meteorology/FWI values.  The webpage and model were actively developed with input from Northwest Territories Government’s wildfire specialists and British Columbia Wildfire Service forecasters with the goal of providing new high spatial and temporal resolution FWI inputs for their operational wildfire models and daily incident command briefings. 
 
 
-   all moisture codes/indices once daily at noon local.
-
 | For the current FWF forecast check out:
 | https://firesmoke.ca/forecasts/fireweather/current/
 |
