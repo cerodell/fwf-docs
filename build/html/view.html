@@ -86,9 +86,9 @@
               <p class="caption"><span class="caption-text">Model:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#working-with">Working with</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#working-with">Working with</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datasets-and-variables">Datasets and Variables</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#model-domains">Model Domains</a></li>
@@ -167,9 +167,8 @@
 <hr class="docutils" />
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="working-with">
-<h2>Working with<a class="headerlink" href="#working-with" title="Permalink to this headline">¶</a></h2>
+<h3>Working with<a class="headerlink" href="#working-with" title="Permalink to this headline">¶</a></h3>
 <p>Suggest using <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> to open and work with data.</p>
 <p>Code block shows an example of how to open and view</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -202,8 +201,9 @@
     <span class="n">stagger</span><span class="p">:</span> 
 </pre></div>
 </div>
-<div class="section" id="structure">
-<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="datasets-and-variables">
+<h3>Datasets and Variables<a class="headerlink" href="#datasets-and-variables" title="Permalink to this headline">¶</a></h3>
 <p>domain:</p>
 <ul class="simple">
 <li><p>d02 (12 km)</p></li>
@@ -212,8 +212,8 @@
 <table border="1" class="docutils">
 <thead>
 <tr>
-<th>Hourly Dataset <code>hourly_ds_&lt;domain&gt;</code></th>
-<th>Daily Dataset <code>daily_ds_&lt;domain&gt;</code></th>
+<th>Hourly Dataset <br> <code>fwf-hourly-&lt;domain&gt;-YYYYMMDDHH.zarr</code></th>
+<th>Daily Dataset <br> <code>fwf-daily-&lt;domain&gt;--YYYYMMDDHH.zarr</code></th>
 </tr>
 </thead>
 <tbody>
@@ -246,10 +246,6 @@
 <td>Bu<strong>T</strong>: 2 meter Temperature C</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><strong>DSR</strong>: Daily Severity Rating</td>
 <td><strong>TD</strong>: 2 meter Dew Point Temperature C</td>
 </tr>
@@ -274,11 +270,11 @@
 <td><strong>r_o_tomorrow</strong>: Carry Over Precipitation mm</td>
 </tr>
 <tr>
-<td><strong>U10</strong>: 10 meter U Component of Wind m/s</td>
+<td><strong>U10</strong>:  U Component of Wind at 10 meter m/s</td>
 <td><strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
 </tr>
 <tr>
-<td><strong>V10</strong>: 10 meter V Component of Wind m/s</td>
+<td><strong>V10</strong>: V Component of Wind at 10 meter m/s</td>
 <td></td>
 </tr>
 <tr>
@@ -286,7 +282,7 @@
 <td></td>
 </tr>
 <tr>
-<td><strong>r_o</strong>: Houlry Accumulated Precipitation mm</td>
+<td><strong>r_o_hourly</strong>: Hourly Accumulated Precipitation mm</td>
 <td></td>
 </tr>
 <tr>

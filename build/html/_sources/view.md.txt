@@ -3,7 +3,7 @@
 ---
 ## Data
 
-## Working with
+### Working with
 
 Suggest using [xarray](http://xarray.pydata.org/en/stable/) to open and work with data.
 
@@ -40,13 +40,13 @@ Attributes:
     stagger: 
 ```
 
-### Structure
+### Datasets and Variables
 domain:
 - d02 (12 km) 
 - d03 (4 km)
 
 
-| Hourly Dataset `hourly_ds_<domain>`  | Daily Dataset `daily_ds_<domain>`  | 
+| Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
  --------------------------- | ------------------------- |
 |**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
 |**XLAT**: Degrees Latitude  |**XLAT**: Degrees Latitude|
@@ -54,18 +54,17 @@ domain:
 |**F**: Fine Fuel Moisture Code  |**P**: Duff Moisture Code  |
 |**m_o**: Fine Fuel Moisture Content  |**D**: Drought Moisture Code  |
 |**R**: Initial Spread Index   |**U**: Build Up Index   |
-|**S**: Fire Weather Index| Bu**T**: 2 meter Temperature C 
-|
+|**S**: Fire Weather Index| Bu**T**: 2 meter Temperature C |
 |**DSR**: Daily Severity Rating  | **TD**: 2 meter Dew Point Temperature C |
 |**T**: 2 meter Temperature C  | **H**: 2 meter Relative Humdity %  |
-|**TD**: 2 meter Dew Point Temperature C  | **W**: 10 meter Wind Speed km/h  |
+|**TD**: 2 meter Dew Point Temperature C  | **W**: 10 meter Wind Speed km/h |
 |**H**: 2 meter Relative Humdity % | **WD**: 10 meter Wind Direction deg  |
 |**W**: 10 meter Wind Speed km/h  | **r_o**: Total Accumulated Precipitation mm  |
 |**WD**: 10 meter Wind Direction deg  | **r_o_tomorrow**: Carry Over Precipitation mm  |
-|**U10**: 10 meter U Component of Wind m/s  |**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m   |
-|**V10**: 10 meter V Component of Wind m/s  |   |
+|**U10**:  U Component of Wind at 10 meter m/s  |**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m   |
+|**V10**: V Component of Wind at 10 meter m/s  |   |
 |**r_o**: Total Accumulated Precipitation mm  |   |
-|**r_o**: Houlry Accumulated Precipitation mm  |  |
+|**r_o_hourly**: Hourly Accumulated Precipitation mm  |  |
 |**SNW**: Total Accumulated Snow cm  |   |
 |**SNOWH**: Physical Snow Depth m  |   |
 |**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |
