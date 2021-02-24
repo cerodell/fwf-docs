@@ -77,7 +77,7 @@ File Size:
 |**F**: Fine Fuel Moisture Code  |**P**: Duff Moisture Code  |
 |**m_o**: Fine Fuel Moisture Content  |**D**: Drought Moisture Code  |
 |**R**: Initial Spread Index   |**U**: Build Up Index   |
-|**S**: Fire Weather Index| Bu**T**: 2 meter Temperature C |
+|**S**: Fire Weather Index|**T**: 2 meter Temperature C |
 |**DSR**: Daily Severity Rating  | **TD**: 2 meter Dew Point Temperature C |
 |**T**: 2 meter Temperature C  | **H**: 2 meter Relative Humdity %  |
 |**TD**: 2 meter Dew Point Temperature C  | **W**: 10 meter Wind Speed km/h |
