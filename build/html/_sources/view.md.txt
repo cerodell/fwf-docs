@@ -46,17 +46,18 @@ Attributes:
 ```
 
 ### Datasets
-Each day there are two `.zarr` files generated for each domain.
+Each day there are four `.zarr` files generated, two for each domain.
 
-Domain: d02 (12 km) 
+**Domain: d02 (12 km)**
 -  `fwf-hourly-d02-YYYYMMDDHH.zarr`
     - File Size: ~ 635M
     - File Dimensions: (time: 55, south_north: 417, west_east: 627)
 -  `fwf-daily-d02-YYYYMMDDHH.zarr`
     - File Size: ~ 16M
     - File Dimensions: (time: 2, south_north: 417, west_east: 627)
-Domain: d03 (4 km) 
 
+
+**Domain: d03 (4 km)**
 -  `fwf-hourly-d03-YYYYMMDDHH.zarr`
     - File Size:  ~ 1.3G
     - File Dimensions: (time: 55, south_north: 840, west_east: 642)
