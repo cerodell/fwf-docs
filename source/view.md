@@ -68,6 +68,7 @@ File Size:
 
 
 ### Dataset Variables
+
 | Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
  --------------------------- | ------------------------- |
 |**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
