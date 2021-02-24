@@ -1,5 +1,10 @@
 # Quick overview
 
+## Model Domains
+
+The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
+![original image](https://cdn.mathpix.com/snip/images/S8MbCC7tE3d9-BN7CP1V6Atf7LAFMEvMm6vjNYoItc8.original.fullsize.png)
+
 ---
 ## Data
 
@@ -40,12 +45,28 @@ Attributes:
     stagger: 
 ```
 
-### Datasets and Variables
-domain:
-- d02 (12 km) 
-- d03 (4 km)
+### Datasets
+Each day there are two `.zarr` files generated for each domain.
+
+Domain: d02 (12 km) 
+-  `fwf-hourly-d02-YYYYMMDDHH.zarr`
+    - File Size: ~ 635M
+    - File Dimensions: (time: 55, south_north: 417, west_east: 627)
+-  `fwf-daily-d02-YYYYMMDDHH.zarr`
+    - File Size: ~ 16M
+    - File Dimensions: (time: 2, south_north: 417, west_east: 627)
+Domain: d03 (4 km) 
+
+-  `fwf-hourly-d03-YYYYMMDDHH.zarr`
+    - File Size:  ~ 1.3G
+    - File Dimensions: (time: 55, south_north: 840, west_east: 642)
+-  `fwf-daily-d03-YYYYMMDDHH.zarr`
+    - File Size: ~ 30M
+    - File Dimensions: (time: 2, south_north: 840, west_east: 642)
+File Size:
 
 
+### Dataset Variables
 | Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
  --------------------------- | ------------------------- |
 |**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
@@ -74,8 +95,4 @@ domain:
 <br/>
 
 
----
-## Model Domains
 
-The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
-![original image](https://cdn.mathpix.com/snip/images/S8MbCC7tE3d9-BN7CP1V6Atf7LAFMEvMm6vjNYoItc8.original.fullsize.png)

@@ -1,6 +1,5 @@
 # Quick overview
 
----
 ## Model Domains
 
 The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
