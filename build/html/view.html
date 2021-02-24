@@ -245,29 +245,96 @@ File Size:</p></li>
 </div>
 <div class="section" id="dataset-variables">
 <h3>Dataset Variables<a class="headerlink" href="#dataset-variables" title="Permalink to this headline">¶</a></h3>
-<p>| Hourly Dataset <br> <code class="docutils literal notranslate"><span class="pre">fwf-hourly-&lt;domain&gt;-YYYYMMDDHH.zarr</span></code>  | Daily Dataset <br> <code class="docutils literal notranslate"><span class="pre">fwf-daily-&lt;domain&gt;--YYYYMMDDHH.zarr</span></code>  |
-————————— | ————————- |
-|<strong>Time</strong>: Hourly UTC  |<strong>Time</strong>: Noon Local for that Day |
-|<strong>XLAT</strong>: Degrees Latitude  |<strong>XLAT</strong>: Degrees Latitude|
-|<strong>XLON</strong>: Degrees Longitude  |<strong>XLON</strong>: Degrees Longitude|
-|<strong>F</strong>: Fine Fuel Moisture Code  |<strong>P</strong>: Duff Moisture Code  |
-|<strong>m_o</strong>: Fine Fuel Moisture Content  |<strong>D</strong>: Drought Moisture Code  |
-|<strong>R</strong>: Initial Spread Index   |<strong>U</strong>: Build Up Index   |
-|<strong>S</strong>: Fire Weather Index| Bu<strong>T</strong>: 2 meter Temperature C |
-|<strong>DSR</strong>: Daily Severity Rating  | <strong>TD</strong>: 2 meter Dew Point Temperature C |
-|<strong>T</strong>: 2 meter Temperature C  | <strong>H</strong>: 2 meter Relative Humdity %  |
-|<strong>TD</strong>: 2 meter Dew Point Temperature C  | <strong>W</strong>: 10 meter Wind Speed km/h |
-|<strong>H</strong>: 2 meter Relative Humdity % | <strong>WD</strong>: 10 meter Wind Direction deg  |
-|<strong>W</strong>: 10 meter Wind Speed km/h  | <strong>r_o</strong>: Total Accumulated Precipitation mm  |
-|<strong>WD</strong>: 10 meter Wind Direction deg  | <strong>r_o_tomorrow</strong>: Carry Over Precipitation mm  |
-|<strong>U10</strong>:  U Component of Wind at 10 meter m/s  |<strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m   |
-|<strong>V10</strong>: V Component of Wind at 10 meter m/s  |   |
-|<strong>r_o</strong>: Total Accumulated Precipitation mm  |   |
-|<strong>r_o_hourly</strong>: Hourly Accumulated Precipitation mm  |  |
-|<strong>SNW</strong>: Total Accumulated Snow cm  |   |
-|<strong>SNOWH</strong>: Physical Snow Depth m  |   |
-|<strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |</p>
-<br/>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Hourly Dataset <br> <code>fwf-hourly-&lt;domain&gt;-YYYYMMDDHH.zarr</code></th>
+<th>Daily Dataset <br> <code>fwf-daily-&lt;domain&gt;--YYYYMMDDHH.zarr</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time</strong>: Hourly UTC</td>
+<td><strong>Time</strong>: Noon Local for that Day</td>
+</tr>
+<tr>
+<td><strong>XLAT</strong>: Degrees Latitude</td>
+<td><strong>XLAT</strong>: Degrees Latitude</td>
+</tr>
+<tr>
+<td><strong>XLON</strong>: Degrees Longitude</td>
+<td><strong>XLON</strong>: Degrees Longitude</td>
+</tr>
+<tr>
+<td><strong>F</strong>: Fine Fuel Moisture Code</td>
+<td><strong>P</strong>: Duff Moisture Code</td>
+</tr>
+<tr>
+<td><strong>m_o</strong>: Fine Fuel Moisture Content</td>
+<td><strong>D</strong>: Drought Moisture Code</td>
+</tr>
+<tr>
+<td><strong>R</strong>: Initial Spread Index</td>
+<td><strong>U</strong>: Build Up Index</td>
+</tr>
+<tr>
+<td><strong>S</strong>: Fire Weather Index</td>
+<td>Bu<strong>T</strong>: 2 meter Temperature C</td>
+</tr>
+<tr>
+<td><strong>DSR</strong>: Daily Severity Rating</td>
+<td><strong>TD</strong>: 2 meter Dew Point Temperature C</td>
+</tr>
+<tr>
+<td><strong>T</strong>: 2 meter Temperature C</td>
+<td><strong>H</strong>: 2 meter Relative Humdity %</td>
+</tr>
+<tr>
+<td><strong>TD</strong>: 2 meter Dew Point Temperature C</td>
+<td><strong>W</strong>: 10 meter Wind Speed km/h</td>
+</tr>
+<tr>
+<td><strong>H</strong>: 2 meter Relative Humdity %</td>
+<td><strong>WD</strong>: 10 meter Wind Direction deg</td>
+</tr>
+<tr>
+<td><strong>W</strong>: 10 meter Wind Speed km/h</td>
+<td><strong>r_o</strong>: Total Accumulated Precipitation mm</td>
+</tr>
+<tr>
+<td><strong>WD</strong>: 10 meter Wind Direction deg</td>
+<td><strong>r_o_tomorrow</strong>: Carry Over Precipitation mm</td>
+</tr>
+<tr>
+<td><strong>U10</strong>:  U Component of Wind at 10 meter m/s</td>
+<td><strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
+</tr>
+<tr>
+<td><strong>V10</strong>: V Component of Wind at 10 meter m/s</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>r_o</strong>: Total Accumulated Precipitation mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>r_o_hourly</strong>: Hourly Accumulated Precipitation mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNW</strong>: Total Accumulated Snow cm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNOWH</strong>: Physical Snow Depth m</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
 <br/></div>
 </div>
 </div>
