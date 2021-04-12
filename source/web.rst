@@ -9,12 +9,14 @@ User Guide
 
 Meteogram forecasts of:
     - (A) FWI values
-    - (B) associated meteorology
-    - (C) station-located two-week comparison of observed vs. forecasted FWI values
-    - (D) associated meteorology. Solid lines represent forecasts and dashed lines represent observed values. 
+    - (B) Associated meteorology
+    - (C) Station-located two-week comparison of observed vs. forecasted FWI values
+    - (D) Associated meteorology. Solid lines represent forecasts and dashed lines represent observed values. 
     
-    - A and B can be activated by a double-click on a Desktop computer and single-click on mobile. 
-    - C and D can be activated by selecting the “weather station” layer in the main drop-down menu and clicking on a weather station of interest.
+
+- A and B can be activated by a double-click on a Desktop computer and single-click on mobile. 
+
+- C and D can be activated by selecting the “weather station” layer in the main drop-down menu and clicking on a weather station of interest.
 
 
 Visualization Steps
