@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Working with Dataset &mdash; Fire Weather Forecast Model 0.0.1 documentation</title>
+  <title>Datasets &mdash; Fire Weather Forecast Model 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Structure" href="ms.html" />
-    <link rel="prev" title="Website" href="web.html" /> 
+    <link rel="next" title="Website" href="web.html" />
+    <link rel="prev" title="General" href="view.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,16 +85,17 @@
               <p class="caption"><span class="caption-text">Model:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="view.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="web.html">Website</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Dataset</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#model-domains">Model Domains</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dataset-variables">Dataset Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#working-with">Working with</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-license">Data License</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Website</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ms.html">Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
@@ -143,7 +144,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Working with Dataset</li>
+      <li>Datasets</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -162,15 +163,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="working-with-dataset">
-<h1>Working with Dataset<a class="headerlink" href="#working-with-dataset" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="datasets">
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
+<p>The Datasets are divided up by their model domain</p>
 <div class="section" id="model-domains">
 <h2>Model Domains<a class="headerlink" href="#model-domains" title="Permalink to this headline">¶</a></h2>
-<p>The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.</p>
+<p>The FWF model resolves the FWI System/ FBP System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.</p>
 <p><img alt="title" src="_images/fwf-model-domains.png" /></p>
 <div class="section" id="description">
 <h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
-<p>Each day there are four <code class="docutils literal notranslate"><span class="pre">.zarr</span></code> files generated, two for each domain.</p>
+<p>Each domain there are two <code class="docutils literal notranslate"><span class="pre">.zarr</span></code> files generated, four total datasets each day.</p>
 <p><strong>Domain: d02 (12 km)</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fwf-hourly-d02-YYYYMMDDHH.zarr</span></code></p>
@@ -204,6 +206,7 @@
 </div>
 <div class="section" id="dataset-variables">
 <h3>Dataset Variables<a class="headerlink" href="#dataset-variables" title="Permalink to this headline">¶</a></h3>
+<p>Regardless of Domain, each dataset hourly/daily contain the following variables.</p>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -313,7 +316,7 @@
 <td></td>
 </tr>
 <tr>
-<td><strong>SNOWC</strong>: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
+<td><strong>SNOWC</strong>: Flag Indicating Snow <br> Cover (1 for Snow Cover) Snow Depth m</td>
 <td></td>
 </tr>
 </tbody>
@@ -354,6 +357,10 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="data-license">
+<h3>Data License<a class="headerlink" href="#data-license" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License.</a></p>
+</div>
 </div>
 </div>
 
@@ -365,10 +372,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ms.html" class="btn btn-neutral float-right" title="Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="web.html" class="btn btn-neutral float-right" title="Website" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="web.html" class="btn btn-neutral float-left" title="Website" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="view.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

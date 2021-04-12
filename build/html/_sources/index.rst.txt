@@ -30,8 +30,8 @@ Documentation
    :caption: Model:
 
    view
-   web
    work
+   web
    ms
    api
    

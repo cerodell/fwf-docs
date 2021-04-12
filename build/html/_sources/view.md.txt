@@ -1,6 +1,6 @@
 # General
 
-### Creator(s)
+### Creators
 - Rodell, Christopher
 - Moisseeva, Nadya
 - Howard, Rosie
@@ -13,14 +13,16 @@
 - NRCan Canadian Wildland Fire Information System
 - National Center for Atmospheric Research
 - University Corporation for Atmospheric Research
+
+### Components
 - Weather Research and Forecasting Model
 
-### Subject(s)
+### Subjects
 - wildfire science
 - atmospheric science
 - numerical weather prediction
 
-### Keyword(s)
+### Keywords
 - fire weather forecasts
 - fire behavior forecasts
 - atmospheric science
@@ -53,7 +55,7 @@
 8. Vitolo, C., Di Giuseppe, F., Krzeminski, B. et al. A 1980–2018 global fire danger re-analysis dataset for the Canadian Fire Weather Indices. Sci Data 6, 190032 (2019). [https://doi.org/10.1038/sdata.2019.32](https://doi.org/10.1038/sdata.2019.32)
 
 
-### License
+### Data License
 [Creative Commons Attribution 4.0 International License.](https://creativecommons.org/licenses/by/4.0/)
 
 

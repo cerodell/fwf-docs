@@ -1,13 +1,15 @@
-# Working with Dataset
+# Datasets
+
+The Datasets are divided up by their model domain
 
 ## Model Domains
 
-The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
+The FWF model resolves the FWI System/ FBP System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
 
 ![title](_static/images/fwf-model-domains.png)
 
 ### Description
-Each day there are four `.zarr` files generated, two for each domain.
+Each domain there are two `.zarr` files generated, four total datasets each day.
 
 **Domain: d02 (12 km)**
 -  `fwf-hourly-d02-YYYYMMDDHH.zarr`
@@ -28,6 +30,8 @@ Each day there are four `.zarr` files generated, two for each domain.
 
 
 ### Dataset Variables
+
+Regardless of Domain, each dataset hourly/daily contain the following variables.
 
 | Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
 | --------------------------- | ------------------------- |
@@ -56,7 +60,7 @@ Each day there are four `.zarr` files generated, two for each domain.
 |**r_o_hourly**: Hourly Accumulated Precipitation mm  |  |
 |**SNW**: Total Accumulated Snow cm  |   |
 |**SNOWH**: Physical Snow Depth m  |   |
-|**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |
+|**SNOWC**: Flag Indicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |
 
 
 <br/>
@@ -100,5 +104,7 @@ Attributes:
     stagger: 
 ```
 
+### Data License
+[Creative Commons Attribution 4.0 International License.](https://creativecommons.org/licenses/by/4.0/)
 
 
