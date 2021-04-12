@@ -16,7 +16,8 @@ Overview:
 | For the current FWF forecast check out:
 | https://firesmoke.ca/forecasts/fireweather/current/
 |
-
+| For information on the NPW model checkout:
+| http://weather.eos.ubc.ca/wxfcst/html-etc/model-metadata/wan00cg-01.html
 
 .. image:: _static/images/fwf-ex-2.png    
    :width: 600
