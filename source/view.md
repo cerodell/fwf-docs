@@ -1,7 +1,4 @@
-# Overview
-
----
-## General
+# General
 
 ### Creator(s)
 - Rodell, Christopher
@@ -9,7 +6,7 @@
 - Howard, Rosie
 - Chui, Tim
 - Schigas, Roland
-- Stull, R. 
+- Stull, Roland
 
 ### Contributors
 - University of British Columbia 
@@ -18,22 +15,17 @@
 - University Corporation for Atmospheric Research
 - Weather Research and Forecasting Model
 
-### Subject
+### Subject(s)
 - wildfire science
 - atmospheric science
 - numerical weather prediction
 
-### Language
-- binary
-- English
-
-### Keyword
+### Keyword(s)
 - fire weather forecasts
 - fire behavior forecasts
 - atmospheric science
 - numerical weather prediction
 - zarr
-
 
 ### Date Created
 - May 24, 2019 to present
@@ -44,131 +36,24 @@
 
 ### References
 
-1. Di Giuseppe, F., Pappenberger, F., Wetterhall, F., Krzeminski, B., Camia, A., Libertá, G., & San Miguel, J. (2016). The Potential Predictability of Fire Danger Provided by Numerical Weather Prediction, Journal of Applied Meteorology and Climatology, 55(11), 2469-2491. Retrieved Apr 12, 2021, from https://journals.ametsoc.org/view/journals/apme/55/11/jamc-d-15-0297.1.xml
+1. Di Giuseppe, F., Pappenberger, F., Wetterhall, F., Krzeminski, B., Camia, A., Libertá, G., & San Miguel, J. (2016). The Potential Predictability of Fire Danger Provided by Numerical Weather Prediction, Journal of Applied Meteorology and Climatology, 55(11), 2469-2491. Retrieved Apr 12, 2021, from (https://journals.ametsoc.org/view/journals/apme/55/11/jamc-d-15-0297.1.xml)
 
-2. Forestry Canada Fire Danger Group, 1992: Development and structure of the Canadian Forest Fire Behavior Prediction System. For vol. ST-X-3, Ot. URL: https://cfs.nrcan.gc.ca/publications?id=10068
+2. Forestry Canada Fire Danger Group, 1992: Development and structure of the Canadian Forest Fire Behavior Prediction System. For vol. ST-X-3, Ot. URL: (https://cfs.nrcan.gc.ca/publications?id=10068)
 
-3. Lawson, B.D. and O.B. Armitage. 2008. Weather guide for the Canadian Forest Fire Danger Rating System. Nat. Resour. Can., Can. For. Serv., North. For. Cent., Edmonton, AB. http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/29152.pdf
+3. Lawson, B.D. and O.B. Armitage. 2008. Weather guide for the Canadian Forest Fire Danger Rating System. Nat. Resour. Can., Can. For. Serv., North. For. Cent., Edmonton, AB. (http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/29152.pdf)
 
-4. Natural Resources Canada, 2020: Canadian Wildfire Information System Datamart. URL: https://cwfis.cfs.nrcan.gc.ca/downloads/fwi_obs
+4. Natural Resources Canada, 2020: Canadian Wildfire Information System Datamart. URL: (https://cwfis.cfs.nrcan.gc.ca/downloads/fwi_obs)
 
-5. Van Wagner, C.E. A method of computing fine fuel moisture content throughout the diurnal cycle. 1977., Environment Canada, Canadian Forestry Service, Petawawa Forest Experiment Station, Chalk River, Ontario. Information Report PS-X-69. https://cfs.nrcan.gc.ca/publications/download-pdf/25591
+5. Van Wagner, C.E. A method of computing fine fuel moisture content throughout the diurnal cycle. 1977., Environment Canada, Canadian Forestry Service, Petawawa Forest Experiment Station, Chalk River, Ontario. Information Report PS-X-69. (https://cfs.nrcan.gc.ca/publications/download-pdf/25591)
 
-6. Van Wagner, C.E. and T.L. Pickett. 1985. Equations and FORTRAN program for the Canadian Forest Fire Weather Index System. Can. For. Serv., Ottawa, Ont. For. Tech. Rep. 33. 18 p. http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/19973.pdf
+6. Van Wagner, C.E. and T.L. Pickett. 1985. Equations and FORTRAN program for the Canadian Forest Fire Weather Index System. Can. For. Serv., Ottawa, Ont. For. Tech. Rep. 33. 18 p. (http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/19973.pdf)
 
-7. Van Wagner, C.E. 1987. Development and structure of the Canadian forest fire weather index system. Forest Technology Report 35. (Canadian Forestry Service: Ottawa). http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/19927.pdf
+7. Van Wagner, C.E. 1987. Development and structure of the Canadian forest fire weather index system. Forest Technology Report 35. (Canadian Forestry Service: Ottawa). (http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/19927.pdf)
 
-8. Vitolo, C., Di Giuseppe, F., Krzeminski, B. et al. A 1980–2018 global fire danger re-analysis dataset for the Canadian Fire Weather Indices. Sci Data 6, 190032 (2019). https://doi.org/10.1038/sdata.2019.32
-
-
+8. Vitolo, C., Di Giuseppe, F., Krzeminski, B. et al. A 1980–2018 global fire danger re-analysis dataset for the Canadian Fire Weather Indices. Sci Data 6, 190032 (2019). (https://doi.org/10.1038/sdata.2019.32)
 
 
 ### License
 [Creative Commons Attribution 4.0 International License.](https://creativecommons.org/licenses/by/4.0/)
-
----
-# Working with Dataset
-
-## Model Domains
-
-The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
-
-![title](_static/images/fwf-model-domains.png)
-
-### Description
-Each day there are four `.zarr` files generated, two for each domain.
-
-**Domain: d02 (12 km)**
--  `fwf-hourly-d02-YYYYMMDDHH.zarr`
-    - File Size: ~ 780M
-    - File Dimensions: (time: 55, south_north: 417, west_east: 627)
--  `fwf-daily-d02-YYYYMMDDHH.zarr`
-    - File Size: ~ 16M
-    - File Dimensions: (time: 2, south_north: 417, west_east: 627)
-
-
-**Domain: d03 (4 km)**
--  `fwf-hourly-d03-YYYYMMDDHH.zarr`
-    - File Size:  ~ 1.7G
-    - File Dimensions: (time: 55, south_north: 840, west_east: 642)
--  `fwf-daily-d03-YYYYMMDDHH.zarr`
-    - File Size: ~ 30M
-    - File Dimensions: (time: 2, south_north: 840, west_east: 642)
-
-
-### Dataset Variables
-
-| Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
-| --------------------------- | ------------------------- |
-|**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
-|**XLAT**: Degrees Latitude  |**XLAT**: Degrees Latitude|
-|**XLON**: Degrees Longitude  |**XLON**: Degrees Longitude|
-|**F**: Fine Fuel Moisture Code  |**P**: Duff Moisture Code  |
-|**m_o**: Fine Fuel Moisture Content  |**D**: Drought Moisture Code  |
-|**R**: Initial Spread Index   |**U**: Build Up Index   |
-|**S**: Fire Weather Index|**T**: 2 meter Temperature C |
-|**DSR**: Daily Severity Rating  | **TD**: 2 meter Dew Point Temperature C |
-|**FMC**: Foliar Moisture Content %  | **H**: 2 meter Relative Humdity %  |
-|**SFC**: Surface Fuel Consumption kg m^{-2}  | **W**: 10 meter Wind Speed km/h |
-|**TFC**: Total Fuel Consumption kg m^{-2} | **WD**: 10 meter Wind Direction deg  |
-|**ROS**: Rate of Spread m min^{-1}  | **r_o**: Total Accumulated Precipitation mm  |
-|**CFB**: Crown Fraction Burned % | **r_o_tomorrow**: Carry Over Precipitation mm  |
-|**HFI**: Head Fire Intensity  kW m^{-1} |**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m   |
-|**T**: 2 meter Temperature C  |   |
-|**TD**: 2 meter Dew Point Temperature C  | |
-|**H**: 2 meter Relative Humdity % |  |
-|**W**: 10 meter Wind Speed km/h  |  |
-|**WD**: 10 meter Wind Direction deg  |   |
-|**U10**:  U Component of Wind at 10 meter m/s  | |
-|**V10**: V Component of Wind at 10 meter m/s  |   |
-|**r_o**: Total Accumulated Precipitation mm  |   |
-|**r_o_hourly**: Hourly Accumulated Precipitation mm  |  |
-|**SNW**: Total Accumulated Snow cm  |   |
-|**SNOWH**: Physical Snow Depth m  |   |
-|**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |
-
-
-<br/>
-<br/>
-
-
-### Working with
-
-Suggest using [xarray](http://xarray.pydata.org/en/stable/) to open and work with data.
-
-Code block shows an example of how to open and view 
-
-```python
-import numpy as np
-import xarray as xr
-
-forecast_date = "YYYYMMDDHH"
-domain        = 'd02'        ## or 'd03'
-name 	      = 'daily'      ## or 'hourly'
-
-file_dir = str(/path/to/dir/) + f"/fwf-{name}-{domain}-{forecast_date}.zarr"
-ds       = xr.open_zarr(file_dir)
-
-## Example: look at variable P (Duff Moisture Code)
-print(ds.P)
-```
-```
-<xarray.DataArray 'P' (time: 2, south_north: 417, west_east: 627)>
-dask.array<xarray-P, shape=(2, 417, 627), dtype=float32, chunksize=(1, 209, 314), chunktype=numpy.ndarray>
-Coordinates:
-    Time     (time) datetime64[ns] dask.array<chunksize=(2,), meta=np.ndarray>
-    XLAT     (south_north, west_east) float32 dask.array<chunksize=(209, 314), meta=np.ndarray>
-    XLONG    (south_north, west_east) float32 dask.array<chunksize=(209, 314), meta=np.ndarray>
-    XTIME    (time) float32 dask.array<chunksize=(2,), meta=np.ndarray>
-Dimensions without coordinates: time, south_north, west_east
-Attributes:
-    FieldType:    104
-    MemoryOrder:  XY 
-    description:  DUFF MOISTURE CODE
-    projection:   PolarStereographic(stand_lon=-110.0, moad_cen_lat=53.25, tr...
-    stagger: 
-```
-
-
 
 
