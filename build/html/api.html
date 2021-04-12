@@ -30,7 +30,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -84,7 +83,8 @@
             
               <p class="caption"><span class="caption-text">Model:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="view.html">Quick overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="view.html#working-with-dataset">Working with Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Website</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ms.html">Structure</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
@@ -165,8 +165,8 @@
 <p>Class to solve the Fire Weather Indices using output from a numerical weather model</p>
 <dl class="py class">
 <dt id="utils.fwf.FWF">
-<em class="property">class </em><code class="sig-prename descclassname">utils.fwf.</code><code class="sig-name descname">FWF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wrf_file_dir</span></em>, <em class="sig-param"><span class="n">domain</span></em>, <em class="sig-param"><span class="n">initialize</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to solve the Fire Weather Indices using output from a numerical weather model</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.fwf.</span></code><code class="sig-name descname"><span class="pre">FWF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrf_file_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrf_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fbp_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to solve the Fire Weather Index System and the Fire Behavior Predictions System using output from a numerical weather model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -174,105 +174,48 @@
 <li><p>File directory to (zarr) file of WRF met variables to calculate FWI</p></li>
 </ul>
 </p></li>
-<li><p><strong>hourly_file_dir</strong> (<em>str</em>) – <ul>
-<li><p>File directory to (zarr) file of yestersdays hourly FWI codes</p></li>
-<li><p>Needed for carry over to intilaze the model</p></li>
+<li><p><strong>domain</strong> (<em>str</em>) – <ul>
+<li><p>the wrf domain tag, examples d03 or d02</p></li>
 </ul>
 </p></li>
-<li><p><strong>daily_file_dir</strong> (<em>str</em>) – <ul>
-<li><p>File directory to (zarr) file of yestersdays daily FWI codes</p></li>
-<li><p>Needed for carry over to intilaze the model</p></li>
+<li><p><strong>wrf_model</strong> (<em>str</em>) – <ul>
+<li><p>the wrf version, this will be removed i n future version assuming WRFv4 is being used</p></li>
+</ul>
+</p></li>
+<li><p><strong>fbp_mode</strong> (<em>boolean</em>) – <ul>
+<li><p>True, FBP will be resolved with FWI and both returned</p></li>
+<li><p>False, Only FWI will be resolved and returned</p></li>
+</ul>
+</p></li>
+<li><p><strong>initialize</strong> (<em>boolean</em>) – <ul>
+<li><p>True, initializing FWI iterations with default start-up values</p></li>
+<li><p>False, will search and use yesterdays forecast to initialize the FWI iterations</p></li>
 </ul>
 </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>daily_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of daily FWI indeces/codes
-- Duff Moisture Code
-- Drought Code
-- Build Up Index</p></li>
-<li><p><strong>hourly_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of daily FWI indeces/codes
-- Fine Fuel Moisture Code
-- Initial Spread index
-- Fire Weather Index</p></li>
+<li><p><strong>daily_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of daily
+- FWI indices/codes
+- Associated Meterology</p></li>
+<li><p><strong>hourly_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of hourly
+- FWI indices/codes
+- Associated Meterology
+- FBP products (if fbp_mode is True)</p></li>
 </ul>
 </p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="utils.fwf.FWF.combine_by_time">
-<code class="sig-name descname">combine_by_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.combine_by_time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Combine datsets by time coordinate</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dict_list</strong> (<em>list</em>) – List of xarray datasets</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>combined_ds</strong> – Single xarray DataSet with a dimension time</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>DataSet</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="utils.fwf.FWF.create_daily_ds">
-<code class="sig-name descname">create_daily_ds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wrf_ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.create_daily_ds" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">create_daily_ds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrf_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.create_daily_ds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a dataset of forecast variables averaged from
 (1100-1300) local to act as the noon local conditions for daily index/codes
 calculations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>wrf_ds</strong> (<em>DataSet</em>) – <dl class="simple">
-<dt>WRF dataset at 4-km spatial resolution and one hour tempolar resolution</dt><dd><ul class="simple">
-<li><dl class="simple">
-<dt>tzdict:  dictionary</dt><dd><ul>
-<li><p>Dictionary of all times zones in North America and their respective offsets to UTC</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>zone_id: in</dt><dd><ul>
-<li><p>ID of model domain with hours off set from UTC</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>noon: int</dt><dd><ul>
-<li><p>1200 local index based on ID</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>plus: int</dt><dd><ul>
-<li><p>1300 local index based on ID</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>minus: int</dt><dd><ul>
-<li><p>1100 local index based on ID</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>tzone_ds: dataset</dt><dd><ul>
-<li><p>Gridded 2D array of zone_id</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</p>
+<dd class="field-odd"><p><strong>wrf_ds</strong> (<em>DataSet</em>) – WRF dataset at 4-km spatial resolution and one hour tempolar resolution</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>daily_ds</strong> – Dataset of daily variables at noon local averaged from (1100-1300)
@@ -286,7 +229,7 @@ local the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.daily">
-<code class="sig-name descname">daily</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.daily" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">daily</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.daily" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes daily_ds (.zarr) and adds the appropriate attributes to each variable</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -305,7 +248,7 @@ local the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.daily_loop">
-<code class="sig-name descname">daily_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.daily_loop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">daily_loop</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.daily_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loops through each daily time step and solves daily fwi(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -319,7 +262,7 @@ local the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.hourly">
-<code class="sig-name descname">hourly</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.hourly" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">hourly</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.hourly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes hourly_ds (.zarr) and adds the appropriate attributes to each variable</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -338,11 +281,11 @@ local the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.hourly_loop">
-<code class="sig-name descname">hourly_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.hourly_loop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">hourly_loop</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.hourly_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loops through each hourly time step and solves hourly fwi(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>daily_ds</strong> – A xarray DataSet with all the houlry FWI codes/indices solved</p>
+<dd class="field-odd"><p><strong>hourly_ds</strong> – A xarray DataSet with all the hourly FWI codes/indices solved</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>DataSet</p>
@@ -352,7 +295,7 @@ local the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_bui">
-<code class="sig-name descname">solve_bui</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">daily_ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_bui" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_bui</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">daily_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_bui" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Build up Index at noon local daily and outputs as an xarray</p>
 <p class="rubric">Notes</p>
 <p>The dataset of daily variables at noon local are averaged from (1100-1300) local
@@ -402,7 +345,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_dc">
-<code class="sig-name descname">solve_dc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">daily_ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_dc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_dc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">daily_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_dc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Drought Code at noon local daily and outputs as an xarray</p>
 <p class="rubric">Notes</p>
 <p>The dataset of daily variables at noon local are averaged from (1100-1300) local
@@ -483,7 +426,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_dmc">
-<code class="sig-name descname">solve_dmc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">daily_ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_dmc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_dmc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">daily_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_dmc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Duff Moisture Code at noon local daily and outputs as an xarray</p>
 <p class="rubric">Notes</p>
 <p>The dataset of daily variables at noon local are averaged from (1100-1300) local
@@ -609,8 +552,105 @@ the averageing was done as a buffer for any frontal passage.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="utils.fwf.FWF.solve_fbp">
+<code class="sig-name descname"><span class="pre">solve_fbp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hourly_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_fbp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solves the Fire Behavior Predictions System at hourly intervals</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>hourly_ds</strong> (<em>DataSet</em>) – <ul class="simple">
+<li><dl class="simple">
+<dt>Dataset of hourly forecast variables</dt><dd><ul>
+<li><dl class="simple">
+<dt>W: DataArray</dt><dd><ul>
+<li><p>Wind speed, km/hr</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>F: DataArray</dt><dd><ul>
+<li><p>Fine fuel moisture code</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>R: DataArray</dt><dd><ul>
+<li><p>Initial spread index</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>hourly_ds</strong> –</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Datarray of</dt><dd><ul>
+<li><dl class="simple">
+<dt>FMC: DataArray</dt><dd><ul>
+<li><p>Foliar Moisture Content, %</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>SFC: DataArray</dt><dd><ul>
+<li><p>Surface Fuel Consumption, kg m^{-2}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>TFC: DataArray</dt><dd><ul>
+<li><p>Total Fuel Consumption, kg m^{-2}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>CFB: DataArray</dt><dd><ul>
+<li><p>Crown Fraction Burned, %</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>ROS: DataArray</dt><dd><ul>
+<li><p>Rate of Spread, m min^{-1}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>HFI: DataArray</dt><dd><ul>
+<li><p>Head Fire Intensity, kW m^{-1}</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>DataSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="utils.fwf.FWF.solve_ffmc">
-<code class="sig-name descname">solve_ffmc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hourly_ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_ffmc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_ffmc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hourly_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_ffmc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Fine Fuel Moisture Code at a one-hour interval writes/outputs as an xarray</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -727,7 +767,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_fwi">
-<code class="sig-name descname">solve_fwi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_fwi" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_fwi</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_fwi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the hourly fire weather index and daily severity rating</p>
 <blockquote>
 <div><dl class="simple">
@@ -774,7 +814,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_isi">
-<code class="sig-name descname">solve_isi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hourly_ds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_isi" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_isi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hourly_ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fbp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_isi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the hourly initial spread index</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -829,29 +869,86 @@ the averageing was done as a buffer for any frontal passage.</p>
 <span id="read-wrf-netcdf"></span><h2>Read WRF NetCDF<a class="headerlink" href="#module-utils.read_wrfout" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="utils.read_wrfout.readwrf">
-<code class="sig-prename descclassname">utils.read_wrfout.</code><code class="sig-name descname">readwrf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filein</span></em>, <em class="sig-param"><span class="n">domain</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.read_wrfout.readwrf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">utils.read_wrfout.</span></code><code class="sig-name descname"><span class="pre">readwrf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filein</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wright</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.read_wrfout.readwrf" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function reads wrfout files and grabs required met variables for fire weather index calculations.  Writes/outputs as a xarray</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>wind speed (km h-1)</p></li>
-<li><p>temp (degC)</p></li>
-<li><p>rh (%)</p></li>
-<li><p>qpf (mm)</p></li>
-<li><p>snw (mm)</p></li>
-</ul>
-</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>str</em>) – <ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filein</strong> (<em>str</em>) – <ul>
 <li><p>File directory to NetCDF files</p></li>
 </ul>
-</p>
+</p></li>
+<li><p><strong>domain</strong> (<em>str</em>) – <ul>
+<li><p>Domain tag of wrf model</p></li>
+</ul>
+</p></li>
+<li><p><strong>*args</strong> (<em>list</em>) – <ul>
+<li><p>[Degrees Latitude, Degrees Longitude]</p></li>
+</ul>
+</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>ds_wrf</strong> – xarray DataSet</p>
+<dd class="field-even"><p><ul>
+<li><p><strong>ds_wrf</strong> (<em>DataSet</em>) –</p>
+<dl class="simple">
+<dt>xarray DataSet containing</dt><dd><dl class="simple">
+<dt>H: DataArray</dt><dd><ul class="simple">
+<li><p>2 meter Relative Humidity (%)</p></li>
+</ul>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>DataSet</p>
+<dt>T: DataArray</dt><dd><ul class="simple">
+<li><p>2 meter Temperature (C)</p></li>
+</ul>
+</dd>
+<dt>TD: DataArray</dt><dd><ul class="simple">
+<li><p>2 meter Dew Point Temperature (C)</p></li>
+</ul>
+</dd>
+<dt>W: DataArray</dt><dd><ul class="simple">
+<li><p>10 meter Wind Speed (km/h)</p></li>
+</ul>
+</dd>
+<dt>WD: DataArray</dt><dd><ul class="simple">
+<li><p>10 meter Wind Direction (deg)</p></li>
+</ul>
+</dd>
+<dt>r_o: DataArray</dt><dd><ul class="simple">
+<li><p>Total Accumulated Precipitation (mm)</p></li>
+</ul>
+</dd>
+<dt>SNW: DataArray</dt><dd><ul class="simple">
+<li><p>Total Accumulated Snowfall (cm)</p></li>
+</ul>
+</dd>
+<dt>SNOWC: DataArray</dt><dd><ul class="simple">
+<li><p>Flag Indincating Presentage of Snow Coverage in Grid (1 For Snow Cover 100% Snow Coverage)</p></li>
+</ul>
+</dd>
+<dt>SNOWH: DataArray</dt><dd><ul class="simple">
+<li><p>Physical Snow Depth (m)</p></li>
+</ul>
+</dd>
+<dt>U10: DataArray</dt><dd><ul class="simple">
+<li><p>10 meter U Compentent of Wind</p></li>
+</ul>
+</dd>
+<dt>V10: DataArray</dt><dd><ul class="simple">
+<li><p>10 meter V Compentent of Wind</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><p><strong>wright</strong> (<em>boolean</em>) –</p>
+<ul class="simple">
+<li><p>True: write wrfout to zarr</p></li>
+<li><p>True: do not write wrfout to zarr</p></li>
+</ul>
+</li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -861,7 +958,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 <span id="geoutils"></span><h2>Geoutils<a class="headerlink" href="#module-utils.geoutils" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="utils.geoutils.mask">
-<code class="sig-prename descclassname">utils.geoutils.</code><code class="sig-name descname">mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_unmasked</span></em>, <em class="sig-param"><span class="n">wrf_file_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.geoutils.mask" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">utils.geoutils.</span></code><code class="sig-name descname"><span class="pre">mask</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds_unmasked</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrf_file_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.geoutils.mask" title="Permalink to this definition">¶</a></dt>
 <dd><p>This masks out all lakes, oceans, and snow cover from model domain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -892,7 +989,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py function">
 <dt id="utils.geoutils.mycontourf_to_geojson">
-<code class="sig-prename descclassname">utils.geoutils.</code><code class="sig-name descname">mycontourf_to_geojson</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmaps</span></em>, <em class="sig-param"><span class="n">var</span></em>, <em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">folderdate</span></em>, <em class="sig-param"><span class="n">colornumber</span></em>, <em class="sig-param"><span class="n">domain</span></em>, <em class="sig-param"><span class="n">nested_index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.geoutils.mycontourf_to_geojson" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">utils.geoutils.</span></code><code class="sig-name descname"><span class="pre">mycontourf_to_geojson</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderdate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colornumber</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.geoutils.mycontourf_to_geojson" title="Permalink to this definition">¶</a></dt>
 <dd><p>This makes a geojson file from a matplot lib countourf</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

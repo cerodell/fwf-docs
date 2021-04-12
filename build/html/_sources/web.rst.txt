@@ -3,25 +3,12 @@ Website
 
 User Guide
 ------------
-.. image:: _static/images/fwf-web-user-guide.png
+.. image:: _static/images/fwf-popups.png
    :width: 600 
    :align: center
 
-Statistics
-***********
-Multiplicative Mean Bias
-    - Comparing the forecast and observation from the past 15 days
-    - For example, when multiplicative bias = 1.1, the forecast is 10% too high on average. 
+Meteogram forecasts of (A) FWI values and (B) associated meteorology; and station-located two-week comparison of observed vs. forecasted (C) FWI values and (D) associated meteorology. Solid lines represent forecasts and dashed lines represent observed values. A and B can be activated by a double-click on a Desktop computer and single-click on mobile. C and D can be activated by selecting the “weather station” layer in the main drop-down menu and clicking on a weather station of interest.
 
-    .. math::
-        bias = \frac{ \overline{forecast}}{\overline{observed}}
-
-Pearson Correlation Coefficient
-    - Comparing the forecast and observation from the past 60 days
-    - "It has a value between +1 and −1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation." -Cauchy–Schwarz
-   
-    .. math::
-        r=\frac{n\left(\sum x y\right)-\left(\sum x\right)\left(\sum y\right)}{\sqrt{\left[n \sum x^{2}-\left(\sum x\right)^{2}\right]\left[n \sum y^{2}-(\Sigma y)^{2}\right]}}
 
 Visualization Steps
 ---------------------

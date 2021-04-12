@@ -1,12 +1,136 @@
-# Quick overview
+# Overview
+
+---
+## General
+
+### Creator(s)
+- Rodell, Christopher
+- Moisseeva, Nadya
+- Howard, Rosie
+- Chui, Tim
+- Schigas, Roland
+- Stull, R. 
+
+### Contributors
+- University of British Columbia 
+- NRCan Canadian Wildland Fire Information System
+- National Center for Atmospheric Research
+- University Corporation for Atmospheric Research
+- Weather Research and Forecasting Model
+
+### Subject
+- wildfire science
+- atmospheric science
+- numerical weather prediction
+
+### Language
+- binary
+- English
+
+### Keyword
+- fire weather forecasts
+- fire behavior forecasts
+- atmospheric science
+- numerical weather prediction
+- zarr
+
+
+### Date Created
+- May 24, 2019 to present
+
+### Related Webpages
+- [Global Wildfire Information System (GWIS)](https://gwis.jrc.ec.europa.eu/)
+- [Canadian Wildland Fire Information System](https://cwfis.cfs.nrcan.gc.ca/home)
+
+### References
+
+1. Di Giuseppe, F., Pappenberger, F., Wetterhall, F., Krzeminski, B., Camia, A., Libertá, G., & San Miguel, J. (2016). The Potential Predictability of Fire Danger Provided by Numerical Weather Prediction, Journal of Applied Meteorology and Climatology, 55(11), 2469-2491. Retrieved Apr 12, 2021, from https://journals.ametsoc.org/view/journals/apme/55/11/jamc-d-15-0297.1.xml
+
+2. Forestry Canada Fire Danger Group, 1992: Development and structure of the Canadian Forest Fire Behavior Prediction System. For vol. ST-X-3, Ot. URL: https://cfs.nrcan.gc.ca/publications?id=10068
+
+3. Lawson, B.D. and O.B. Armitage. 2008. Weather guide for the Canadian Forest Fire Danger Rating System. Nat. Resour. Can., Can. For. Serv., North. For. Cent., Edmonton, AB. http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/29152.pdf
+
+4. Natural Resources Canada, 2020: Canadian Wildfire Information System Datamart. URL: https://cwfis.cfs.nrcan.gc.ca/downloads/fwi_obs
+
+5. Van Wagner, C.E. A method of computing fine fuel moisture content throughout the diurnal cycle. 1977., Environment Canada, Canadian Forestry Service, Petawawa Forest Experiment Station, Chalk River, Ontario. Information Report PS-X-69. https://cfs.nrcan.gc.ca/publications/download-pdf/25591
+
+6. Van Wagner, C.E. and T.L. Pickett. 1985. Equations and FORTRAN program for the Canadian Forest Fire Weather Index System. Can. For. Serv., Ottawa, Ont. For. Tech. Rep. 33. 18 p. http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/19973.pdf
+
+7. Van Wagner, C.E. 1987. Development and structure of the Canadian forest fire weather index system. Forest Technology Report 35. (Canadian Forestry Service: Ottawa). http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/19927.pdf
+
+8. Vitolo, C., Di Giuseppe, F., Krzeminski, B. et al. A 1980–2018 global fire danger re-analysis dataset for the Canadian Fire Weather Indices. Sci Data 6, 190032 (2019). https://doi.org/10.1038/sdata.2019.32
+
+
+
+
+### License
+[Creative Commons Attribution 4.0 International License.](https://creativecommons.org/licenses/by/4.0/)
+
+---
+# Working with Dataset
 
 ## Model Domains
 
 The FWF model resolves the FWI System in the D02 (12 km) and D03 (4 km) at 55 hour forecast horizon.
-![original image](https://cdn.mathpix.com/snip/images/S8MbCC7tE3d9-BN7CP1V6Atf7LAFMEvMm6vjNYoItc8.original.fullsize.png)
 
----
-## Data
+![title](_static/images/fwf-model-domains.png)
+
+### Description
+Each day there are four `.zarr` files generated, two for each domain.
+
+**Domain: d02 (12 km)**
+-  `fwf-hourly-d02-YYYYMMDDHH.zarr`
+    - File Size: ~ 780M
+    - File Dimensions: (time: 55, south_north: 417, west_east: 627)
+-  `fwf-daily-d02-YYYYMMDDHH.zarr`
+    - File Size: ~ 16M
+    - File Dimensions: (time: 2, south_north: 417, west_east: 627)
+
+
+**Domain: d03 (4 km)**
+-  `fwf-hourly-d03-YYYYMMDDHH.zarr`
+    - File Size:  ~ 1.7G
+    - File Dimensions: (time: 55, south_north: 840, west_east: 642)
+-  `fwf-daily-d03-YYYYMMDDHH.zarr`
+    - File Size: ~ 30M
+    - File Dimensions: (time: 2, south_north: 840, west_east: 642)
+
+
+### Dataset Variables
+
+| Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
+| --------------------------- | ------------------------- |
+|**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
+|**XLAT**: Degrees Latitude  |**XLAT**: Degrees Latitude|
+|**XLON**: Degrees Longitude  |**XLON**: Degrees Longitude|
+|**F**: Fine Fuel Moisture Code  |**P**: Duff Moisture Code  |
+|**m_o**: Fine Fuel Moisture Content  |**D**: Drought Moisture Code  |
+|**R**: Initial Spread Index   |**U**: Build Up Index   |
+|**S**: Fire Weather Index|**T**: 2 meter Temperature C |
+|**DSR**: Daily Severity Rating  | **TD**: 2 meter Dew Point Temperature C |
+|**FMC**: Foliar Moisture Content %  | **H**: 2 meter Relative Humdity %  |
+|**SFC**: Surface Fuel Consumption kg m^{-2}  | **W**: 10 meter Wind Speed km/h |
+|**TFC**: Total Fuel Consumption kg m^{-2} | **WD**: 10 meter Wind Direction deg  |
+|**ROS**: Rate of Spread m min^{-1}  | **r_o**: Total Accumulated Precipitation mm  |
+|**CFB**: Crown Fraction Burned % | **r_o_tomorrow**: Carry Over Precipitation mm  |
+|**HFI**: Head Fire Intensity  kW m^{-1} |**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m   |
+|**T**: 2 meter Temperature C  |   |
+|**TD**: 2 meter Dew Point Temperature C  | |
+|**H**: 2 meter Relative Humdity % |  |
+|**W**: 10 meter Wind Speed km/h  |  |
+|**WD**: 10 meter Wind Direction deg  |   |
+|**U10**:  U Component of Wind at 10 meter m/s  | |
+|**V10**: V Component of Wind at 10 meter m/s  |   |
+|**r_o**: Total Accumulated Precipitation mm  |   |
+|**r_o_hourly**: Hourly Accumulated Precipitation mm  |  |
+|**SNW**: Total Accumulated Snow cm  |   |
+|**SNOWH**: Physical Snow Depth m  |   |
+|**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |
+
+
+<br/>
+<br/>
+
 
 ### Working with
 
@@ -45,56 +169,6 @@ Attributes:
     stagger: 
 ```
 
-### Datasets
-Each day there are four `.zarr` files generated, two for each domain.
-
-**Domain: d02 (12 km)**
--  `fwf-hourly-d02-YYYYMMDDHH.zarr`
-    - File Size: ~ 635M
-    - File Dimensions: (time: 55, south_north: 417, west_east: 627)
--  `fwf-daily-d02-YYYYMMDDHH.zarr`
-    - File Size: ~ 16M
-    - File Dimensions: (time: 2, south_north: 417, west_east: 627)
-
-
-**Domain: d03 (4 km)**
--  `fwf-hourly-d03-YYYYMMDDHH.zarr`
-    - File Size:  ~ 1.3G
-    - File Dimensions: (time: 55, south_north: 840, west_east: 642)
--  `fwf-daily-d03-YYYYMMDDHH.zarr`
-    - File Size: ~ 30M
-    - File Dimensions: (time: 2, south_north: 840, west_east: 642)
-File Size:
-
-
-### Dataset Variables
-
-| Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
-| --------------------------- | ------------------------- |
-|**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
-|**XLAT**: Degrees Latitude  |**XLAT**: Degrees Latitude|
-|**XLON**: Degrees Longitude  |**XLON**: Degrees Longitude|
-|**F**: Fine Fuel Moisture Code  |**P**: Duff Moisture Code  |
-|**m_o**: Fine Fuel Moisture Content  |**D**: Drought Moisture Code  |
-|**R**: Initial Spread Index   |**U**: Build Up Index   |
-|**S**: Fire Weather Index|**T**: 2 meter Temperature C |
-|**DSR**: Daily Severity Rating  | **TD**: 2 meter Dew Point Temperature C |
-|**T**: 2 meter Temperature C  | **H**: 2 meter Relative Humdity %  |
-|**TD**: 2 meter Dew Point Temperature C  | **W**: 10 meter Wind Speed km/h |
-|**H**: 2 meter Relative Humdity % | **WD**: 10 meter Wind Direction deg  |
-|**W**: 10 meter Wind Speed km/h  | **r_o**: Total Accumulated Precipitation mm  |
-|**WD**: 10 meter Wind Direction deg  | **r_o_tomorrow**: Carry Over Precipitation mm  |
-|**U10**:  U Component of Wind at 10 meter m/s  |**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m   |
-|**V10**: V Component of Wind at 10 meter m/s  |   |
-|**r_o**: Total Accumulated Precipitation mm  |   |
-|**r_o_hourly**: Hourly Accumulated Precipitation mm  |  |
-|**SNW**: Total Accumulated Snow cm  |   |
-|**SNOWH**: Physical Snow Depth m  |   |
-|**SNOWC**: Flag Inidicating Snow <br> Cover (1 for Snow Cover) Snow Depth m  |   |
-
-
-<br/>
-<br/>
 
 
 
