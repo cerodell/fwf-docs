@@ -38,7 +38,7 @@
 
 1. Di Giuseppe, F., Pappenberger, F., Wetterhall, F., Krzeminski, B., Camia, A., Libertá, G., & San Miguel, J. (2016). The Potential Predictability of Fire Danger Provided by Numerical Weather Prediction, Journal of Applied Meteorology and Climatology, 55(11), 2469-2491. Retrieved Apr 12, 2021, from [https://journals.ametsoc.org/view/journals/apme/55/11/jamc-d-15-0297.1.xml](https://journals.ametsoc.org/view/journals/apme/55/11/jamc-d-15-0297.1.xml)
 
-2. Forestry Canada Fire Danger Group, 1992: Development and structure of the Canadian Forest Fire Behavior Prediction System. For vol. ST-X-3, Ot. URL: (https://cfs.nrcan.gc.ca/publications?id=10068)
+2. Forestry Canada Fire Danger Group, 1992: Development and structure of the Canadian Forest Fire Behavior Prediction System. For vol. ST-X-3, Ot. URL: [https://cfs.nrcan.gc.ca/publications?id=10068](https://cfs.nrcan.gc.ca/publications?id=10068)
 
 3. Lawson, B.D. and O.B. Armitage. 2008. Weather guide for the Canadian Forest Fire Danger Rating System. Nat. Resour. Can., Can. For. Serv., North. For. Cent., Edmonton, AB. [http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/29152.pdf](http://cfs.nrcan.gc.ca/pubwarehouse/pdfs/29152.pdf)
 
