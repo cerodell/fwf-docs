@@ -10,12 +10,13 @@
 
 ### Contributors
 - University of British Columbia 
-- NRCan Canadian Wildland Fire Information System
+- Natural Resources Canada
 - National Center for Atmospheric Research
 - University Corporation for Atmospheric Research
 
 ### Components
 - Weather Research and Forecasting Model
+-Canadian Wildland Fire Information System
 
 ### Subjects
 - wildfire science
@@ -28,6 +29,7 @@
 - atmospheric science
 - numerical weather prediction
 - zarr
+- netcdf
 
 ### Date Created
 - May 24, 2019 to present

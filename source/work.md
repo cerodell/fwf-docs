@@ -9,22 +9,23 @@ The FWF model resolves the FWI System/ FBP System in the D02 (12 km) and D03 (4 
 ![title](_static/images/fwf-model-domains.png)
 
 ### Description
-Each domain there are two `.zarr` files generated, four total datasets each day.
+
+For each domain there are two `.nc` (netcdf) files generated, four total datasets each day.
 
 **Domain: d02 (12 km)**
--  `fwf-hourly-d02-YYYYMMDDHH.zarr`
+-  `fwf-hourly-d02-YYYYMMDDHH.nc`
     - File Size: ~ 780M
     - File Dimensions: (time: 55, south_north: 417, west_east: 627)
--  `fwf-daily-d02-YYYYMMDDHH.zarr`
+-  `fwf-daily-d02-YYYYMMDDHH.nc`
     - File Size: ~ 16M
     - File Dimensions: (time: 2, south_north: 417, west_east: 627)
 
 
 **Domain: d03 (4 km)**
--  `fwf-hourly-d03-YYYYMMDDHH.zarr`
+-  `fwf-hourly-d03-YYYYMMDDHH.nc`
     - File Size:  ~ 1.7G
     - File Dimensions: (time: 55, south_north: 840, west_east: 642)
--  `fwf-daily-d03-YYYYMMDDHH.zarr`
+-  `fwf-daily-d03-YYYYMMDDHH.nc`
     - File Size: ~ 30M
     - File Dimensions: (time: 2, south_north: 840, west_east: 642)
 
@@ -33,7 +34,7 @@ Each domain there are two `.zarr` files generated, four total datasets each day.
 
 Regardless of Domain, each dataset hourly/daily contain the following variables.
 
-| Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.zarr`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.zarr`  | 
+| Hourly Dataset <br> `fwf-hourly-<domain>-YYYYMMDDHH.nc`  | Daily Dataset <br> `fwf-daily-<domain>--YYYYMMDDHH.nc`  | 
 | --------------------------- | ------------------------- |
 |**Time**: Hourly UTC  |**Time**: Noon Local for that Day |
 |**XLAT**: Degrees Latitude  |**XLAT**: Degrees Latitude|
@@ -81,8 +82,15 @@ forecast_date = "YYYYMMDDHH"
 domain        = 'd02'        ## or 'd03'
 name 	      = 'daily'      ## or 'hourly'
 
-file_dir = str(/path/to/dir/) + f"/fwf-{name}-{domain}-{forecast_date}.zarr"
-ds       = xr.open_zarr(file_dir)
+## file directory
+file_dir = str(/path/to/dir/) + f"/fwf-{name}-{domain}-{forecast_date}.nc"
+## open dataset
+ds       = xr.open_dataset(file_dir)
+
+## chunk data to dask.arrays 
+ds = ds.chunk(chunks="auto")
+ds = ds.unify_chunks()
+# NOTE this is not needed. Arrays will be either numpy float32 or objects
 
 ## Example: look at variable P (Duff Moisture Code)
 print(ds.P)
@@ -103,6 +111,7 @@ Attributes:
     projection:   PolarStereographic(stand_lon=-110.0, moad_cen_lat=53.25, tr...
     stagger: 
 ```
+
 
 ### Data License
 [Creative Commons Attribution 4.0 International License.](https://creativecommons.org/licenses/by/4.0/)

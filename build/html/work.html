@@ -172,16 +172,16 @@
 <p><img alt="title" src="_images/fwf-model-domains.png" /></p>
 <div class="section" id="description">
 <h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
-<p>Each domain there are two <code class="docutils literal notranslate"><span class="pre">.zarr</span></code> files generated, four total datasets each day.</p>
+<p>For each domain there are two <code class="docutils literal notranslate"><span class="pre">.nc</span></code> (netcdf) files generated, four total datasets each day.</p>
 <p><strong>Domain: d02 (12 km)</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">fwf-hourly-d02-YYYYMMDDHH.zarr</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf-hourly-d02-YYYYMMDDHH.nc</span></code></p>
 <ul>
 <li><p>File Size: ~ 780M</p></li>
 <li><p>File Dimensions: (time: 55, south_north: 417, west_east: 627)</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fwf-daily-d02-YYYYMMDDHH.zarr</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf-daily-d02-YYYYMMDDHH.nc</span></code></p>
 <ul>
 <li><p>File Size: ~ 16M</p></li>
 <li><p>File Dimensions: (time: 2, south_north: 417, west_east: 627)</p></li>
@@ -190,13 +190,13 @@
 </ul>
 <p><strong>Domain: d03 (4 km)</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">fwf-hourly-d03-YYYYMMDDHH.zarr</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf-hourly-d03-YYYYMMDDHH.nc</span></code></p>
 <ul>
 <li><p>File Size:  ~ 1.7G</p></li>
 <li><p>File Dimensions: (time: 55, south_north: 840, west_east: 642)</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fwf-daily-d03-YYYYMMDDHH.zarr</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf-daily-d03-YYYYMMDDHH.nc</span></code></p>
 <ul>
 <li><p>File Size: ~ 30M</p></li>
 <li><p>File Dimensions: (time: 2, south_north: 840, west_east: 642)</p></li>
@@ -210,8 +210,8 @@
 <table border="1" class="docutils">
 <thead>
 <tr>
-<th>Hourly Dataset <br> <code>fwf-hourly-&lt;domain&gt;-YYYYMMDDHH.zarr</code></th>
-<th>Daily Dataset <br> <code>fwf-daily-&lt;domain&gt;--YYYYMMDDHH.zarr</code></th>
+<th>Hourly Dataset <br> <code>fwf-hourly-&lt;domain&gt;-YYYYMMDDHH.nc</code></th>
+<th>Daily Dataset <br> <code>fwf-daily-&lt;domain&gt;--YYYYMMDDHH.nc</code></th>
 </tr>
 </thead>
 <tbody>
@@ -333,8 +333,15 @@
 <span class="n">domain</span>        <span class="o">=</span> <span class="s1">&#39;d02&#39;</span>        <span class="c1">## or &#39;d03&#39;</span>
 <span class="n">name</span> 	      <span class="o">=</span> <span class="s1">&#39;daily&#39;</span>      <span class="c1">## or &#39;hourly&#39;</span>
 
-<span class="n">file_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="nb">dir</span><span class="o">/</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/fwf-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">forecast_date</span><span class="si">}</span><span class="s2">.zarr&quot;</span>
-<span class="n">ds</span>       <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">file_dir</span><span class="p">)</span>
+<span class="c1">## file directory</span>
+<span class="n">file_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="nb">dir</span><span class="o">/</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/fwf-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">forecast_date</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+<span class="c1">## open dataset</span>
+<span class="n">ds</span>       <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_dir</span><span class="p">)</span>
+
+<span class="c1">## chunk data to dask.arrays </span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">chunks</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">unify_chunks</span><span class="p">()</span>
+<span class="c1"># NOTE this is not needed. Arrays will be either numpy float32 or objects</span>
 
 <span class="c1">## Example: look at variable P (Duff Moisture Code)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">P</span><span class="p">)</span>
