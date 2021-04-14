@@ -16,7 +16,7 @@
 
 ### Components
 - Weather Research and Forecasting Model
--Canadian Wildland Fire Information System
+- Canadian Wildland Fire Information System
 
 ### Subjects
 - wildfire science
