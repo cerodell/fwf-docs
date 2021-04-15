@@ -1,6 +1,11 @@
-Welcome to Fire Weather Forecast Model
-======================================
+Fire Weather Forecast Model Documentations
+=============================================
 
+.. image:: _static/images/fwf-ex-2.png    
+   :width: 600
+   :align: center
+
+   
 Overview:
 #########
 
@@ -19,11 +24,8 @@ Overview:
 | For information on the NPW model checkout:
 | http://weather.eos.ubc.ca/wxfcst/html-etc/model-metadata/wan00cg-01.html
 
-.. image:: _static/images/fwf-ex-2.png    
-   :width: 600
-   :align: center
 
-Documentation
+Model Information
 ==================
 .. toctree::
    :maxdepth: 2

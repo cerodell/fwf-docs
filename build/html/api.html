@@ -171,7 +171,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wrf_file_dir</strong> (<em>str</em>) – <ul>
-<li><p>File directory to (zarr) file of WRF met variables to calculate FWI</p></li>
+<li><p>File directory to (nc) file of WRF met variables to calculate FWI</p></li>
 </ul>
 </p></li>
 <li><p><strong>domain</strong> (<em>str</em>) – <ul>
@@ -179,7 +179,7 @@
 </ul>
 </p></li>
 <li><p><strong>wrf_model</strong> (<em>str</em>) – <ul>
-<li><p>the wrf version, this will be removed i n future version assuming WRFv4 is being used</p></li>
+<li><p>the wrf version, this will be removed in future versions assuming WRFv4 is being used</p></li>
 </ul>
 </p></li>
 <li><p><strong>fbp_mode</strong> (<em>boolean</em>) – <ul>
@@ -196,10 +196,10 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>daily_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of daily
+<li><p><strong>daily_ds</strong> (<em>DataSet</em>) – Writes a DataSet (nc) of daily
 - FWI indices/codes
 - Associated Meterology</p></li>
-<li><p><strong>hourly_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of hourly
+<li><p><strong>hourly_ds</strong> (<em>DataSet</em>) – Writes a DataSet (nc) of hourly
 - FWI indices/codes
 - Associated Meterology
 - FBP products (if fbp_mode is True)</p></li>
@@ -230,12 +230,12 @@ local the averageing was done as a buffer for any frontal passage.</p>
 <dl class="py method">
 <dt id="utils.fwf.FWF.daily">
 <code class="sig-name descname"><span class="pre">daily</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.daily" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes daily_ds (.zarr) and adds the appropriate attributes to each variable</p>
+<dd><p>Writes daily_ds (.nc) and adds the appropriate attributes to each variable</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>make_dir</strong> –</p>
 <ul class="simple">
-<li><p>File directory to (zarr) file of todays daily FWI codes</p></li>
+<li><p>File directory to (nc) file of todays daily FWI codes</p></li>
 <li><p>Needed for carry over to intilaze tomorrow’s model run</p></li>
 </ul>
 </p>
@@ -263,12 +263,12 @@ local the averageing was done as a buffer for any frontal passage.</p>
 <dl class="py method">
 <dt id="utils.fwf.FWF.hourly">
 <code class="sig-name descname"><span class="pre">hourly</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.hourly" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes hourly_ds (.zarr) and adds the appropriate attributes to each variable</p>
+<dd><p>Writes hourly_ds (.nc) and adds the appropriate attributes to each variable</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>make_dir</strong> –</p>
 <ul class="simple">
-<li><p>File directory to (zarr) file of todays hourly FWI codes</p></li>
+<li><p>File directory to (nc) file of todays hourly FWI codes</p></li>
 <li><p>Needed for carry over to intilaze tomorrow’s model run</p></li>
 </ul>
 </p>
