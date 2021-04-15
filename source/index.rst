@@ -1,7 +1,7 @@
-Fire Weather Forecast Model Documentations
+Fire Weather Forecast Model Documentation
 =============================================
 
-.. image:: _static/images/fwf-ex-2.png    
+.. image:: _static/images/fwf-ex-3.png    
    :width: 600
    :align: center
 
