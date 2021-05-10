@@ -488,6 +488,12 @@ Attributes:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filein</span><span class="p">)</span>
+<span class="c1">## strip some attributes from the netcdf for the sack of printing</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TITLE&#39;</span><span class="p">:</span> <span class="s1">&#39;FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;WEST-EAST_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;628&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;SOUTH-NORTH_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;418&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DX&#39;</span><span class="p">:</span> <span class="s1">&#39;12000.0&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DY&#39;</span><span class="p">:</span> <span class="s1">&#39;12000.0&#39;</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -527,141 +533,11 @@ Data variables:
     TFC         (time, south_north, west_east) float32 ...
     HFI         (time, south_north, west_east) float32 ...
 Attributes:
-    TITLE:                           FWF MODEL USING OUTPUT FROM WRF V4.2.1 M...
-    START_DATE:                      &#39;2021-05-10_00:00:00&#39;
-    SIMULATION_START_DATE:           &#39;2021-05-10_00:00:00&#39;
-    WEST-EAST_GRID_DIMENSION:        628
-    SOUTH-NORTH_GRID_DIMENSION:      418
-    BOTTOM-TOP_GRID_DIMENSION:       55
-    DX:                              12000.0
-    DY:                              12000.0
-    AERCU_OPT:                       0
-    AERCU_FCT:                       1.0
-    IDEAL_CASE:                      0
-    DIFF_6TH_SLOPEOPT:               0
-    AUTO_LEVELS_OPT:                 2
-    DIFF_6TH_THRESH:                 0.1
-    DZBOT:                           50.0
-    DZSTRETCH_S:                     1.3
-    DZSTRETCH_U:                     1.1
-    SKEBS_ON:                        0
-    SPEC_BDY_FINAL_MU:               1
-    USE_Q_DIABATIC:                  0
-    GRIDTYPE:                        &#39;C&#39;
-    DIFF_OPT:                        1
-    KM_OPT:                          4
-    DAMP_OPT:                        3
-    DAMPCOEF:                        0.2
-    KHDIF:                           0.0
-    KVDIF:                           0.0
-    MP_PHYSICS:                      8
-    RA_LW_PHYSICS:                   4
-    RA_SW_PHYSICS:                   4
-    SF_SFCLAY_PHYSICS:               2
-    SF_SURFACE_PHYSICS:              2
-    BL_PBL_PHYSICS:                  2
-    CU_PHYSICS:                      6
-    SF_LAKE_PHYSICS:                 0
-    SURFACE_INPUT_SOURCE:            1
-    SST_UPDATE:                      0
-    GRID_FDDA:                       0
-    GFDDA_INTERVAL_M:                0
-    GFDDA_END_H:                     0
-    GRID_SFDDA:                      0
-    SGFDDA_INTERVAL_M:               0
-    SGFDDA_END_H:                    0
-    HYPSOMETRIC_OPT:                 2
-    USE_THETA_M:                     1
-    GWD_OPT:                         1
-    SF_URBAN_PHYSICS:                0
-    SF_SURFACE_MOSAIC:               0
-    SF_OCEAN_PHYSICS:                0
-    SHCU_PHYSICS:                    0
-    MFSHCONV:                        0
-    FEEDBACK:                        1
-    SMOOTH_OPTION:                   0
-    SWRAD_SCAT:                      1.0
-    W_DAMPING:                       1
-    DT:                              48.413334
-    ADAPT_DT_START:                  48.0
-    ADAPT_DT_MAX:                    96.0
-    ADAPT_DT_MIN:                    36.0
-    RADT:                            15.0
-    BLDT:                            0.0
-    CUDT:                            0.0
-    AER_OPT:                         0
-    SWINT_OPT:                       0
-    AER_TYPE:                        1
-    AER_AOD550_OPT:                  1
-    AER_ANGEXP_OPT:                  1
-    AER_SSA_OPT:                     1
-    AER_ASY_OPT:                     1
-    AER_AOD550_VAL:                  0.12
-    AER_ANGEXP_VAL:                  1.3
-    AER_SSA_VAL:                     0.85
-    AER_ASY_VAL:                     0.9
-    MOIST_ADV_OPT:                   1
-    SCALAR_ADV_OPT:                  1
-    TKE_ADV_OPT:                     1
-    DIFF_6TH_OPT:                    0
-    DIFF_6TH_FACTOR:                 0.12
-    OBS_NUDGE_OPT:                   0
-    BUCKET_MM:                       -1.0
-    BUCKET_J:                        -1.0
-    PREC_ACC_DT:                     0.0
-    ISFTCFLX:                        0
-    ISHALLOW:                        0
-    ISFFLX:                          1
-    ICLOUD:                          1
-    ICLOUD_CU:                       0
-    TRACER_PBLMIX:                   1
-    SCALAR_PBLMIX:                   0
-    YSU_TOPDOWN_PBLMIX:              0
-    GRAV_SETTLING:                   0
-    DFI_OPT:                         0
-    NTASKS_X:                        12
-    NTASKS_Y:                        15
-    NTASKS_TOTAL:                    180
-    SIMULATION_INITIALIZATION_TYPE:  &#39;REAL-DATA CASE&#39;
-    WEST-EAST_PATCH_START_UNSTAG:    1
-    WEST-EAST_PATCH_END_UNSTAG:      627
-    WEST-EAST_PATCH_START_STAG:      1
-    WEST-EAST_PATCH_END_STAG:        628
-    SOUTH-NORTH_PATCH_START_UNSTAG:  1
-    SOUTH-NORTH_PATCH_END_UNSTAG:    417
-    SOUTH-NORTH_PATCH_START_STAG:    1
-    SOUTH-NORTH_PATCH_END_STAG:      418
-    BOTTOM-TOP_PATCH_START_UNSTAG:   1
-    BOTTOM-TOP_PATCH_END_UNSTAG:     54
-    BOTTOM-TOP_PATCH_START_STAG:     1
-    BOTTOM-TOP_PATCH_END_STAG:       55
-    GRID_ID:                         2
-    PARENT_ID:                       1
-    I_PARENT_START:                  40
-    J_PARENT_START:                  20
-    PARENT_GRID_RATIO:               3
-    CEN_LAT:                         52.89589
-    CEN_LON:                         -107.58885
-    TRUELAT1:                        53.25
-    TRUELAT2:                        53.25
-    MOAD_CEN_LAT:                    53.25
-    STAND_LON:                       -110.0
-    POLE_LAT:                        90.0
-    POLE_LON:                        0.0
-    GMT:                             0.0
-    JULYR:                           2021
-    JULDAY:                          130
-    MAP_PROJ:                        2
-    MAP_PROJ_CHAR:                   &#39;Polar Stereographic&#39;
-    MMINLU:                          &#39;MODIFIED_IGBP_MODIS_NOAH&#39;
-    NUM_LAND_CAT:                    21
-    ISWATER:                         17
-    ISLAKE:                          21
-    ISICE:                           15
-    ISURBAN:                         13
-    ISOILWATER:                      14
-    HYBRID_OPT:                      2
-    ETAC:                            0.2
+    TITLE:                       FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL
+    WEST-EAST_GRID_DIMENSION:    628
+    SOUTH-NORTH_GRID_DIMENSION:  418
+    DX:                          12000.0
+    DY:                          12000.0
 </pre></div>
 </div>
 </div>
@@ -799,7 +675,13 @@ Attributes:
 <p>Print to see new time series dataset at every weather station location</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## strip some attributes from the netcdf for the sack of printing</span>
+<span class="n">ds_loc</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TITLE&#39;</span><span class="p">:</span> <span class="s1">&#39;FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;WEST-EAST_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;628&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;SOUTH-NORTH_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;418&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DX&#39;</span><span class="p">:</span> <span class="s1">&#39;12000.0&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;DY&#39;</span><span class="p">:</span> <span class="s1">&#39;12000.0&#39;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -839,141 +721,11 @@ Data variables:
     TFC         (time, wmo) float32 ...
     HFI         (time, wmo) float32 ...
 Attributes:
-    TITLE:                           FWF MODEL USING OUTPUT FROM WRF V4.2.1 M...
-    START_DATE:                      &#39;2021-05-10_00:00:00&#39;
-    SIMULATION_START_DATE:           &#39;2021-05-10_00:00:00&#39;
-    WEST-EAST_GRID_DIMENSION:        628
-    SOUTH-NORTH_GRID_DIMENSION:      418
-    BOTTOM-TOP_GRID_DIMENSION:       55
-    DX:                              12000.0
-    DY:                              12000.0
-    AERCU_OPT:                       0
-    AERCU_FCT:                       1.0
-    IDEAL_CASE:                      0
-    DIFF_6TH_SLOPEOPT:               0
-    AUTO_LEVELS_OPT:                 2
-    DIFF_6TH_THRESH:                 0.1
-    DZBOT:                           50.0
-    DZSTRETCH_S:                     1.3
-    DZSTRETCH_U:                     1.1
-    SKEBS_ON:                        0
-    SPEC_BDY_FINAL_MU:               1
-    USE_Q_DIABATIC:                  0
-    GRIDTYPE:                        &#39;C&#39;
-    DIFF_OPT:                        1
-    KM_OPT:                          4
-    DAMP_OPT:                        3
-    DAMPCOEF:                        0.2
-    KHDIF:                           0.0
-    KVDIF:                           0.0
-    MP_PHYSICS:                      8
-    RA_LW_PHYSICS:                   4
-    RA_SW_PHYSICS:                   4
-    SF_SFCLAY_PHYSICS:               2
-    SF_SURFACE_PHYSICS:              2
-    BL_PBL_PHYSICS:                  2
-    CU_PHYSICS:                      6
-    SF_LAKE_PHYSICS:                 0
-    SURFACE_INPUT_SOURCE:            1
-    SST_UPDATE:                      0
-    GRID_FDDA:                       0
-    GFDDA_INTERVAL_M:                0
-    GFDDA_END_H:                     0
-    GRID_SFDDA:                      0
-    SGFDDA_INTERVAL_M:               0
-    SGFDDA_END_H:                    0
-    HYPSOMETRIC_OPT:                 2
-    USE_THETA_M:                     1
-    GWD_OPT:                         1
-    SF_URBAN_PHYSICS:                0
-    SF_SURFACE_MOSAIC:               0
-    SF_OCEAN_PHYSICS:                0
-    SHCU_PHYSICS:                    0
-    MFSHCONV:                        0
-    FEEDBACK:                        1
-    SMOOTH_OPTION:                   0
-    SWRAD_SCAT:                      1.0
-    W_DAMPING:                       1
-    DT:                              48.413334
-    ADAPT_DT_START:                  48.0
-    ADAPT_DT_MAX:                    96.0
-    ADAPT_DT_MIN:                    36.0
-    RADT:                            15.0
-    BLDT:                            0.0
-    CUDT:                            0.0
-    AER_OPT:                         0
-    SWINT_OPT:                       0
-    AER_TYPE:                        1
-    AER_AOD550_OPT:                  1
-    AER_ANGEXP_OPT:                  1
-    AER_SSA_OPT:                     1
-    AER_ASY_OPT:                     1
-    AER_AOD550_VAL:                  0.12
-    AER_ANGEXP_VAL:                  1.3
-    AER_SSA_VAL:                     0.85
-    AER_ASY_VAL:                     0.9
-    MOIST_ADV_OPT:                   1
-    SCALAR_ADV_OPT:                  1
-    TKE_ADV_OPT:                     1
-    DIFF_6TH_OPT:                    0
-    DIFF_6TH_FACTOR:                 0.12
-    OBS_NUDGE_OPT:                   0
-    BUCKET_MM:                       -1.0
-    BUCKET_J:                        -1.0
-    PREC_ACC_DT:                     0.0
-    ISFTCFLX:                        0
-    ISHALLOW:                        0
-    ISFFLX:                          1
-    ICLOUD:                          1
-    ICLOUD_CU:                       0
-    TRACER_PBLMIX:                   1
-    SCALAR_PBLMIX:                   0
-    YSU_TOPDOWN_PBLMIX:              0
-    GRAV_SETTLING:                   0
-    DFI_OPT:                         0
-    NTASKS_X:                        12
-    NTASKS_Y:                        15
-    NTASKS_TOTAL:                    180
-    SIMULATION_INITIALIZATION_TYPE:  &#39;REAL-DATA CASE&#39;
-    WEST-EAST_PATCH_START_UNSTAG:    1
-    WEST-EAST_PATCH_END_UNSTAG:      627
-    WEST-EAST_PATCH_START_STAG:      1
-    WEST-EAST_PATCH_END_STAG:        628
-    SOUTH-NORTH_PATCH_START_UNSTAG:  1
-    SOUTH-NORTH_PATCH_END_UNSTAG:    417
-    SOUTH-NORTH_PATCH_START_STAG:    1
-    SOUTH-NORTH_PATCH_END_STAG:      418
-    BOTTOM-TOP_PATCH_START_UNSTAG:   1
-    BOTTOM-TOP_PATCH_END_UNSTAG:     54
-    BOTTOM-TOP_PATCH_START_STAG:     1
-    BOTTOM-TOP_PATCH_END_STAG:       55
-    GRID_ID:                         2
-    PARENT_ID:                       1
-    I_PARENT_START:                  40
-    J_PARENT_START:                  20
-    PARENT_GRID_RATIO:               3
-    CEN_LAT:                         52.89589
-    CEN_LON:                         -107.58885
-    TRUELAT1:                        53.25
-    TRUELAT2:                        53.25
-    MOAD_CEN_LAT:                    53.25
-    STAND_LON:                       -110.0
-    POLE_LAT:                        90.0
-    POLE_LON:                        0.0
-    GMT:                             0.0
-    JULYR:                           2021
-    JULDAY:                          130
-    MAP_PROJ:                        2
-    MAP_PROJ_CHAR:                   &#39;Polar Stereographic&#39;
-    MMINLU:                          &#39;MODIFIED_IGBP_MODIS_NOAH&#39;
-    NUM_LAND_CAT:                    21
-    ISWATER:                         17
-    ISLAKE:                          21
-    ISICE:                           15
-    ISURBAN:                         13
-    ISOILWATER:                      14
-    HYBRID_OPT:                      2
-    ETAC:                            0.2
+    TITLE:                       FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL
+    WEST-EAST_GRID_DIMENSION:    628
+    SOUTH-NORTH_GRID_DIMENSION:  418
+    DX:                          12000.0
+    DY:                          12000.0
 </pre></div>
 </div>
 </div>
