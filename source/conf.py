@@ -18,12 +18,12 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = ''
+project = 'Fire Weather Forecast Model'
 copyright = '2020, Christopher Rodell'
 author = 'Christopher Rodell'
 
 # The full version, including alpha/beta/rc tags
-# release = '0.0.1'
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -63,6 +63,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = "sphinx_book_theme"
+html_title = ""
 
 # # Add any paths that contain custom static files (such as style sheets) here,
 # # relative to this directory. They are copied after the builtin static files,
