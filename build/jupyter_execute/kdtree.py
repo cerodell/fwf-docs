@@ -119,7 +119,7 @@ from context import data_dir, fwf_dir
 from datetime import datetime, date, timedelta
 
 
-# ### Set Up
+# ### Define dataset inforation
 # Define forecast date, domain and set paths to dataset
 
 # In[3]:
