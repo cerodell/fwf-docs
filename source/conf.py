@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
-# project = 'Fire Weather Forecast Model'
+project = ''
 copyright = '2020, Christopher Rodell'
 author = 'Christopher Rodell'
 
