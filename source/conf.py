@@ -31,9 +31,16 @@ release = '0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', \
-    'sphinx.ext.napoleon', 'sphinx_automodapi.automodapi', 'recommonmark', \
-        'sphinx_markdown_tables', 'sphinxcontrib.inlinesyntaxhighlight']
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.coverage",
+    "sphinx.ext.napoleon",
+    "sphinx_automodapi.automodapi",
+    "myst_nb",
+    "sphinx_markdown_tables",
+    "sphinxcontrib.inlinesyntaxhighlight",
+    "sphinx.ext.mathjax",
+]
 
 # use language set by highlight directive if no language is set by role
 inline_highlight_respect_highlight = False
@@ -55,7 +62,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = "sphinx_book_theme"
 
 # # Add any paths that contain custom static files (such as style sheets) here,
 # # relative to this directory. They are copied after the builtin static files,
@@ -63,4 +70,4 @@ html_theme = 'sphinx_rtd_theme'
 # html_static_path = ['_static']
 
 
-# html_logo = "_static/images/logo-v2.png"
+html_logo = "_static/images/logo-v3.png"

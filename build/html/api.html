@@ -1,163 +1,206 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>API &mdash; Fire Weather Forecast Model 0.0.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API &#8212; Fire Weather Forecast Model 0.0.1 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Structure" href="ms.html" /> 
-</head>
+    <link rel="prev" title="Structure" href="ms.html" />
 
-<body class="wy-body-for-nav">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
-   
-  <div class="wy-grid-for-nav">
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+
+    <div class="container-xl">
+      <div class="row">
           
-
-          
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fire Weather Forecast Model
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Model:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="view.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="work.html">Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="web.html">Website</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ms.html">Structure</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-utils.fwf">FWF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-utils.read_wrfout">Read WRF NetCDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-utils.geoutils">Geoutils</a></li>
-</ul>
-</li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Fire Weather Forecast Model</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>API</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
   
-  <hr/>
+  <img src="_static/logo-v3.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fire Weather Forecast Model 0.0.1 documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Model:
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="view.html">
+   General
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="work.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="web.html">
+   Website
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ms.html">
+   Structure
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   API
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/api.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-utils.fwf">
+   FWF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-utils.read_wrfout">
+   Read WRF NetCDF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-utils.geoutils">
+   Geoutils
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
   <div class="section" id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-utils.fwf">
@@ -166,12 +209,12 @@
 <dl class="py class">
 <dt id="utils.fwf.FWF">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">utils.fwf.</span></code><code class="sig-name descname"><span class="pre">FWF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrf_file_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrf_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fbp_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to solve the Fire Weather Index System and the Fire Behavior Predictions System using output from a numerical weather model</p>
+<dd><p>Class to solve the Fire Weather Indices using output from a numerical weather model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wrf_file_dir</strong> (<em>str</em>) – <ul>
-<li><p>File directory to (nc) file of WRF met variables to calculate FWI</p></li>
+<li><p>File directory to (zarr) file of WRF met variables to calculate FWI</p></li>
 </ul>
 </p></li>
 <li><p><strong>domain</strong> (<em>str</em>) – <ul>
@@ -179,7 +222,7 @@
 </ul>
 </p></li>
 <li><p><strong>wrf_model</strong> (<em>str</em>) – <ul>
-<li><p>the wrf version, this will be removed in future versions assuming WRFv4 is being used</p></li>
+<li><p>the wrf version, this will be removed i n future version assuming WRFv4 is being used</p></li>
 </ul>
 </p></li>
 <li><p><strong>fbp_mode</strong> (<em>boolean</em>) – <ul>
@@ -196,10 +239,10 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>daily_ds</strong> (<em>DataSet</em>) – Writes a DataSet (nc) of daily
+<li><p><strong>daily_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of daily
 - FWI indices/codes
 - Associated Meterology</p></li>
-<li><p><strong>hourly_ds</strong> (<em>DataSet</em>) – Writes a DataSet (nc) of hourly
+<li><p><strong>hourly_ds</strong> (<em>DataSet</em>) – Writes a DataSet (zarr) of hourly
 - FWI indices/codes
 - Associated Meterology
 - FBP products (if fbp_mode is True)</p></li>
@@ -215,7 +258,54 @@
 calculations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>wrf_ds</strong> (<em>DataSet</em>) – WRF dataset at 4-km spatial resolution and one hour tempolar resolution</p>
+<dd class="field-odd"><p><strong>wrf_ds</strong> (<em>DataSet</em>) – <dl class="simple">
+<dt>WRF dataset at 4-km spatial resolution and one hour tempolar resolution</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>tzdict:  dictionary</dt><dd><ul>
+<li><p>Dictionary of all times zones in North America and their respective offsets to UTC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>zone_id: in</dt><dd><ul>
+<li><p>ID of model domain with hours off set from UTC</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>noon: int</dt><dd><ul>
+<li><p>1200 local index based on ID</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>plus: int</dt><dd><ul>
+<li><p>1300 local index based on ID</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>minus: int</dt><dd><ul>
+<li><p>1100 local index based on ID</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tzone_ds: dataset</dt><dd><ul>
+<li><p>Gridded 2D array of zone_id</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>daily_ds</strong> – Dataset of daily variables at noon local averaged from (1100-1300)
@@ -230,12 +320,12 @@ local the averageing was done as a buffer for any frontal passage.</p>
 <dl class="py method">
 <dt id="utils.fwf.FWF.daily">
 <code class="sig-name descname"><span class="pre">daily</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.daily" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes daily_ds (.nc) and adds the appropriate attributes to each variable</p>
+<dd><p>Writes daily_ds (.zarr) and adds the appropriate attributes to each variable</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>make_dir</strong> –</p>
 <ul class="simple">
-<li><p>File directory to (nc) file of todays daily FWI codes</p></li>
+<li><p>File directory to (zarr) file of todays daily FWI codes</p></li>
 <li><p>Needed for carry over to intilaze tomorrow’s model run</p></li>
 </ul>
 </p>
@@ -263,12 +353,12 @@ local the averageing was done as a buffer for any frontal passage.</p>
 <dl class="py method">
 <dt id="utils.fwf.FWF.hourly">
 <code class="sig-name descname"><span class="pre">hourly</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.hourly" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes hourly_ds (.nc) and adds the appropriate attributes to each variable</p>
+<dd><p>Writes hourly_ds (.zarr) and adds the appropriate attributes to each variable</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>make_dir</strong> –</p>
 <ul class="simple">
-<li><p>File directory to (nc) file of todays hourly FWI codes</p></li>
+<li><p>File directory to (zarr) file of todays hourly FWI codes</p></li>
 <li><p>Needed for carry over to intilaze tomorrow’s model run</p></li>
 </ul>
 </p>
@@ -285,7 +375,7 @@ local the averageing was done as a buffer for any frontal passage.</p>
 <dd><p>Loops through each hourly time step and solves hourly fwi(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>hourly_ds</strong> – A xarray DataSet with all the hourly FWI codes/indices solved</p>
+<dd class="field-odd"><p><strong>daily_ds</strong> – A xarray DataSet with all the hourly FWI codes/indices solved</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>DataSet</p>
@@ -554,96 +644,46 @@ the averageing was done as a buffer for any frontal passage.</p>
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_fbp">
 <code class="sig-name descname"><span class="pre">solve_fbp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hourly_ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_fbp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Solves the Fire Behavior Predictions System at hourly intervals</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>hourly_ds</strong> (<em>DataSet</em>) – <ul class="simple">
-<li><dl class="simple">
-<dt>Dataset of hourly forecast variables</dt><dd><ul>
-<li><dl class="simple">
-<dt>W: DataArray</dt><dd><ul>
+<dd><p>Calculates the hourly fire weather index and daily severity rating</p>
+<blockquote>
+<div><dl class="simple">
+<dt>W: datarray</dt><dd><ul class="simple">
 <li><p>Wind speed, km/hr</p></li>
 </ul>
 </dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>F: DataArray</dt><dd><ul>
+<dt>F: datarray</dt><dd><ul class="simple">
 <li><p>Fine fuel moisture code</p></li>
 </ul>
 </dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>R: DataArray</dt><dd><ul>
+<dt>R: datarray</dt><dd><ul class="simple">
 <li><p>Initial spread index</p></li>
 </ul>
 </dd>
+<dt>S: datarray</dt><dd><ul class="simple">
+<li><p>Fire weather index</p></li>
+</ul>
+</dd>
+<dt>DSR: datarray</dt><dd><ul class="simple">
+<li><p>Daily severity rating</p></li>
+</ul>
+</dd>
 </dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>S</strong> (<em>datarray</em>) –</p>
+<ul>
+<li><p>An datarray of FWI</p></li>
+</ul>
 </li>
+<li><p><em>DSR datarray</em> –</p>
+<ul>
+<li><p>An datarray of DSR</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p><strong>hourly_ds</strong> –</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Datarray of</dt><dd><ul>
-<li><dl class="simple">
-<dt>FMC: DataArray</dt><dd><ul>
-<li><p>Foliar Moisture Content, %</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>SFC: DataArray</dt><dd><ul>
-<li><p>Surface Fuel Consumption, kg m^{-2}</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>TFC: DataArray</dt><dd><ul>
-<li><p>Total Fuel Consumption, kg m^{-2}</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>CFB: DataArray</dt><dd><ul>
-<li><p>Crown Fraction Burned, %</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>ROS: DataArray</dt><dd><ul>
-<li><p>Rate of Spread, m min^{-1}</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>HFI: DataArray</dt><dd><ul>
-<li><p>Head Fire Intensity, kW m^{-1}</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
 </li>
 </ul>
 </p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>DataSet</p>
 </dd>
 </dl>
 </dd></dl>
@@ -814,7 +854,7 @@ the averageing was done as a buffer for any frontal passage.</p>
 
 <dl class="py method">
 <dt id="utils.fwf.FWF.solve_isi">
-<code class="sig-name descname"><span class="pre">solve_isi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hourly_ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fbp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_isi" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">solve_isi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hourly_ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fbp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fwf.FWF.solve_isi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the hourly initial spread index</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -869,86 +909,29 @@ the averageing was done as a buffer for any frontal passage.</p>
 <span id="read-wrf-netcdf"></span><h2>Read WRF NetCDF<a class="headerlink" href="#module-utils.read_wrfout" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="utils.read_wrfout.readwrf">
-<code class="sig-prename descclassname"><span class="pre">utils.read_wrfout.</span></code><code class="sig-name descname"><span class="pre">readwrf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filein</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wright</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.read_wrfout.readwrf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">utils.read_wrfout.</span></code><code class="sig-name descname"><span class="pre">readwrf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filein</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.read_wrfout.readwrf" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function reads wrfout files and grabs required met variables for fire weather index calculations.  Writes/outputs as a xarray</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>wind speed (km h-1)</p></li>
+<li><p>temp (degC)</p></li>
+<li><p>rh (%)</p></li>
+<li><p>qpf (mm)</p></li>
+<li><p>snw (mm)</p></li>
+</ul>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filein</strong> (<em>str</em>) – <ul>
+<dd class="field-odd"><p><strong>files</strong> (<em>str</em>) – <ul class="simple">
 <li><p>File directory to NetCDF files</p></li>
 </ul>
-</p></li>
-<li><p><strong>domain</strong> (<em>str</em>) – <ul>
-<li><p>Domain tag of wrf model</p></li>
-</ul>
-</p></li>
-<li><p><strong>*args</strong> (<em>list</em>) – <ul>
-<li><p>[Degrees Latitude, Degrees Longitude]</p></li>
-</ul>
-</p></li>
-</ul>
+</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul>
-<li><p><strong>ds_wrf</strong> (<em>DataSet</em>) –</p>
-<dl class="simple">
-<dt>xarray DataSet containing</dt><dd><dl class="simple">
-<dt>H: DataArray</dt><dd><ul class="simple">
-<li><p>2 meter Relative Humidity (%)</p></li>
-</ul>
+<dd class="field-even"><p><strong>ds_wrf</strong> – xarray DataSet</p>
 </dd>
-<dt>T: DataArray</dt><dd><ul class="simple">
-<li><p>2 meter Temperature (C)</p></li>
-</ul>
-</dd>
-<dt>TD: DataArray</dt><dd><ul class="simple">
-<li><p>2 meter Dew Point Temperature (C)</p></li>
-</ul>
-</dd>
-<dt>W: DataArray</dt><dd><ul class="simple">
-<li><p>10 meter Wind Speed (km/h)</p></li>
-</ul>
-</dd>
-<dt>WD: DataArray</dt><dd><ul class="simple">
-<li><p>10 meter Wind Direction (deg)</p></li>
-</ul>
-</dd>
-<dt>r_o: DataArray</dt><dd><ul class="simple">
-<li><p>Total Accumulated Precipitation (mm)</p></li>
-</ul>
-</dd>
-<dt>SNW: DataArray</dt><dd><ul class="simple">
-<li><p>Total Accumulated Snowfall (cm)</p></li>
-</ul>
-</dd>
-<dt>SNOWC: DataArray</dt><dd><ul class="simple">
-<li><p>Flag Indincating Presentage of Snow Coverage in Grid (1 For Snow Cover 100% Snow Coverage)</p></li>
-</ul>
-</dd>
-<dt>SNOWH: DataArray</dt><dd><ul class="simple">
-<li><p>Physical Snow Depth (m)</p></li>
-</ul>
-</dd>
-<dt>U10: DataArray</dt><dd><ul class="simple">
-<li><p>10 meter U Compentent of Wind</p></li>
-</ul>
-</dd>
-<dt>V10: DataArray</dt><dd><ul class="simple">
-<li><p>10 meter V Compentent of Wind</p></li>
-</ul>
-</dd>
-</dl>
-</dd>
-</dl>
-</li>
-<li><p><strong>wright</strong> (<em>boolean</em>) –</p>
-<ul class="simple">
-<li><p>True: write wrfout to zarr</p></li>
-<li><p>True: do not write wrfout to zarr</p></li>
-</ul>
-</li>
-</ul>
-</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>DataSet</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1045,57 +1028,37 @@ the averageing was done as a buffer for any frontal passage.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="ms.html" class="btn btn-neutral float-left" title="Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
+              </div>
+              
         
-        &copy; Copyright 2020, Christopher Rodell
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="ms.html" title="previous page">Structure</a>
 
         </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Christopher Rodell<br/>
+        
+            &copy; Copyright 2020, Christopher Rodell.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
       </div>
+    </div>
 
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
     
-   
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
-</body>
+
+    
+  </body>
 </html>
