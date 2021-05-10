@@ -32,10 +32,9 @@ Model Information
    :caption: Model:
 
    view
-   work
+   kdtree
    web
    ms
-   kdtree
    api
    
    

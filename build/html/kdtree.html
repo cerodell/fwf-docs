@@ -42,8 +42,8 @@
     <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API" href="api.html" />
-    <link rel="prev" title="Structure" href="ms.html" />
+    <link rel="next" title="Website" href="web.html" />
+    <link rel="prev" title="General" href="view.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -82,8 +82,8 @@
    General
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="work.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Datasets
   </a>
  </li>
@@ -95,16 +95,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="ms.html">
    Structure
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#how-to-search-the-fwf-data-set-by-locations">
-   How to search the FWF data set by locations
   </a>
  </li>
  <li class="toctree-l1">
@@ -183,66 +173,57 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Datasets
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-domains">
+   Model Domains
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-domains">
-     Model Domains
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#description">
+     Description
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#description">
-       Description
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dataset-variables">
-       Dataset Variables
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#working-with">
-     Working with
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-variables">
+     Dataset Variables
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with">
+   Working with
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-search-the-fwf-data-set-by-locations">
    How to search the FWF data set by locations
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up">
-     Set Up
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
-     Set up to build a kdtree
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
-     Build a kdtree and save
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#search-the-data">
-     Search the data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-license">
-     Data License
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up">
+   Set Up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
+   Set up to build a kdtree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
+   Build a kdtree and save
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#search-the-data">
+   Search the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-license">
+   Data License
+  </a>
  </li>
 </ul>
 
@@ -436,9 +417,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="how-to-search-the-fwf-data-set-by-locations">
-<h1>How to search the FWF data set by locations<a class="headerlink" href="#how-to-search-the-fwf-data-set-by-locations" title="Permalink to this headline">¶</a></h1>
+<h2>How to search the FWF data set by locations<a class="headerlink" href="#how-to-search-the-fwf-data-set-by-locations" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">context</span>
@@ -454,6 +434,7 @@
 <span class="kn">from</span> <span class="nn">context</span> <span class="kn">import</span> <span class="n">data_dir</span><span class="p">,</span> <span class="n">fwf_dir</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -608,8 +589,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ms.html" title="previous page">Structure</a>
-    <a class='right-next' id="next-link" href="api.html" title="next page">API</a>
+    <a class='left-prev' id="prev-link" href="view.html" title="previous page">General</a>
+    <a class='right-next' id="next-link" href="web.html" title="next page">Website</a>
 
         </div>
         
