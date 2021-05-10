@@ -36,9 +36,9 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.napoleon",
     "sphinx_automodapi.automodapi",
-    # "myst_nb",
-    # "sphinxcontrib.inlinesyntaxhighlight",
-    # "sphinx.ext.mathjax",
+    "myst_parser",
+    "sphinxcontrib.inlinesyntaxhighlight",
+    "sphinx.ext.mathjax",
 ]
 
 # use language set by highlight directive if no language is set by role
