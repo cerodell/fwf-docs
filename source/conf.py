@@ -36,7 +36,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.napoleon",
     "sphinx_automodapi.automodapi",
-    "myst_parser",
+    "myst_nb",
     "sphinxcontrib.inlinesyntaxhighlight",
     "sphinx.ext.mathjax",
 ]
