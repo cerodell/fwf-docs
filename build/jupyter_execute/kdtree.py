@@ -139,7 +139,7 @@ filein = str(fwf_dir) + f"/fwf-{name}-{domain}-{forecast_date}.nc"
 
 
 ds = xr.open_dataset(filein)
-## strip some attributes from the netcdf for the sack of printing
+## strip some attributes from the netcdf for the sake of printing
 ds.attrs = {'TITLE': 'FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL',
  'WEST-EAST_GRID_DIMENSION': '628',
  'SOUTH-NORTH_GRID_DIMENSION': '418',
@@ -264,12 +264,7 @@ ds_loc = ds.sel(south_north = south_north, west_east = west_east)
 # In[13]:
 
 
-## strip some attributes from the netcdf for the sack of printing
-ds_loc.attrs = {'TITLE': 'FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL',
- 'WEST-EAST_GRID_DIMENSION': '628',
- 'SOUTH-NORTH_GRID_DIMENSION': '418',
- 'DX': '12000.0',
- 'DY': '12000.0'}
+
 print(ds_loc)
 
 

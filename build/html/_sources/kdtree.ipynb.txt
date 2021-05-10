@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "warming-latex",
+   "id": "meaningful-pepper",
    "metadata": {},
    "source": [
     "\n",
@@ -13,7 +13,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "hazardous-consent",
+   "id": "parental-liberty",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -27,7 +27,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "military-switch",
+   "id": "written-content",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -61,7 +61,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "reverse-slovak",
+   "id": "attempted-dayton",
    "metadata": {
     "lines_to_next_cell": 2
    },
@@ -98,7 +98,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "federal-father",
+   "id": "noble-major",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -113,7 +113,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "beginning-contrary",
+   "id": "behind-spanking",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -144,7 +144,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "stone-sender",
+   "id": "usual-mixture",
    "metadata": {},
    "source": [
     "## How to search the FWF data set by locations"
@@ -153,7 +153,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "selected-voluntary",
+   "id": "nervous-pound",
    "metadata": {
     "lines_to_next_cell": 2
    },
@@ -175,7 +175,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "precise-least",
+   "id": "dirty-aerospace",
    "metadata": {},
    "source": [
     "### Define dataset inforation\n",
@@ -185,7 +185,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "brown-bhutan",
+   "id": "interpreted-tutorial",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -199,7 +199,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "diverse-element",
+   "id": "twelve-preliminary",
    "metadata": {},
    "source": [
     "Open forecast dataset and print "
@@ -208,12 +208,12 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "acquired-diana",
+   "id": "domestic-defeat",
    "metadata": {},
    "outputs": [],
    "source": [
     "ds = xr.open_dataset(filein)\n",
-    "## strip some attributes from the netcdf for the sack of printing\n",
+    "## strip some attributes from the netcdf for the sake of printing\n",
     "ds.attrs = {'TITLE': 'FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL',\n",
     " 'WEST-EAST_GRID_DIMENSION': '628',\n",
     " 'SOUTH-NORTH_GRID_DIMENSION': '418',\n",
@@ -224,7 +224,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "traditional-oakland",
+   "id": "enormous-poetry",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -235,7 +235,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "injured-superintendent",
+   "id": "minor-produce",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -245,7 +245,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "valued-denial",
+   "id": "appreciated-musical",
    "metadata": {},
    "source": [
     "### Set up to build a kdtree"
@@ -254,7 +254,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "parliamentary-registration",
+   "id": "confirmed-progress",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -263,7 +263,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "several-essence",
+   "id": "authentic-internship",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -274,7 +274,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "practical-barrier",
+   "id": "impressed-patrick",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -284,7 +284,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "elect-trace",
+   "id": "operating-defensive",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -295,7 +295,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "apparent-postage",
+   "id": "about-strip",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -306,7 +306,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "nominated-resource",
+   "id": "dietary-dublin",
    "metadata": {},
    "source": [
     "### Build a kdtree and save"
@@ -315,7 +315,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "backed-rehabilitation",
+   "id": "pressed-newsletter",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -337,7 +337,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "funded-accreditation",
+   "id": "awful-affiliation",
    "metadata": {},
    "source": [
     "\n",
@@ -347,7 +347,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "wanted-attraction",
+   "id": "stainless-payday",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -358,7 +358,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "perfect-cabinet",
+   "id": "honest-understanding",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -367,7 +367,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "sixth-brisbane",
+   "id": "impressive-clinic",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -378,7 +378,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "falling-italy",
+   "id": "worthy-maria",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -403,7 +403,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "normal-paragraph",
+   "id": "suffering-washington",
    "metadata": {},
    "source": [
     "### Index an entire dataset\n",
@@ -413,7 +413,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "subject-oakland",
+   "id": "induced-convert",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -423,7 +423,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "great-exercise",
+   "id": "stylish-nebraska",
    "metadata": {},
    "source": [
     "Index the entire dataset at the locations of interest leaving dimension time with new dimension wx stations"
@@ -432,7 +432,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "traditional-zimbabwe",
+   "id": "indirect-riverside",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -441,7 +441,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "prime-suffering",
+   "id": "strong-fisher",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -452,22 +452,17 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "incoming-butter",
+   "id": "overall-process",
    "metadata": {},
    "outputs": [],
    "source": [
-    "## strip some attributes from the netcdf for the sack of printing\n",
-    "ds_loc.attrs = {'TITLE': 'FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL',\n",
-    " 'WEST-EAST_GRID_DIMENSION': '628',\n",
-    " 'SOUTH-NORTH_GRID_DIMENSION': '418',\n",
-    " 'DX': '12000.0',\n",
-    " 'DY': '12000.0'}\n",
+    "\n",
     "print(ds_loc)"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "brilliant-howard",
+   "id": "ideal-classification",
    "metadata": {
     "lines_to_next_cell": 2
    },

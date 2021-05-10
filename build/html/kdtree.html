@@ -475,7 +475,7 @@ Attributes:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filein</span><span class="p">)</span>
-<span class="c1">## strip some attributes from the netcdf for the sack of printing</span>
+<span class="c1">## strip some attributes from the netcdf for the sake of printing</span>
 <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TITLE&#39;</span><span class="p">:</span> <span class="s1">&#39;FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL&#39;</span><span class="p">,</span>
  <span class="s1">&#39;WEST-EAST_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;628&#39;</span><span class="p">,</span>
  <span class="s1">&#39;SOUTH-NORTH_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;418&#39;</span><span class="p">,</span>
@@ -662,13 +662,7 @@ Attributes:
 <p>Print to see new time series dataset at every weather station location</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## strip some attributes from the netcdf for the sack of printing</span>
-<span class="n">ds_loc</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TITLE&#39;</span><span class="p">:</span> <span class="s1">&#39;FWF MODEL USING OUTPUT FROM WRF V4.2.1 MODEL&#39;</span><span class="p">,</span>
- <span class="s1">&#39;WEST-EAST_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;628&#39;</span><span class="p">,</span>
- <span class="s1">&#39;SOUTH-NORTH_GRID_DIMENSION&#39;</span><span class="p">:</span> <span class="s1">&#39;418&#39;</span><span class="p">,</span>
- <span class="s1">&#39;DX&#39;</span><span class="p">:</span> <span class="s1">&#39;12000.0&#39;</span><span class="p">,</span>
- <span class="s1">&#39;DY&#39;</span><span class="p">:</span> <span class="s1">&#39;12000.0&#39;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
