@@ -241,6 +241,7 @@ for loc in df.itertuples(index=True, name='Pandas'):
     west_east.append(fwf_2D_ind[1])
 
 
+# ### Index an entire dataset
 # Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index an entire dataset!
 
 # In[11]:
