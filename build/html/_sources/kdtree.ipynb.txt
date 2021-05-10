@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "meaningful-pepper",
+   "id": "animal-state",
    "metadata": {},
    "source": [
     "\n",
@@ -13,7 +13,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "parental-liberty",
+   "id": "australian-spelling",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -27,7 +27,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "written-content",
+   "id": "incredible-particular",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -61,7 +61,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "attempted-dayton",
+   "id": "senior-cheese",
    "metadata": {
     "lines_to_next_cell": 2
    },
@@ -98,7 +98,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "noble-major",
+   "id": "powerful-detail",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -113,7 +113,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "behind-spanking",
+   "id": "prompt-barbados",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -144,7 +144,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "usual-mixture",
+   "id": "narrative-desire",
    "metadata": {},
    "source": [
     "## How to search the FWF data set by locations"
@@ -153,7 +153,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "nervous-pound",
+   "id": "brown-albert",
    "metadata": {
     "lines_to_next_cell": 2
    },
@@ -175,17 +175,17 @@
   },
   {
    "cell_type": "markdown",
-   "id": "dirty-aerospace",
+   "id": "willing-collins",
    "metadata": {},
    "source": [
-    "### Define dataset inforation\n",
+    "### Define dataset information\n",
     "Define forecast date, domain and set paths to dataset"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "interpreted-tutorial",
+   "id": "verbal-difficulty",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -199,7 +199,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "twelve-preliminary",
+   "id": "instant-split",
    "metadata": {},
    "source": [
     "Open forecast dataset and print "
@@ -208,7 +208,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "domestic-defeat",
+   "id": "molecular-utility",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -224,7 +224,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "enormous-poetry",
+   "id": "major-covering",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -235,7 +235,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "minor-produce",
+   "id": "smaller-despite",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -245,7 +245,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "appreciated-musical",
+   "id": "celtic-wound",
    "metadata": {},
    "source": [
     "### Set up to build a kdtree"
@@ -254,7 +254,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "confirmed-progress",
+   "id": "southwest-surfing",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -263,7 +263,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "authentic-internship",
+   "id": "essential-locking",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -274,7 +274,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "impressed-patrick",
+   "id": "previous-drilling",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -284,7 +284,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "operating-defensive",
+   "id": "fitting-bradford",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -295,7 +295,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "about-strip",
+   "id": "medieval-dominant",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -306,7 +306,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "dietary-dublin",
+   "id": "political-courage",
    "metadata": {},
    "source": [
     "### Build a kdtree and save"
@@ -315,7 +315,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "pressed-newsletter",
+   "id": "proud-origin",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -337,7 +337,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "awful-affiliation",
+   "id": "available-korea",
    "metadata": {},
    "source": [
     "\n",
@@ -347,7 +347,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "stainless-payday",
+   "id": "environmental-disclosure",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -358,7 +358,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "honest-understanding",
+   "id": "median-swift",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -367,7 +367,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "impressive-clinic",
+   "id": "original-death",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -378,7 +378,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "worthy-maria",
+   "id": "hindu-sperm",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -403,7 +403,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "suffering-washington",
+   "id": "american-berlin",
    "metadata": {},
    "source": [
     "### Index an entire dataset\n",
@@ -413,7 +413,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "induced-convert",
+   "id": "sharing-textbook",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -423,7 +423,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "stylish-nebraska",
+   "id": "applied-gallery",
    "metadata": {},
    "source": [
     "Index the entire dataset at the locations of interest leaving dimension time with new dimension wx stations"
@@ -432,7 +432,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "indirect-riverside",
+   "id": "confused-attraction",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -441,7 +441,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "strong-fisher",
+   "id": "harmful-optimum",
    "metadata": {
     "lines_to_next_cell": 0
    },
@@ -452,7 +452,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "overall-process",
+   "id": "environmental-retirement",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -462,7 +462,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ideal-classification",
+   "id": "great-stretch",
    "metadata": {
     "lines_to_next_cell": 2
    },
