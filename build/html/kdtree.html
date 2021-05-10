@@ -199,26 +199,28 @@
   <a class="reference internal nav-link" href="#how-to-search-the-fwf-data-set-by-locations">
    How to search the FWF data set by locations
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up">
-   Set Up
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
-   Set up to build a kdtree
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
-   Build a kdtree and save
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#search-the-data">
-   Search the data
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up">
+     Set Up
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
+     Set up to build a kdtree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
+     Build a kdtree and save
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-the-data">
+     Search the data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-license">
@@ -450,9 +452,8 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="set-up">
-<h2>Set Up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h2>
+<h3>Set Up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h3>
 <p>Define forecast date, domain and set paths to dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -544,7 +545,7 @@ Attributes:
 </div>
 </div>
 <div class="section" id="set-up-to-build-a-kdtree">
-<h2>Set up to build a kdtree<a class="headerlink" href="#set-up-to-build-a-kdtree" title="Permalink to this headline">¶</a></h2>
+<h3>Set up to build a kdtree<a class="headerlink" href="#set-up-to-build-a-kdtree" title="Permalink to this headline">¶</a></h3>
 <p>First, set path to store kdtree and make directory if it doesn’t exist</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -571,7 +572,7 @@ Attributes:
 </div>
 </div>
 <div class="section" id="build-a-kdtree-and-save">
-<h2>Build a kdtree and save<a class="headerlink" href="#build-a-kdtree-and-save" title="Permalink to this headline">¶</a></h2>
+<h3>Build a kdtree and save<a class="headerlink" href="#build-a-kdtree-and-save" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -599,7 +600,7 @@ Attributes:
 </div>
 </div>
 <div class="section" id="search-the-data">
-<h2>Search the data<a class="headerlink" href="#search-the-data" title="Permalink to this headline">¶</a></h2>
+<h3>Search the data<a class="headerlink" href="#search-the-data" title="Permalink to this headline">¶</a></h3>
 <p>With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.</p>
 <p>First, define empty list to append index of weather station locations</p>
 <div class="cell docutils container">
@@ -633,7 +634,7 @@ Attributes:
 </div>
 </div>
 </div>
-<p>Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index and entire dataset</p>
+<p>Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index an entire dataset!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">south_north</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">south_north</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span> <span class="s1">&#39;wmo&#39;</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">wmo</span> <span class="o">=</span> <span class="n">wmo</span><span class="p">))</span>
@@ -642,7 +643,7 @@ Attributes:
 </div>
 </div>
 </div>
-<p>Index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations</p>
+<p>Index the entire dataset at the locations of interest leaving dimension time with new dimension wx stations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_loc</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">south_north</span> <span class="o">=</span> <span class="n">south_north</span><span class="p">,</span> <span class="n">west_east</span> <span class="o">=</span> <span class="n">west_east</span><span class="p">)</span>
@@ -705,6 +706,7 @@ Attributes:
     DX:                          12000.0
     DY:                          12000.0
 </pre></div>
+</div>
 </div>
 </div>
 </div>

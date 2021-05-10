@@ -119,7 +119,7 @@ from context import data_dir, fwf_dir
 from datetime import datetime, date, timedelta
 
 
-# ## Set Up
+# ### Set Up
 # Define forecast date, domain and set paths to dataset
 
 # In[3]:
@@ -157,7 +157,7 @@ df = pd.read_csv(str(data_dir) + "/nrcan-wxstations.csv", sep=",", usecols = ['w
 print(df.head())
 
 
-# ## Set up to build a kdtree
+# ### Set up to build a kdtree
 
 # In[ ]:
 
@@ -184,7 +184,7 @@ shape = XLAT.shape
 print(shape)
 
 
-# ## Build a kdtree and save
+# ### Build a kdtree and save
 
 # In[8]:
 
@@ -206,7 +206,7 @@ except:
 
 
 # 
-# ## Search the data
+# ### Search the data
 # With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.
 
 # First, define empty list to append index of weather station locations
@@ -241,7 +241,7 @@ for loc in df.itertuples(index=True, name='Pandas'):
     west_east.append(fwf_2D_ind[1])
 
 
-# Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index and entire dataset 
+# Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index an entire dataset!
 
 # In[11]:
 
@@ -250,7 +250,7 @@ south_north = xr.DataArray(np.array(south_north), dims= 'wmo', coords= dict(wmo 
 west_east = xr.DataArray(np.array(west_east), dims= 'wmo', coords= dict(wmo = wmo))
 
 
-# Index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations
+# Index the entire dataset at the locations of interest leaving dimension time with new dimension wx stations
 
 # In[12]:
 
