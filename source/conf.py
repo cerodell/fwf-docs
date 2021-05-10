@@ -70,4 +70,4 @@ html_title = ""
 # html_static_path = ['_static']
 
 
-html_logo = "_static/images/logo-v3.png"
+html_logo = "_static/images/logo-v4.png"

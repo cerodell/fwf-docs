@@ -35,6 +35,7 @@ Model Information
    work
    web
    ms
+   kdtree
    api
    
    
