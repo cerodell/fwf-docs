@@ -102,7 +102,7 @@ print(ds.F)
 
 # ## How to search the FWF data set by locations
 
-# In[ ]:
+# In[2]:
 
 
 import context
@@ -122,7 +122,7 @@ from datetime import datetime, date, timedelta
 # ## Set Up
 # Define forecast date, domain and set paths to dataset
 
-# In[ ]:
+# In[3]:
 
 
 
@@ -136,7 +136,7 @@ filein = str(fwf_dir) + f"/fwf-{name}-{domain}-{forecast_date}.nc"
 
 # Open forecast dataset and print 
 
-# In[ ]:
+# In[4]:
 
 
 ## open forecast dataset
@@ -148,7 +148,7 @@ print(ds)
 
 # Load a data set of weather sation locations and look at the first four rows as an example
 
-# In[ ]:
+# In[5]:
 
 
 ## load a data set of weather sation locations
@@ -161,7 +161,7 @@ print(df.head())
 # 
 # ## Set up to build a kdtree
 
-# In[ ]:
+# In[6]:
 
 
 ## first, set path to store kdtree
@@ -180,7 +180,7 @@ print(shape)
 
 # ## Build a kdtree and save
 
-# In[ ]:
+# In[7]:
 
 
 try:
@@ -203,7 +203,7 @@ except:
 # ## Search the data
 # With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.
 
-# In[ ]:
+# In[8]:
 
 
 ## define empty list to append index of weather station locations
@@ -230,7 +230,7 @@ for loc in df.itertuples(index=True, name='Pandas'):
 
 # 
 
-# In[ ]:
+# In[9]:
 
 
 ## now the magic of xarray..convert lists of indexes to a dataarray with dimension wmo (weather staton)..this allows you to index and entire dataset 
@@ -240,7 +240,7 @@ west_east = xr.DataArray(np.array(west_east), dims= 'wmo', coords= dict(wmo = wm
 
 # 
 
-# In[ ]:
+# In[10]:
 
 
 ## index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations
@@ -249,7 +249,7 @@ ds_loc = ds.sel(south_north = south_north, west_east = west_east)
 
 # 
 
-# In[ ]:
+# In[11]:
 
 
 ## print to see new time series dataset at every weather station location

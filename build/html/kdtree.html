@@ -402,16 +402,29 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mf">81e43</span><span class="n">e82d236</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">context</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">context</span> <span class="kn">import</span> <span class="n">data_dir</span><span class="p">,</span> <span class="n">fwf_dir</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>******************************
+context imported. Front of path:
+/Users/rodell/fwf
+/Users/rodell/fwf/fwf-docs/source
+******************************
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;context&#39;
+through /Users/rodell/fwf/fwf-docs/source/context.py -- pha
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;F&#39; (time: 55, south_north: 417, west_east: 627)&gt;
+dask.array&lt;xarray-F, shape=(55, 417, 627), dtype=float32, chunksize=(55, 417, 627), chunktype=numpy.ndarray&gt;
+Coordinates:
+    XLONG    (south_north, west_east) float32 dask.array&lt;chunksize=(417, 627), meta=np.ndarray&gt;
+    XLAT     (south_north, west_east) float32 dask.array&lt;chunksize=(417, 627), meta=np.ndarray&gt;
+    XTIME    (time) float32 dask.array&lt;chunksize=(55,), meta=np.ndarray&gt;
+    Time     (time) datetime64[ns] dask.array&lt;chunksize=(55,), meta=np.ndarray&gt;
+Dimensions without coordinates: time, south_north, west_east
+Attributes:
+    FieldType:    104
+    MemoryOrder:  XY 
+    description:  FINE FUEL MOISTURE CODE
+    projection:   PolarStereographic(stand_lon=-110.0, moad_cen_lat=53.999992...
+    stagger:      
 </pre></div>
 </div>
 </div>
@@ -464,6 +477,179 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:     (south_north: 417, time: 55, west_east: 627)
+Coordinates:
+    XLONG       (south_north, west_east) float32 ...
+    XLAT        (south_north, west_east) float32 ...
+    XTIME       (time) float32 ...
+    Time        (time) datetime64[ns] ...
+Dimensions without coordinates: south_north, time, west_east
+Data variables:
+    F           (time, south_north, west_east) float32 ...
+    m_o         (time, south_north, west_east) float32 ...
+    T           (time, south_north, west_east) float32 ...
+    TD          (time, south_north, west_east) float32 ...
+    H           (time, south_north, west_east) float32 ...
+    W           (time, south_north, west_east) float32 ...
+    WD          (time, south_north, west_east) float32 ...
+    r_o         (time, south_north, west_east) float32 ...
+    SNW         (time, south_north, west_east) float32 ...
+    SNOWC       (time, south_north, west_east) float32 ...
+    SNOWH       (time, south_north, west_east) float32 ...
+    U10         (time, south_north, west_east) float32 ...
+    V10         (time, south_north, west_east) float32 ...
+    r_o_hourly  (time, south_north, west_east) float32 ...
+    R           (time, south_north, west_east) float32 ...
+    S           (time, south_north, west_east) float32 ...
+    DSR         (time, south_north, west_east) float32 ...
+    FMC         (south_north, west_east) float32 ...
+    SFC         (time, south_north, west_east) float32 ...
+    ISI         (time, south_north, west_east) float32 ...
+    ROS         (time, south_north, west_east) float32 ...
+    CFB         (time, south_north, west_east) float32 ...
+    TFC         (time, south_north, west_east) float32 ...
+    HFI         (time, south_north, west_east) float32 ...
+Attributes:
+    TITLE:                           FWF MODEL USING OUTPUT FROM WRF V4.2.1 M...
+    START_DATE:                      &#39;2021-05-10_00:00:00&#39;
+    SIMULATION_START_DATE:           &#39;2021-05-10_00:00:00&#39;
+    WEST-EAST_GRID_DIMENSION:        628
+    SOUTH-NORTH_GRID_DIMENSION:      418
+    BOTTOM-TOP_GRID_DIMENSION:       55
+    DX:                              12000.0
+    DY:                              12000.0
+    AERCU_OPT:                       0
+    AERCU_FCT:                       1.0
+    IDEAL_CASE:                      0
+    DIFF_6TH_SLOPEOPT:               0
+    AUTO_LEVELS_OPT:                 2
+    DIFF_6TH_THRESH:                 0.1
+    DZBOT:                           50.0
+    DZSTRETCH_S:                     1.3
+    DZSTRETCH_U:                     1.1
+    SKEBS_ON:                        0
+    SPEC_BDY_FINAL_MU:               1
+    USE_Q_DIABATIC:                  0
+    GRIDTYPE:                        &#39;C&#39;
+    DIFF_OPT:                        1
+    KM_OPT:                          4
+    DAMP_OPT:                        3
+    DAMPCOEF:                        0.2
+    KHDIF:                           0.0
+    KVDIF:                           0.0
+    MP_PHYSICS:                      8
+    RA_LW_PHYSICS:                   4
+    RA_SW_PHYSICS:                   4
+    SF_SFCLAY_PHYSICS:               2
+    SF_SURFACE_PHYSICS:              2
+    BL_PBL_PHYSICS:                  2
+    CU_PHYSICS:                      6
+    SF_LAKE_PHYSICS:                 0
+    SURFACE_INPUT_SOURCE:            1
+    SST_UPDATE:                      0
+    GRID_FDDA:                       0
+    GFDDA_INTERVAL_M:                0
+    GFDDA_END_H:                     0
+    GRID_SFDDA:                      0
+    SGFDDA_INTERVAL_M:               0
+    SGFDDA_END_H:                    0
+    HYPSOMETRIC_OPT:                 2
+    USE_THETA_M:                     1
+    GWD_OPT:                         1
+    SF_URBAN_PHYSICS:                0
+    SF_SURFACE_MOSAIC:               0
+    SF_OCEAN_PHYSICS:                0
+    SHCU_PHYSICS:                    0
+    MFSHCONV:                        0
+    FEEDBACK:                        1
+    SMOOTH_OPTION:                   0
+    SWRAD_SCAT:                      1.0
+    W_DAMPING:                       1
+    DT:                              48.413334
+    ADAPT_DT_START:                  48.0
+    ADAPT_DT_MAX:                    96.0
+    ADAPT_DT_MIN:                    36.0
+    RADT:                            15.0
+    BLDT:                            0.0
+    CUDT:                            0.0
+    AER_OPT:                         0
+    SWINT_OPT:                       0
+    AER_TYPE:                        1
+    AER_AOD550_OPT:                  1
+    AER_ANGEXP_OPT:                  1
+    AER_SSA_OPT:                     1
+    AER_ASY_OPT:                     1
+    AER_AOD550_VAL:                  0.12
+    AER_ANGEXP_VAL:                  1.3
+    AER_SSA_VAL:                     0.85
+    AER_ASY_VAL:                     0.9
+    MOIST_ADV_OPT:                   1
+    SCALAR_ADV_OPT:                  1
+    TKE_ADV_OPT:                     1
+    DIFF_6TH_OPT:                    0
+    DIFF_6TH_FACTOR:                 0.12
+    OBS_NUDGE_OPT:                   0
+    BUCKET_MM:                       -1.0
+    BUCKET_J:                        -1.0
+    PREC_ACC_DT:                     0.0
+    ISFTCFLX:                        0
+    ISHALLOW:                        0
+    ISFFLX:                          1
+    ICLOUD:                          1
+    ICLOUD_CU:                       0
+    TRACER_PBLMIX:                   1
+    SCALAR_PBLMIX:                   0
+    YSU_TOPDOWN_PBLMIX:              0
+    GRAV_SETTLING:                   0
+    DFI_OPT:                         0
+    NTASKS_X:                        12
+    NTASKS_Y:                        15
+    NTASKS_TOTAL:                    180
+    SIMULATION_INITIALIZATION_TYPE:  &#39;REAL-DATA CASE&#39;
+    WEST-EAST_PATCH_START_UNSTAG:    1
+    WEST-EAST_PATCH_END_UNSTAG:      627
+    WEST-EAST_PATCH_START_STAG:      1
+    WEST-EAST_PATCH_END_STAG:        628
+    SOUTH-NORTH_PATCH_START_UNSTAG:  1
+    SOUTH-NORTH_PATCH_END_UNSTAG:    417
+    SOUTH-NORTH_PATCH_START_STAG:    1
+    SOUTH-NORTH_PATCH_END_STAG:      418
+    BOTTOM-TOP_PATCH_START_UNSTAG:   1
+    BOTTOM-TOP_PATCH_END_UNSTAG:     54
+    BOTTOM-TOP_PATCH_START_STAG:     1
+    BOTTOM-TOP_PATCH_END_STAG:       55
+    GRID_ID:                         2
+    PARENT_ID:                       1
+    I_PARENT_START:                  40
+    J_PARENT_START:                  20
+    PARENT_GRID_RATIO:               3
+    CEN_LAT:                         52.89589
+    CEN_LON:                         -107.58885
+    TRUELAT1:                        53.25
+    TRUELAT2:                        53.25
+    MOAD_CEN_LAT:                    53.25
+    STAND_LON:                       -110.0
+    POLE_LAT:                        90.0
+    POLE_LON:                        0.0
+    GMT:                             0.0
+    JULYR:                           2021
+    JULDAY:                          130
+    MAP_PROJ:                        2
+    MAP_PROJ_CHAR:                   &#39;Polar Stereographic&#39;
+    MMINLU:                          &#39;MODIFIED_IGBP_MODIS_NOAH&#39;
+    NUM_LAND_CAT:                    21
+    ISWATER:                         17
+    ISLAKE:                          21
+    ISICE:                           15
+    ISURBAN:                         13
+    ISOILWATER:                      14
+    HYBRID_OPT:                      2
+    ETAC:                            0.2
+</pre></div>
+</div>
+</div>
 </div>
 <p>Load a data set of weather sation locations and look at the first four rows as an example</p>
 <div class="cell docutils container">
@@ -473,6 +659,16 @@
 
 <span class="c1">## look at the first four wxstation in dataframe as example</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     wmo     lat      lon
+0  70489  53.900 -166.533
+1  70395  55.350 -131.700
+2  70387  56.483 -132.367
+3  70386  56.817 -132.967
+4  70381  58.367 -134.583
 </pre></div>
 </div>
 </div>
@@ -497,6 +693,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(417, 627)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="build-a-kdtree-and-save">
@@ -517,6 +718,11 @@
   <span class="c1">## save tree</span>
   <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">([</span><span class="n">fwf_tree</span><span class="p">,</span> <span class="n">fwf_locs</span><span class="p">],</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">kdtree_dir</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;fwf_</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s1">_tree.p&#39;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FWF KDTree built&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found FWF Tree
 </pre></div>
 </div>
 </div>
@@ -572,6 +778,180 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## print to see new time series dataset at every weather station location</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:     (time: 55, wmo: 1335)
+Coordinates:
+    XLONG       (wmo) float32 -166.5 -131.7 -132.3 ... -76.06 -71.51 -69.85
+    XLAT        (wmo) float32 53.95 55.29 56.45 56.77 ... 44.02 42.72 44.35
+    XTIME       (time) float32 ...
+    Time        (time) datetime64[ns] ...
+  * wmo         (wmo) int64 70489 70395 70387 70386 ... 721847 721839 721829
+Dimensions without coordinates: time
+Data variables:
+    F           (time, wmo) float32 ...
+    m_o         (time, wmo) float32 ...
+    T           (time, wmo) float32 ...
+    TD          (time, wmo) float32 ...
+    H           (time, wmo) float32 ...
+    W           (time, wmo) float32 ...
+    WD          (time, wmo) float32 ...
+    r_o         (time, wmo) float32 ...
+    SNW         (time, wmo) float32 ...
+    SNOWC       (time, wmo) float32 ...
+    SNOWH       (time, wmo) float32 ...
+    U10         (time, wmo) float32 ...
+    V10         (time, wmo) float32 ...
+    r_o_hourly  (time, wmo) float32 ...
+    R           (time, wmo) float32 ...
+    S           (time, wmo) float32 ...
+    DSR         (time, wmo) float32 ...
+    FMC         (wmo) float32 ...
+    SFC         (time, wmo) float32 ...
+    ISI         (time, wmo) float32 ...
+    ROS         (time, wmo) float32 ...
+    CFB         (time, wmo) float32 ...
+    TFC         (time, wmo) float32 ...
+    HFI         (time, wmo) float32 ...
+Attributes:
+    TITLE:                           FWF MODEL USING OUTPUT FROM WRF V4.2.1 M...
+    START_DATE:                      &#39;2021-05-10_00:00:00&#39;
+    SIMULATION_START_DATE:           &#39;2021-05-10_00:00:00&#39;
+    WEST-EAST_GRID_DIMENSION:        628
+    SOUTH-NORTH_GRID_DIMENSION:      418
+    BOTTOM-TOP_GRID_DIMENSION:       55
+    DX:                              12000.0
+    DY:                              12000.0
+    AERCU_OPT:                       0
+    AERCU_FCT:                       1.0
+    IDEAL_CASE:                      0
+    DIFF_6TH_SLOPEOPT:               0
+    AUTO_LEVELS_OPT:                 2
+    DIFF_6TH_THRESH:                 0.1
+    DZBOT:                           50.0
+    DZSTRETCH_S:                     1.3
+    DZSTRETCH_U:                     1.1
+    SKEBS_ON:                        0
+    SPEC_BDY_FINAL_MU:               1
+    USE_Q_DIABATIC:                  0
+    GRIDTYPE:                        &#39;C&#39;
+    DIFF_OPT:                        1
+    KM_OPT:                          4
+    DAMP_OPT:                        3
+    DAMPCOEF:                        0.2
+    KHDIF:                           0.0
+    KVDIF:                           0.0
+    MP_PHYSICS:                      8
+    RA_LW_PHYSICS:                   4
+    RA_SW_PHYSICS:                   4
+    SF_SFCLAY_PHYSICS:               2
+    SF_SURFACE_PHYSICS:              2
+    BL_PBL_PHYSICS:                  2
+    CU_PHYSICS:                      6
+    SF_LAKE_PHYSICS:                 0
+    SURFACE_INPUT_SOURCE:            1
+    SST_UPDATE:                      0
+    GRID_FDDA:                       0
+    GFDDA_INTERVAL_M:                0
+    GFDDA_END_H:                     0
+    GRID_SFDDA:                      0
+    SGFDDA_INTERVAL_M:               0
+    SGFDDA_END_H:                    0
+    HYPSOMETRIC_OPT:                 2
+    USE_THETA_M:                     1
+    GWD_OPT:                         1
+    SF_URBAN_PHYSICS:                0
+    SF_SURFACE_MOSAIC:               0
+    SF_OCEAN_PHYSICS:                0
+    SHCU_PHYSICS:                    0
+    MFSHCONV:                        0
+    FEEDBACK:                        1
+    SMOOTH_OPTION:                   0
+    SWRAD_SCAT:                      1.0
+    W_DAMPING:                       1
+    DT:                              48.413334
+    ADAPT_DT_START:                  48.0
+    ADAPT_DT_MAX:                    96.0
+    ADAPT_DT_MIN:                    36.0
+    RADT:                            15.0
+    BLDT:                            0.0
+    CUDT:                            0.0
+    AER_OPT:                         0
+    SWINT_OPT:                       0
+    AER_TYPE:                        1
+    AER_AOD550_OPT:                  1
+    AER_ANGEXP_OPT:                  1
+    AER_SSA_OPT:                     1
+    AER_ASY_OPT:                     1
+    AER_AOD550_VAL:                  0.12
+    AER_ANGEXP_VAL:                  1.3
+    AER_SSA_VAL:                     0.85
+    AER_ASY_VAL:                     0.9
+    MOIST_ADV_OPT:                   1
+    SCALAR_ADV_OPT:                  1
+    TKE_ADV_OPT:                     1
+    DIFF_6TH_OPT:                    0
+    DIFF_6TH_FACTOR:                 0.12
+    OBS_NUDGE_OPT:                   0
+    BUCKET_MM:                       -1.0
+    BUCKET_J:                        -1.0
+    PREC_ACC_DT:                     0.0
+    ISFTCFLX:                        0
+    ISHALLOW:                        0
+    ISFFLX:                          1
+    ICLOUD:                          1
+    ICLOUD_CU:                       0
+    TRACER_PBLMIX:                   1
+    SCALAR_PBLMIX:                   0
+    YSU_TOPDOWN_PBLMIX:              0
+    GRAV_SETTLING:                   0
+    DFI_OPT:                         0
+    NTASKS_X:                        12
+    NTASKS_Y:                        15
+    NTASKS_TOTAL:                    180
+    SIMULATION_INITIALIZATION_TYPE:  &#39;REAL-DATA CASE&#39;
+    WEST-EAST_PATCH_START_UNSTAG:    1
+    WEST-EAST_PATCH_END_UNSTAG:      627
+    WEST-EAST_PATCH_START_STAG:      1
+    WEST-EAST_PATCH_END_STAG:        628
+    SOUTH-NORTH_PATCH_START_UNSTAG:  1
+    SOUTH-NORTH_PATCH_END_UNSTAG:    417
+    SOUTH-NORTH_PATCH_START_STAG:    1
+    SOUTH-NORTH_PATCH_END_STAG:      418
+    BOTTOM-TOP_PATCH_START_UNSTAG:   1
+    BOTTOM-TOP_PATCH_END_UNSTAG:     54
+    BOTTOM-TOP_PATCH_START_STAG:     1
+    BOTTOM-TOP_PATCH_END_STAG:       55
+    GRID_ID:                         2
+    PARENT_ID:                       1
+    I_PARENT_START:                  40
+    J_PARENT_START:                  20
+    PARENT_GRID_RATIO:               3
+    CEN_LAT:                         52.89589
+    CEN_LON:                         -107.58885
+    TRUELAT1:                        53.25
+    TRUELAT2:                        53.25
+    MOAD_CEN_LAT:                    53.25
+    STAND_LON:                       -110.0
+    POLE_LAT:                        90.0
+    POLE_LON:                        0.0
+    GMT:                             0.0
+    JULYR:                           2021
+    JULDAY:                          130
+    MAP_PROJ:                        2
+    MAP_PROJ_CHAR:                   &#39;Polar Stereographic&#39;
+    MMINLU:                          &#39;MODIFIED_IGBP_MODIS_NOAH&#39;
+    NUM_LAND_CAT:                    21
+    ISWATER:                         17
+    ISLAKE:                          21
+    ISICE:                           15
+    ISURBAN:                         13
+    ISOILWATER:                      14
+    HYBRID_OPT:                      2
+    ETAC:                            0.2
 </pre></div>
 </div>
 </div>
