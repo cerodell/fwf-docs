@@ -88,11 +88,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#first-define-empty-list-to-append-index-of-weather-station-locations">
-   First, define empty list to append index of weather station locations
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="web.html">
    Website
   </a>
@@ -178,71 +173,57 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Datasets
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-domains">
+   Model Domains
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-domains">
-     Model Domains
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#description">
-       Description
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dataset-variables">
-       Dataset Variables
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#working-with">
-     Working with
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#description">
+     Description
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-search-the-fwf-data-set-by-locations">
-     How to search the FWF data set by locations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up">
-     Set Up
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
-     Set up to build a kdtree
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
-     Build a kdtree and save
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#search-the-data">
-     Search the data
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-variables">
+     Dataset Variables
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-define-empty-list-to-append-index-of-weather-station-locations">
-   First, define empty list to append index of weather station locations
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with">
+   Working with
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-license">
-     Data License
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-search-the-fwf-data-set-by-locations">
+   How to search the FWF data set by locations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up">
+   Set Up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
+   Set up to build a kdtree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
+   Build a kdtree and save
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#search-the-data">
+   Search the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-license">
+   Data License
+  </a>
  </li>
 </ul>
 
@@ -620,10 +601,7 @@ Attributes:
 <div class="section" id="search-the-data">
 <h2>Search the data<a class="headerlink" href="#search-the-data" title="Permalink to this headline">¶</a></h2>
 <p>With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.</p>
-</div>
-</div>
-<div class="section" id="first-define-empty-list-to-append-index-of-weather-station-locations">
-<h1>First, define empty list to append index of weather station locations<a class="headerlink" href="#first-define-empty-list-to-append-index-of-weather-station-locations" title="Permalink to this headline">¶</a></h1>
+<p>First, define empty list to append index of weather station locations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">south_north</span><span class="p">,</span>  <span class="n">west_east</span><span class="p">,</span> <span class="n">wmo</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
@@ -727,6 +705,7 @@ Attributes:
     DX:                          12000.0
     DY:                          12000.0
 </pre></div>
+</div>
 </div>
 </div>
 </div>

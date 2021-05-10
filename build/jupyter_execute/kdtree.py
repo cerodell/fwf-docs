@@ -209,7 +209,7 @@ except:
 # ## Search the data
 # With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.
 
-# # First, define empty list to append index of weather station locations
+# First, define empty list to append index of weather station locations
 
 # In[9]:
 
