@@ -18,12 +18,12 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Fire Weather Forecast Model'
+# project = 'Fire Weather Forecast Model'
 copyright = '2020, Christopher Rodell'
 author = 'Christopher Rodell'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+# release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
