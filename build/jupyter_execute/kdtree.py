@@ -130,7 +130,6 @@ forecast_date = '2021051006'  ## "YYYYMMDDHH"
 domain        = 'd02'         ## or 'd03'
 name 	        = 'hourly'      ## or 'daily'
 
-## set path to gridded forecast dataset
 filein = str(fwf_dir) + f"/fwf-{name}-{domain}-{forecast_date}.nc"
 
 
@@ -139,10 +138,7 @@ filein = str(fwf_dir) + f"/fwf-{name}-{domain}-{forecast_date}.nc"
 # In[4]:
 
 
-## open forecast dataset
 ds = xr.open_dataset(filein)
-
-## take a look inside
 print(ds)
 
 
@@ -151,36 +147,40 @@ print(ds)
 # In[5]:
 
 
-## load a data set of weather sation locations
 df = pd.read_csv(str(data_dir) + "/nrcan-wxstations.csv", sep=",", usecols = ['wmo',	'lat',	'lon'])
-
-## look at the first four wxstation in dataframe as example
 print(df.head())
 
 
-# 
 # ## Set up to build a kdtree
+
+# In[ ]:
+
+
+
+
+
+# First, set path to store kdtree and make directory if it doesn't exist 
 
 # In[6]:
 
 
-## first, set path to store kdtree
 kdtree_dir = Path(str(data_dir) + "/kdtree/")
-
-## make directory if it doesn't exist 
 kdtree_dir.mkdir(parents=True, exist_ok=True)
 
-## now take gridded lats and long and convert to np arrays
-XLAT, XLONG = ds.XLAT.values, ds.XLONG.values
 
-## get shape of gridded domain
+# Now take gridded lats and long and convert to np arrays and check its shape
+
+# In[7]:
+
+
+XLAT, XLONG = ds.XLAT.values, ds.XLONG.values
 shape = XLAT.shape
 print(shape)
 
 
 # ## Build a kdtree and save
 
-# In[7]:
+# In[8]:
 
 
 try:
@@ -203,12 +203,19 @@ except:
 # ## Search the data
 # With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.
 
-# In[8]:
+# # First, define empty list to append index of weather station locations
+
+# In[9]:
 
 
-## define empty list to append index of weather station locations
 south_north,  west_east, wmo = [], [], []
-## loop each weather station in dataframe
+
+
+# Now lets loop each weather station in dataframe
+
+# In[10]:
+
+
 for loc in df.itertuples(index=True, name='Pandas'):
   ## arange wx station lat and long in a formate to query the kdtree
   single_loc = np.array([loc.lat, loc.lon]).reshape(1, -1)
@@ -228,31 +235,28 @@ for loc in df.itertuples(index=True, name='Pandas'):
     west_east.append(fwf_2D_ind[1])
 
 
-# 
-
-# In[9]:
-
-
-## now the magic of xarray..convert lists of indexes to a dataarray with dimension wmo (weather staton)..this allows you to index and entire dataset 
-south_north = xr.DataArray(np.array(south_north), dims= 'wmo', coords= dict(wmo = wmo))
-west_east = xr.DataArray(np.array(west_east), dims= 'wmo', coords= dict(wmo = wmo))
-
-
-# 
-
-# In[10]:
-
-
-## index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations
-ds_loc = ds.sel(south_north = south_north, west_east = west_east)
-
-
-# 
+# Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index and entire dataset 
 
 # In[11]:
 
 
-## print to see new time series dataset at every weather station location
+south_north = xr.DataArray(np.array(south_north), dims= 'wmo', coords= dict(wmo = wmo))
+west_east = xr.DataArray(np.array(west_east), dims= 'wmo', coords= dict(wmo = wmo))
+
+
+# Index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations
+
+# In[12]:
+
+
+ds_loc = ds.sel(south_north = south_north, west_east = west_east)
+
+
+# Print to see new time series dataset at every weather station location
+
+# In[13]:
+
+
 print(ds_loc)
 
 

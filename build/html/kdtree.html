@@ -88,6 +88,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="#first-define-empty-list-to-append-index-of-weather-station-locations">
+   First, define empty list to append index of weather station locations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="web.html">
    Website
   </a>
@@ -173,57 +178,71 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-domains">
-   Model Domains
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Datasets
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#description">
-     Description
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-domains">
+     Model Domains
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#description">
+       Description
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dataset-variables">
+       Dataset Variables
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with">
+     Working with
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dataset-variables">
-     Dataset Variables
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-search-the-fwf-data-set-by-locations">
+     How to search the FWF data set by locations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up">
+     Set Up
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
+     Set up to build a kdtree
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
+     Build a kdtree and save
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-the-data">
+     Search the data
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with">
-   Working with
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-define-empty-list-to-append-index-of-weather-station-locations">
+   First, define empty list to append index of weather station locations
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-search-the-fwf-data-set-by-locations">
-   How to search the FWF data set by locations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up">
-   Set Up
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up-to-build-a-kdtree">
-   Set up to build a kdtree
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#build-a-kdtree-and-save">
-   Build a kdtree and save
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#search-the-data">
-   Search the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-license">
-   Data License
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-license">
+     Data License
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -460,7 +479,6 @@ Attributes:
 <span class="n">domain</span>        <span class="o">=</span> <span class="s1">&#39;d02&#39;</span>         <span class="c1">## or &#39;d03&#39;</span>
 <span class="n">name</span> 	        <span class="o">=</span> <span class="s1">&#39;hourly&#39;</span>      <span class="c1">## or &#39;daily&#39;</span>
 
-<span class="c1">## set path to gridded forecast dataset</span>
 <span class="n">filein</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">fwf_dir</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/fwf-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">forecast_date</span><span class="si">}</span><span class="s2">.nc&quot;</span>
 </pre></div>
 </div>
@@ -469,10 +487,7 @@ Attributes:
 <p>Open forecast dataset and print</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## open forecast dataset</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filein</span><span class="p">)</span>
-
-<span class="c1">## take a look inside</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filein</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -654,10 +669,7 @@ Attributes:
 <p>Load a data set of weather sation locations and look at the first four rows as an example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## load a data set of weather sation locations</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/nrcan-wxstations.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;wmo&#39;</span><span class="p">,</span>	<span class="s1">&#39;lat&#39;</span><span class="p">,</span>	<span class="s1">&#39;lon&#39;</span><span class="p">])</span>
-
-<span class="c1">## look at the first four wxstation in dataframe as example</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/nrcan-wxstations.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;wmo&#39;</span><span class="p">,</span>	<span class="s1">&#39;lat&#39;</span><span class="p">,</span>	<span class="s1">&#39;lon&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -676,18 +688,19 @@ Attributes:
 </div>
 <div class="section" id="set-up-to-build-a-kdtree">
 <h2>Set up to build a kdtree<a class="headerlink" href="#set-up-to-build-a-kdtree" title="Permalink to this headline">¶</a></h2>
+<p>First, set path to store kdtree and make directory if it doesn’t exist</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## first, set path to store kdtree</span>
-<span class="n">kdtree_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/kdtree/&quot;</span><span class="p">)</span>
-
-<span class="c1">## make directory if it doesn&#39;t exist </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kdtree_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/kdtree/&quot;</span><span class="p">)</span>
 <span class="n">kdtree_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1">## now take gridded lats and long and convert to np arrays</span>
-<span class="n">XLAT</span><span class="p">,</span> <span class="n">XLONG</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">XLAT</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">XLONG</span><span class="o">.</span><span class="n">values</span>
-
-<span class="c1">## get shape of gridded domain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now take gridded lats and long and convert to np arrays and check its shape</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XLAT</span><span class="p">,</span> <span class="n">XLONG</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">XLAT</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">XLONG</span><span class="o">.</span><span class="n">values</span>
 <span class="n">shape</span> <span class="o">=</span> <span class="n">XLAT</span><span class="o">.</span><span class="n">shape</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
@@ -731,12 +744,21 @@ Attributes:
 <div class="section" id="search-the-data">
 <h2>Search the data<a class="headerlink" href="#search-the-data" title="Permalink to this headline">¶</a></h2>
 <p>With a built kdtree we can query the tree to find the nearest neighbor model grid to our locations of interest.</p>
+</div>
+</div>
+<div class="section" id="first-define-empty-list-to-append-index-of-weather-station-locations">
+<h1>First, define empty list to append index of weather station locations<a class="headerlink" href="#first-define-empty-list-to-append-index-of-weather-station-locations" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define empty list to append index of weather station locations</span>
-<span class="n">south_north</span><span class="p">,</span>  <span class="n">west_east</span><span class="p">,</span> <span class="n">wmo</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-<span class="c1">## loop each weather station in dataframe</span>
-<span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Pandas&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">south_north</span><span class="p">,</span>  <span class="n">west_east</span><span class="p">,</span> <span class="n">wmo</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now lets loop each weather station in dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Pandas&#39;</span><span class="p">):</span>
   <span class="c1">## arange wx station lat and long in a formate to query the kdtree</span>
   <span class="n">single_loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">loc</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">loc</span><span class="o">.</span><span class="n">lon</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -757,27 +779,27 @@ Attributes:
 </div>
 </div>
 </div>
+<p>Now the magic of xarray. Convert lists of indexes to dataarrays with dimension wmo (weather staton). This allows you to index and entire dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## now the magic of xarray..convert lists of indexes to a dataarray with dimension wmo (weather staton)..this allows you to index and entire dataset </span>
-<span class="n">south_north</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">south_north</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span> <span class="s1">&#39;wmo&#39;</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">wmo</span> <span class="o">=</span> <span class="n">wmo</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">south_north</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">south_north</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span> <span class="s1">&#39;wmo&#39;</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">wmo</span> <span class="o">=</span> <span class="n">wmo</span><span class="p">))</span>
 <span class="n">west_east</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">west_east</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span> <span class="s1">&#39;wmo&#39;</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">wmo</span> <span class="o">=</span> <span class="n">wmo</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## index the entire dataset at the locations of interest leaving diemion time with new dimension wx stations</span>
-<span class="n">ds_loc</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">south_north</span> <span class="o">=</span> <span class="n">south_north</span><span class="p">,</span> <span class="n">west_east</span> <span class="o">=</span> <span class="n">west_east</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_loc</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">south_north</span> <span class="o">=</span> <span class="n">south_north</span><span class="p">,</span> <span class="n">west_east</span> <span class="o">=</span> <span class="n">west_east</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Print to see new time series dataset at every weather station location</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## print to see new time series dataset at every weather station location</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ds_loc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -953,7 +975,6 @@ Attributes:
     HYBRID_OPT:                      2
     ETAC:                            0.2
 </pre></div>
-</div>
 </div>
 </div>
 </div>
