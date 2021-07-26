@@ -3,6 +3,7 @@
 ### Creators
 - Rodell, Christopher
 - Moisseeva, Nadya
+- McKinney, Reagan
 - Howard, Rosie
 - Chui, Tim
 - Schigas, Roland
